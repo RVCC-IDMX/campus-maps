@@ -1,4 +1,4 @@
-let url = 'img/test-images/colored-path-test.png';
+let url = 'img/west-building-floor-2-1.png';
 
 let colorOptions = ['red', 'green', 'blue', 'black', 'white', 'empty'];
 //initial options, black = wall, red = non-accessible, white = accessible/path, green = elevators
@@ -27,9 +27,9 @@ window.onload = async () => {
     //Draw image to canvas
     c.drawImage(picture,0,0);
 
-    for(let y = 0; y < picture.width; y++)
+    for(let y = 0; y < picture.height; y++)
     {
-        for(let x = 0; x < picture.height; x++)
+        for(let x = 0; x < picture.width; x++)
         {
             //console.log(await snagColor(picture, x, y));
             rgbData = await snagColor(picture, x, y);

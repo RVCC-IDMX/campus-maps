@@ -5,7 +5,7 @@ let allNodes = []; let nIndex = 0;
 let gridWidth;
 let gridHeight;
 
-let scale = 15;
+let scale = 10;
 
 let startPos;
 let endPos;
@@ -57,4 +57,11 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes)
     c.fillRect(endPos.x * scale, endPos.y * scale, scale, scale)
 
     document.body.appendChild(canvas);
+
+    beginPathFinding(startPos, endPos, false)
+}
+
+function beginPathFinding(startNode, endNode, requireAccessibility)
+{
+
 }
