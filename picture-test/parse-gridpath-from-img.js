@@ -1,7 +1,7 @@
 let url = 'img/west-building-floor-2-1.png';
 
 let colorOptions = ['red', 'green', 'blue', 'black', 'white', 'empty'];
-//initial options, black = wall, red = non-accessible, white = accessible/path, green = elevators
+//initial options, black = wall, red = non-accessible (stairs), white = accessible/path, green = elevators
 let rgbData = [];
 let color = '';
 
@@ -14,7 +14,7 @@ let Nodes = []; let nodesIndex = 0;
 let canvas = document.createElement('canvas');
 let c = canvas.getContext("2d", {
     willReadFrequently: true
-} );
+});
 
 window.onload = async () => {
 
@@ -25,35 +25,36 @@ window.onload = async () => {
     canvas.height = picture.height;
 
     //Draw image to canvas
-    c.drawImage(picture,0,0);
+    c.drawImage(picture, 0, 0);
 
-    for(let y = 0; y < picture.height; y++)
-    {
-        for(let x = 0; x < picture.width; x++)
-        {
+    Nodes.length = picture.width;
+    for (let i = 0; i < picture.width; i++) {
+        Nodes[i] = new Array(picture.height);
+    }
+
+    for (let x = 0; x < picture.width; x++) {
+        for (let y = 0; y < picture.height; y++) {
             //console.log(await snagColor(picture, x, y));
             rgbData = await snagColor(picture, x, y);
             color = checkColor(rgbData[0], rgbData[1], rgbData[2], rgbData[3]);
-            console.log(color);
+            //console.log(color);
 
             //log colors into grid useable
-            if(color === 'black' || color === 'empty')
-            {
+            if (color === 'black' || color === 'empty') {
                 walls[wallIndex] = new Node(x, y, color);
                 wallIndex++;
             }
-            else if(color === 'red')
-            {
+            else if (color === 'red') {
                 nonAccessiblePath[nonAccesiblePathIndex] = new Node(x, y, color);
                 nonAccesiblePathIndex++;
             }
-            else if (color === 'white')
-            {
+            else if (color === 'white') {
                 path[pathIndex] = new Node(x, y, color);
                 pathIndex++;
             }
 
-            Nodes.push(new Node(x, y, color));
+            Nodes[x][y] = new Node(x, y, color);
+            //console.log(Nodes[x, y]);
             //nodesIndex++;
         }
     }
@@ -62,24 +63,24 @@ window.onload = async () => {
 }
 
 function checkColor(r, g, b, a) {
-    
-    if(a < 128) //empty
+
+    if (a < 128) //empty
     {
-        return colorOptions[5];
+        return colorOptions[3]; //Replaced empty with solid black for consistency
     }
-    else if(r > g + b) //red
+    else if (r > g + b) //red
     {
         return colorOptions[0];
     }
-    else if(g > r+b) //green
+    else if (g > r + b) //green
     {
         return colorOptions[1];
     }
-    else if(b > r+g) //blue
+    else if (b > r + g) //blue
     {
         return colorOptions[2];
     }
-    else if(r +g +b < 384) //black
+    else if (r + g + b < 384) //black
     {
         return colorOptions[3];
     }
@@ -90,9 +91,9 @@ function checkColor(r, g, b, a) {
 }
 
 
-async function loadImage(url) { 
+async function loadImage(url) {
     //With a Promise
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
 
         //Set up new image
         let img = new Image();
@@ -111,13 +112,13 @@ async function loadImage(url) {
 }
 
 //Async snag color
-async function snagColor(image,x,y) {
+async function snagColor(image, x, y) {
 
     //Grab image (await for it to load)
     //let image = await loadImage(url);
 
     //Snag the databuffer representing the image data
-    let data = c.getImageData(x,y,1,1).data;
+    let data = c.getImageData(x, y, 1, 1).data;
 
     //Skip over the data buffer to the spot
     //let s = (y*image.width + x) * 4;
