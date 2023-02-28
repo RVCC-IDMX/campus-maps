@@ -13,23 +13,23 @@ class Node {
     }
 
     isAccessible(needsToBeAccessible) {
-        if (color === 'white') {
+        if (this.color === 'white') {
             return true;
         }
         else {
             if (needsToBeAccessible) {
-                if (color === 'green') {
+                if (this.color === 'green') {
                     return true;
                 }
-                else if (color === 'red') {
+                else if (this.color === 'red') {
                     return false;
                 }
             }
             else {
-                if (color === 'green') {
+                if (this.color === 'green') {
                     return false;
                 }
-                else if (color === 'red') {
+                else if (this.color === 'red') {
                     return true;
                 }
             }

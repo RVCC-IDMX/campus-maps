@@ -14,6 +14,9 @@ let startPos;
 let endPos;
 let requireElevators = false;
 
+let canvas1;
+let c1;
+
 function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     pathSet = pathS;
     nonAccessibleSet = nonAPathS;
@@ -29,8 +32,8 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     //console.log(pathSet, nonAccessibleSet,  wallSet);
     //console.log(gridWidth, gridHeight);
 
-    let canvas = document.createElement('canvas');
-    let c = canvas.getContext("2d");
+    canvas1 = document.createElement('canvas');
+    c1 = canvas.getContext("2d");
     canvas.width = gridWidth * scale;
     canvas.height = gridHeight * scale;
 
@@ -62,12 +65,11 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
 
     document.body.appendChild(canvas);
 
-
     beginPathFinding(startPos, endPos, false);
 
 
     //Test Methods
-    runUnitTests();
+    runUnitTests(c);
 }
 
 
@@ -120,17 +122,31 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
 
 //Untility Methods
 
+//get all the valid neighbours of a node
 function getneighbours(node) {
     let neighbours = [];
+    let nx = node.x;
+    let ny = node.y;
 
-    if (node.x - 1 > 0) {
+    for (let w = -1; w < 2; w++) {
+        for (let h = -1; h < 2; h++) {
+            if (nx + w < 0 || nx + w > gridWidth || ny + h < 0 || ny + h > gridHeight || (w === 0 && h === 0)) {
+                console.log('skipped');
+                // skip to next node
+            }
+            else {
+                //console.log(allNodes[nx + w][ny + h].color);
 
+                if (allNodes[nx + w][ny + h].isAccessible(requireElevators)) {
+                    neighbours.push(allNodes[nx + w][ny + h]);
+                }
+            }
+        }
     }
+
+    return neighbours;
 }
 
-function getNodeFromCoords(x, y) {
-
-}
 
 //Get the distance between two nodes
 function getDist(nodeA, nodeB) {
@@ -150,9 +166,18 @@ function roundFloat(float, places) {
     return Math.round(float * mod) / mod;
 }
 
-//Test methods
-//test any/all new methods!
-function runUnitTests() {
+//paints a specified node
+function paintNode(node, canvas) {
+    canvas.fillStyle = node.color;
+    canvas.fillRect(node.x * scale, node.y * scale, scale, scale);
+}
+
+/* ~~~~~~~~~~~~~~~~
+
+Test methods
+test any/all new methods! 
+*/
+function runUnitTests(canvas) {
     console.log(getDist(new Node(1, 3, 'black'), new Node(5, 8, 'black')));
     console.log(getDist(new Node(5, 8, 'black'), new Node(1, 3, 'black')));
 
@@ -162,4 +187,12 @@ function runUnitTests() {
     console.log(roundFloat(5.88672, 10) + ' tens place');
     console.log(roundFloat(5.88672, 100) + ' hundreds place');
     console.log(roundFloat(5.88672, 1000) + ' thousands place');
+
+    console.log("~~~~~~~~");
+
+    let n = allNodes[44][54];
+    n.color = 'red';
+    paintNode(n, canvas);
+
+    console.log(getneighbours(n));
 }
