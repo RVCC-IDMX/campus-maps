@@ -14,9 +14,6 @@ let startPos;
 let endPos;
 let requireElevators = false;
 
-let canvas1;
-let c1;
-
 function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     pathSet = pathS;
     nonAccessibleSet = nonAPathS;
@@ -32,8 +29,8 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     //console.log(pathSet, nonAccessibleSet,  wallSet);
     //console.log(gridWidth, gridHeight);
 
-    canvas1 = document.createElement('canvas');
-    c1 = canvas.getContext("2d");
+    let canvas = document.createElement('canvas');
+    let c = canvas.getContext("2d");
     canvas.width = gridWidth * scale;
     canvas.height = gridHeight * scale;
 
@@ -52,9 +49,9 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    startPos = allNodes[0][0];
+    startPos = allNodes[44][22];
     startPos.color = 'blue';
-    endPos = allNodes[0][9];
+    endPos = allNodes[98][20];
     endPos.color = 'green';
 
     c.fillStyle = startPos.color;
@@ -116,7 +113,37 @@ using accesibility settings, filter out non accessible nodes and treat them as w
 
 */
 function beginPathFinding(startNode, endNode, requireAccessibility) {
+    openNodes.push(startNode);
 
+    for (let s = 0; s < 100; s++) //arbitrary number to prevent infinite loop
+    {
+        let current = getLowestFCost();
+        current.gCost = getDist(current, startNode);
+        current.hCost = getDist(current, endNode);
+        current.fCost = current.calcFCost();
+
+        console.log('~~~~~~~~~~~~~');
+        console.log(current.x + " : " + current.y);
+        console.log(getneighbours(current).length);
+
+        getneighbours(current).forEach(element => {
+            if (closedNodes.includes(element)) {
+                //skip
+            }
+            else {
+                element.gCost = getDist(element, startNode);
+                element.hCost = getDist(element, endNode);
+                element.fCost = element.calcFCost();
+                element.previousNode = current;
+
+                console.log(element.x + " : " + element.y + " element: " + element.fCost);
+
+                if (!openNodes.includes(element)) {
+                    openNodes.push(element);
+                }
+            }
+        });
+    }
 }
 
 
@@ -131,7 +158,7 @@ function getneighbours(node) {
     for (let w = -1; w < 2; w++) {
         for (let h = -1; h < 2; h++) {
             if (nx + w < 0 || nx + w > gridWidth || ny + h < 0 || ny + h > gridHeight || (w === 0 && h === 0)) {
-                console.log('skipped');
+                //console.log('skipped');
                 // skip to next node
             }
             else {
@@ -147,6 +174,22 @@ function getneighbours(node) {
     return neighbours;
 }
 
+function getLowestFCost() {
+    let tcost = 0;
+    let cost = Infinity;
+    let toReturn = null;
+
+    for (let i = 0; i < openNodes.length; i++) {
+        tcost = openNodes[i].fCost;
+
+        if (tcost < cost) {
+            cost = tcost;
+            toReturn = openNodes[i];
+        }
+    }
+
+    return toReturn;
+}
 
 //Get the distance between two nodes
 function getDist(nodeA, nodeB) {
@@ -166,7 +209,7 @@ function roundFloat(float, places) {
     return Math.round(float * mod) / mod;
 }
 
-//paints a specified node
+//paints a specified node onto a given canvas
 function paintNode(node, canvas) {
     canvas.fillStyle = node.color;
     canvas.fillRect(node.x * scale, node.y * scale, scale, scale);
@@ -190,8 +233,8 @@ function runUnitTests(canvas) {
 
     console.log("~~~~~~~~");
 
-    let n = allNodes[44][54];
-    n.color = 'red';
+    let n = allNodes[93][55];
+    n.color = 'magenta';
     paintNode(n, canvas);
 
     console.log(getneighbours(n));

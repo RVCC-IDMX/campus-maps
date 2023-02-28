@@ -12,6 +12,10 @@ class Node {
         this.fCost = 0;
     }
 
+    calcFCost() {
+        return this.gCost + this.fCost;
+    }
+
     isAccessible(needsToBeAccessible) {
         if (this.color === 'white') {
             return true;
