@@ -153,6 +153,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
                     element.gCost = getDist(element, startNode);
                     element.hCost = getDist(element, endNode);
                     element.fCost = element.calcFCost();
+
                     element.previousNode = current;
 
                     console.log(element.x + " : " + element.y + " element: " + element.fCost + ' : ' + element.color);
@@ -198,6 +199,7 @@ function getneighbours(node) {
     let nx = node.x;
     let ny = node.y;
 
+
     for (let w = -1; w < 2; w++) {
         for (let h = -1; h < 2; h++) {
             if (nx + w < 0 || nx + w > gridWidth || ny + h < 0 || ny + h > gridHeight || (w === 0 && h === 0)) {
@@ -213,6 +215,25 @@ function getneighbours(node) {
             }
         }
     }
+
+
+    /*
+    if (nx - 1 > 0 && allNodes[nx - 1][ny].isAccessible(requireElevators)) {
+        neighbours.push(allNodes[nx - 1][ny]);
+    }
+
+    if (nx + 1 < gridWidth && allNodes[nx + 1][ny].isAccessible(requireElevators)) {
+        neighbours.push(allNodes[nx + 1][ny]);
+    }
+
+    if (ny - 1 > 0 && allNodes[nx][ny - 1].isAccessible(requireElevators)) {
+        neighbours.push(allNodes[nx][ny - 1]);
+    }
+
+    if (ny + 1 < gridHeight && allNodes[nx][ny + 1].isAccessible(requireElevators)) {
+        neighbours.push(allNodes[nx][ny + 1]);
+    }
+    */
 
     return neighbours;
 }
