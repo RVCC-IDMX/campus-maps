@@ -199,7 +199,7 @@ function getneighbours(node) {
     let nx = node.x;
     let ny = node.y;
 
-
+    /*
     for (let w = -1; w < 2; w++) {
         for (let h = -1; h < 2; h++) {
             if (nx + w < 0 || nx + w > gridWidth || ny + h < 0 || ny + h > gridHeight || (w === 0 && h === 0)) {
@@ -215,10 +215,10 @@ function getneighbours(node) {
             }
         }
     }
+    */
 
 
-    /*
-    if (nx - 1 > 0 && allNodes[nx - 1][ny].isAccessible(requireElevators)) {
+    if (nx - 1 > -1 && allNodes[nx - 1][ny].isAccessible(requireElevators)) {
         neighbours.push(allNodes[nx - 1][ny]);
     }
 
@@ -226,14 +226,14 @@ function getneighbours(node) {
         neighbours.push(allNodes[nx + 1][ny]);
     }
 
-    if (ny - 1 > 0 && allNodes[nx][ny - 1].isAccessible(requireElevators)) {
+    if (ny - 1 > -1 && allNodes[nx][ny - 1].isAccessible(requireElevators)) {
         neighbours.push(allNodes[nx][ny - 1]);
     }
 
     if (ny + 1 < gridHeight && allNodes[nx][ny + 1].isAccessible(requireElevators)) {
         neighbours.push(allNodes[nx][ny + 1]);
     }
-    */
+
 
     return neighbours;
 }
