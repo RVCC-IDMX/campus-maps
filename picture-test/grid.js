@@ -49,10 +49,10 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    startPos = allNodes[44][22];
+    startPos = allNodes[1][27];
     startPos.color = 'blue';
-    endPos = allNodes[98][20];
-    endPos.color = 'green';
+    endPos = allNodes[0][0];
+    endPos.color = 'orange';
 
     c.fillStyle = startPos.color;
     c.fillRect(startPos.x * scale, startPos.y * scale, scale, scale);
@@ -62,7 +62,7 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
 
     document.body.appendChild(canvas);
 
-    beginPathFinding(startPos, endPos, false);
+    beginPathFinding(startPos, endPos, false, c);
 
 
     //Test Methods
@@ -112,11 +112,13 @@ loop
 using accesibility settings, filter out non accessible nodes and treat them as walls
 
 */
-function beginPathFinding(startNode, endNode, requireAccessibility) {
+function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
     openNodes.push(startNode);
 
-    for (let s = 0; s < 100; s++) //arbitrary number to prevent infinite loop
-    {
+    let i = 0;
+    loopStep();
+    //for (let s = 0; s < 150; s++) //arbitrary number to prevent infinite loop
+    function loopStep() {
         let current = getLowestFCost();
         current.gCost = getDist(current, startNode);
         current.hCost = getDist(current, endNode);
@@ -124,10 +126,17 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
 
         console.log('~~~~~~~~~~~~~');
         console.log(current.x + " : " + current.y);
-        console.log(getneighbours(current).length);
+        //console.log(getneighbours(current).length);
+        //console.log('end pos ' + endNode.x + ', ' + endNode.y);
+
+        if (current.color === 'orange') {
+            console.log('==== FOUND THE END ====');
+            console.log('==== ' + current.x + ', ' + current.y);
+            return;
+        }
 
         getneighbours(current).forEach(element => {
-            if (closedNodes.includes(element)) {
+            if (closedNodes.includes(element) || element.visted === true) {
                 //skip
             }
             else {
@@ -136,16 +145,28 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
                 element.fCost = element.calcFCost();
                 element.previousNode = current;
 
-                console.log(element.x + " : " + element.y + " element: " + element.fCost);
+                console.log(element.x + " : " + element.y + " element: " + element.fCost + ' : ' + element.color);
 
                 if (!openNodes.includes(element)) {
                     openNodes.push(element);
                 }
             }
         });
-    }
-}
 
+        current.visted = true;
+
+        paintNode(current, canvas, 'grey');
+
+        i++;
+
+        if (i < 600 /*End step*/) {
+            setTimeout(() => { loopStep(); }, 5);
+        }
+    }
+
+    //begin backtrace;
+
+}
 
 //Untility Methods
 
@@ -182,7 +203,7 @@ function getLowestFCost() {
     for (let i = 0; i < openNodes.length; i++) {
         tcost = openNodes[i].fCost;
 
-        if (tcost < cost) {
+        if (tcost < cost && openNodes[i].visted === false) {
             cost = tcost;
             toReturn = openNodes[i];
         }
@@ -210,9 +231,19 @@ function roundFloat(float, places) {
 }
 
 //paints a specified node onto a given canvas
-function paintNode(node, canvas) {
-    canvas.fillStyle = node.color;
+function paintNode(node, canvas, color) {
+    canvas.fillStyle = color;
     canvas.fillRect(node.x * scale, node.y * scale, scale, scale);
+}
+
+function findNodeFromCoords(x, y) {
+    for (let i = 0; i < allNodes.length; i++) {
+        if (allNodes[i].x === x && allNodes[i].y === y) {
+            return allNodes[i];
+        }
+    }
+
+    return null;
 }
 
 /* ~~~~~~~~~~~~~~~~
@@ -233,7 +264,7 @@ function runUnitTests(canvas) {
 
     console.log("~~~~~~~~");
 
-    let n = allNodes[93][55];
+    let n = allNodes[0][27];
     n.color = 'magenta';
     paintNode(n, canvas);
 

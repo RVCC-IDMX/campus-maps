@@ -17,7 +17,7 @@ class Node {
     }
 
     isAccessible(needsToBeAccessible) {
-        if (this.color === 'white') {
+        if (this.color === 'white' || this.color === 'orange') {
             return true;
         }
         else {
