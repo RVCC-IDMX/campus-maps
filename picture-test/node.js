@@ -13,7 +13,7 @@ class Node {
     }
 
     calcFCost() {
-        return this.gCost + this.fCost;
+        return this.gCost + this.hCost;
     }
 
     isAccessible(needsToBeAccessible) {

@@ -49,9 +49,9 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    startPos = allNodes[1][27];
+    startPos = allNodes[1][27]; //westmap: 44, 27
     startPos.color = 'blue';
-    endPos = allNodes[0][0];
+    endPos = allNodes[0][0]; //westmap: 184, 27
     endPos.color = 'orange';
 
     c.fillStyle = startPos.color;
@@ -63,7 +63,6 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     document.body.appendChild(canvas);
 
     beginPathFinding(startPos, endPos, false, c);
-
 
     //Test Methods
     runUnitTests(c);
@@ -114,61 +113,84 @@ using accesibility settings, filter out non accessible nodes and treat them as w
 */
 function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
     openNodes.push(startNode);
-
+    let stepCount = 0;
     let i = 0;
+
     loopStep();
-    //for (let s = 0; s < 150; s++) //arbitrary number to prevent infinite loop
+
     function loopStep() {
+        //get the node in the openNodes that is the 'cheapest' to travel to
+        //and recalculate its costs
         let current = getLowestFCost();
-        current.gCost = getDist(current, startNode);
-        current.hCost = getDist(current, endNode);
-        current.fCost = current.calcFCost();
 
-        console.log('~~~~~~~~~~~~~');
-        console.log(current.x + " : " + current.y);
-        //console.log(getneighbours(current).length);
-        //console.log('end pos ' + endNode.x + ', ' + endNode.y);
+        if (current !== null) {
+            current.gCost = getDist(current, startNode);
+            current.hCost = getDist(current, endNode);
+            current.fCost = current.calcFCost();
 
-        if (current.color === 'orange') {
-            console.log('==== FOUND THE END ====');
-            console.log('==== ' + current.x + ', ' + current.y);
-            return;
-        }
+            console.log('~~~~~~~~~~~~~');
+            console.log(current.x + " : " + current.y);
+            //console.log(getneighbours(current).length);
+            //console.log('end pos ' + endNode.x + ', ' + endNode.y);
 
-        getneighbours(current).forEach(element => {
-            if (closedNodes.includes(element) || element.visted === true) {
-                //skip
+            //Check if the end is found (using orange for now)
+            if (current.color === 'orange') {
+                console.log('==== FOUND THE END ====');
+                console.log('==== ' + current.x + ', ' + current.y);
+
+                backTrace(i, current, canvas);
+                return;
             }
-            else {
-                element.gCost = getDist(element, startNode);
-                element.hCost = getDist(element, endNode);
-                element.fCost = element.calcFCost();
-                element.previousNode = current;
 
-                console.log(element.x + " : " + element.y + " element: " + element.fCost + ' : ' + element.color);
+            //iterate over all the current nodes neighbours
+            getneighbours(current).forEach(element => {
 
-                if (!openNodes.includes(element)) {
-                    openNodes.push(element);
+                //we don't want to recheck previously checked nodes
+                if (closedNodes.includes(element) || element.visted === true) {
+                    //skip
                 }
+                else {
+                    element.gCost = getDist(element, startNode);
+                    element.hCost = getDist(element, endNode);
+                    element.fCost = element.calcFCost();
+                    element.previousNode = current;
+
+                    console.log(element.x + " : " + element.y + " element: " + element.fCost + ' : ' + element.color);
+
+                    //if we have not already, put the current neighbour into the openNodes for future evaluation
+                    if (!openNodes.includes(element)) {
+                        openNodes.push(element);
+                    }
+                }
+            });
+
+            //the current node has been checked
+            current.visted = true;
+            closedNodes.push(current);
+
+            //visual repersentation
+            paintNode(current, canvas, 'grey');
+
+            if (i < 1000 /*End step to prevent infinte loop*/) {
+                i++;
+                setTimeout(() => { loopStep(); }, 5);        //slow things down for testing
             }
-        });
-
-        current.visted = true;
-
-        paintNode(current, canvas, 'grey');
-
-        i++;
-
-        if (i < 600 /*End step*/) {
-            setTimeout(() => { loopStep(); }, 5);
         }
     }
-
-    //begin backtrace;
-
 }
 
-//Untility Methods
+function backTrace(step, endPoint, canvas) {
+    console.log('backtrace');
+    console.log(step);
+    let n = endPoint;
+
+    while (n !== startPos) {
+        paintNode(n, canvas, 'orange');
+        n = n.previousNode;
+    }
+}
+
+//Utility Methods
 
 //get all the valid neighbours of a node
 function getneighbours(node) {
