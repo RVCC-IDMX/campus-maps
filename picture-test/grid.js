@@ -1,6 +1,8 @@
 let pathSet = [];
 let nonAccessibleSet = [];
 let wallSet = [];
+
+
 let allNodes = [[]]; let nIndex = 0;
 let gridWidth;
 let gridHeight;
@@ -14,6 +16,8 @@ let startPos;
 let endPos;
 let requireElevators = false;
 
+let tracedPath = [];
+
 function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     pathSet = pathS;
     nonAccessibleSet = nonAPathS;
@@ -24,7 +28,7 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
 
     allNodes = nodes;
 
-    console.log(allNodes);
+    console.log(allNodes);//~~~~~~~~~~~~ Log
 
     //console.log(pathSet, nonAccessibleSet,  wallSet);
     //console.log(gridWidth, gridHeight);
@@ -42,7 +46,7 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
 
             c.fillStyle = allNodes[x][y].color;
 
-            //console.log(allNodes[nIndex].color);
+            //console.log(allNodes[nIndex].color);//~~~~~~~~~~~~ Log
 
             nIndex++;
             c.fillRect(x * scale, y * scale, scale, scale);
@@ -128,10 +132,10 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
             current.hCost = getDist(current, endNode);
             current.fCost = current.calcFCost();
 
-            console.log('~~~~~~~~~~~~~');
-            console.log(current.x + " : " + current.y);
-            //console.log(getneighbours(current).length);
-            //console.log('end pos ' + endNode.x + ', ' + endNode.y);
+            //console.log('~~~~~~~~~~~~~');//~~~~~~~~~~~~ Log
+            //console.log(current.x + " : " + current.y);//~~~~~~~~~~~~ Log
+            //console.log(getneighbours(current).length);//~~~~~~~~~~~~ Log
+            //console.log('end pos ' + endNode.x + ', ' + endNode.y);//~~~~~~~~~~~~ Log
 
             //Check if the end is found (using orange for now)
             if (current.color === 'orange') {
@@ -156,7 +160,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
 
                     element.previousNode = current;
 
-                    console.log(element.x + " : " + element.y + " element: " + element.fCost + ' : ' + element.color);
+                    //console.log(element.x + " : " + element.y + " element: " + element.fCost + ' : ' + element.color);//~~~~~~~~~~~~ Log
 
                     //if we have not already, put the current neighbour into the openNodes for future evaluation
                     if (!openNodes.includes(element)) {
@@ -181,17 +185,54 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
 }
 
 function backTrace(step, endPoint, canvas) {
-    console.log('backtrace');
-    console.log(step);
+    console.log('backtrace');//~~~~~~~~~~~~ Log
+    console.log(step);//~~~~~~~~~~~~ Log
     let n = endPoint;
 
     while (n !== startPos) {
         paintNode(n, canvas, 'orange');
         n = n.previousNode;
+        tracedPath.push(n);
     }
+
+    tracedPath.reverse();
+    console.log(tracedPath); //~~~~~~~~~~~~ Log
+
+    //console.log(getDir(allNodes[5][5], allNodes[5][6])); //~~~~~~~~~~~~ Log
+
+    generateDirections();
+}
+
+function generateDirections() {
+    let directions = [];
+
+    for (let i = 1; i < tracedPath.length; i++) {
+        directions.push(getDir(tracedPath[i - 1], tracedPath[i]) + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
+    }
+
+    console.log(directions); //~~~~~~~~~~~~ Log
 }
 
 //Utility Methods
+
+//map of coordinates to direction
+const direArr = new Map();
+direArr.set('0, 1', 'down');
+direArr.set('1, 0', 'right');
+direArr.set('-1, 0', 'left');
+direArr.set('0, -1', 'up');
+
+//get the vector direction using two points
+function getDir(originNode, travelToNode) {
+    let x = travelToNode.x - originNode.x;
+    let y = travelToNode.y - originNode.y;
+    // (x, y) is the vector of these points
+    // need to convert the vector into a *useable* direction
+    let coords = `${x}, ${y}`;
+    //console.log(coords); //~~~~~~~~~~~~ Log
+
+    return direArr.get(coords);
+}
 
 //get all the valid neighbours of a node
 function getneighbours(node) {
@@ -200,6 +241,9 @@ function getneighbours(node) {
     let ny = node.y;
 
     /*
+
+    ///Get all 9 neighbours
+
     for (let w = -1; w < 2; w++) {
         for (let h = -1; h < 2; h++) {
             if (nx + w < 0 || nx + w > gridWidth || ny + h < 0 || ny + h > gridHeight || (w === 0 && h === 0)) {
@@ -217,12 +261,12 @@ function getneighbours(node) {
     }
     */
 
-
+    ///Get cardinal neighbours
     if (nx - 1 > -1 && allNodes[nx - 1][ny].isAccessible(requireElevators)) {
         neighbours.push(allNodes[nx - 1][ny]);
     }
 
-    if (nx + 1 < gridWidth && allNodes[nx + 1][ny].isAccessible(requireElevators)) {
+    if (nx + 1 < gridWidth + 1 && allNodes[nx + 1][ny].isAccessible(requireElevators)) {
         neighbours.push(allNodes[nx + 1][ny]);
     }
 
@@ -230,10 +274,9 @@ function getneighbours(node) {
         neighbours.push(allNodes[nx][ny - 1]);
     }
 
-    if (ny + 1 < gridHeight && allNodes[nx][ny + 1].isAccessible(requireElevators)) {
+    if (ny + 1 < gridHeight + 1 && allNodes[nx][ny + 1].isAccessible(requireElevators)) {
         neighbours.push(allNodes[nx][ny + 1]);
     }
-
 
     return neighbours;
 }
@@ -279,6 +322,8 @@ function paintNode(node, canvas, color) {
     canvas.fillRect(node.x * scale, node.y * scale, scale, scale);
 }
 
+//get a specific node from provided coordinates. 
+//Room/destinates will have a set of coords, this will translate that into a node
 function findNodeFromCoords(x, y) {
     for (let i = 0; i < allNodes.length; i++) {
         if (allNodes[i].x === x && allNodes[i].y === y) {
@@ -312,4 +357,4 @@ function runUnitTests(canvas) {
     paintNode(n, canvas);
 
     console.log(getneighbours(n));
-}
+} 
