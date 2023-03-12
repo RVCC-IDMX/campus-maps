@@ -18,6 +18,8 @@ let requireElevators = false;
 
 let tracedPath = [];
 
+let pixelScale = 5; // How big is a pixel relative to the map, in feet
+
 function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     pathSet = pathS;
     nonAccessibleSet = nonAPathS;
@@ -205,9 +207,19 @@ function backTrace(step, endPoint, canvas) {
 
 function generateDirections() {
     let directions = [];
+    let previousDir = '';
+    let pixelStepCount = 1;
 
     for (let i = 1; i < tracedPath.length; i++) {
-        directions.push(getDir(tracedPath[i - 1], tracedPath[i]) + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
+        let tDir = getDir(tracedPath[i - 1], tracedPath[i])
+        if (tDir !== previousDir) {
+            directions.push('In ' + (pixelStepCount * pixelScale) + ' feet turn ' + tDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
+            previousDir = tDir;
+            pixelStepCount = 1;
+        }
+        else {
+            pixelStepCount++;
+        }
     }
 
     console.log(directions); //~~~~~~~~~~~~ Log
