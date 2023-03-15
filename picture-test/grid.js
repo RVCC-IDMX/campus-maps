@@ -55,9 +55,9 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    startPos = allNodes[1][27]; //westmap: 44, 27
+    startPos = allNodes[15][20]; //westmap: 44, 27
     startPos.color = 'blue';
-    endPos = allNodes[0][0]; //westmap: 184, 27
+    endPos = allNodes[15][0]; //westmap: 184, 27
     endPos.color = 'orange';
 
     c.fillStyle = startPos.color;
@@ -180,6 +180,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
 
             if (i < 1000 /*End step to prevent infinte loop*/) {
                 i++;
+                //loopStep();
                 setTimeout(() => { loopStep(); }, 5);        //slow things down for testing
             }
         }
@@ -370,3 +371,9 @@ function runUnitTests(canvas) {
 
     console.log(getneighbours(n));
 } 
+
+
+/*
+Teleport: Check node, if has tp location, feed in other node coords instead of your own
+
+*/

@@ -1,4 +1,4 @@
-let url = 'img/test-images/maze.png';
+let url = 'img/test-images/accessibility-test.png';
 
 let colorOptions = ['red', 'green', 'blue', 'black', 'white', 'empty'];
 //initial options, black = wall, red = non-accessible (stairs), white = accessible/path, green = elevators
@@ -39,19 +39,19 @@ window.onload = async () => {
             color = checkColor(rgbData[0], rgbData[1], rgbData[2], rgbData[3]);
             //console.log(color);
 
-            //log colors into grid useable
-            if (color === 'black' || color === 'empty') {
-                walls[wallIndex] = new Node(x, y, color);
-                wallIndex++;
-            }
-            else if (color === 'red') {
-                nonAccessiblePath[nonAccesiblePathIndex] = new Node(x, y, color);
-                nonAccesiblePathIndex++;
-            }
-            else if (color === 'white') {
-                path[pathIndex] = new Node(x, y, color);
-                pathIndex++;
-            }
+            // //log colors into grid useable
+            // if (color === 'black' || color === 'empty') {
+            //     walls[wallIndex] = new Node(x, y, color);
+            //     wallIndex++;
+            // }
+            // else if (color === 'red') {
+            //     nonAccessiblePath[nonAccesiblePathIndex] = new Node(x, y, color);
+            //     nonAccesiblePathIndex++;
+            // }
+            // else if (color === 'white') {
+            //     path[pathIndex] = new Node(x, y, color);
+            //     pathIndex++;
+            // }
 
             Nodes[x][y] = new Node(x, y, color);
             //console.log(Nodes[x, y]);
