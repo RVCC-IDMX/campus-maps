@@ -1,21 +1,24 @@
 class Node {
-    constructor(x, y, color) {
+    constructor(x, y, color, metaData) {
         this.x = x;
         this.y = y;
         this.color = color;
         this.visted = false;
         this.previousNode = null;
 
-        //Might need these, may remove later
         this.gCost = 0;
         this.hCost = 0;
         this.fCost = 0;
+
+        this.metaData = metaData;
     }
 
+    //Return the F-cost for the node
     calcFCost() {
         return this.gCost + this.hCost;
     }
 
+    //Returns whether this node is avalible
     isAccessible(needsToBeAccessible) {
         if (this.color === 'white' || this.color === 'orange') {
             return true;

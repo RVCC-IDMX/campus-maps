@@ -1,4 +1,4 @@
-let url = 'img/test-images/accessibility-test.png';
+let url = 'img/test-images/maze.png';
 
 let colorOptions = ['red', 'green', 'blue', 'black', 'white', 'empty'];
 //initial options, black = wall, red = non-accessible (stairs), white = accessible/path, green = elevators

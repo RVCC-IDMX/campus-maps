@@ -55,9 +55,9 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    startPos = allNodes[15][20]; //westmap: 44, 27
+    startPos = allNodes[21][36]; //westmap: 44, 27
     startPos.color = 'blue';
-    endPos = allNodes[15][0]; //westmap: 184, 27
+    endPos = allNodes[7][0]; //westmap: 184, 27
     endPos.color = 'orange';
 
     c.fillStyle = startPos.color;
@@ -67,6 +67,8 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
     c.fillRect(endPos.x * scale, endPos.y * scale, scale, scale)
 
     document.body.appendChild(canvas);
+
+    generateTPMap();
 
     beginPathFinding(startPos, endPos, false, c);
 
@@ -202,7 +204,10 @@ function backTrace(step, endPoint, canvas) {
     console.log(tracedPath); //~~~~~~~~~~~~ Log
 
     //console.log(getDir(allNodes[5][5], allNodes[5][6])); //~~~~~~~~~~~~ Log
-
+    
+    paintNode(findNodeFromCoords(15, 32), canvas, 'magenta');
+    paintNode(findNodeFromCoords(28, 2), canvas, 'magenta');
+    
     generateDirections();
 }
 
@@ -276,19 +281,19 @@ function getneighbours(node) {
 
     ///Get cardinal neighbours
     if (nx - 1 > -1 && allNodes[nx - 1][ny].isAccessible(requireElevators)) {
-        neighbours.push(allNodes[nx - 1][ny]);
+        neighbours.push(tpContains(allNodes[nx - 1][ny]));
     }
 
     if (nx + 1 < gridWidth + 1 && allNodes[nx + 1][ny].isAccessible(requireElevators)) {
-        neighbours.push(allNodes[nx + 1][ny]);
+        neighbours.push(tpContains(allNodes[nx + 1][ny]));
     }
 
     if (ny - 1 > -1 && allNodes[nx][ny - 1].isAccessible(requireElevators)) {
-        neighbours.push(allNodes[nx][ny - 1]);
+        neighbours.push(tpContains(allNodes[nx][ny - 1]));
     }
 
     if (ny + 1 < gridHeight + 1 && allNodes[nx][ny + 1].isAccessible(requireElevators)) {
-        neighbours.push(allNodes[nx][ny + 1]);
+        neighbours.push(tpContains(allNodes[nx][ny + 1]));
     }
 
     return neighbours;
@@ -337,10 +342,13 @@ function paintNode(node, canvas, color) {
 
 //get a specific node from provided coordinates. 
 //Room/destinates will have a set of coords, this will translate that into a node
-function findNodeFromCoords(x, y) {
-    for (let i = 0; i < allNodes.length; i++) {
-        if (allNodes[i].x === x && allNodes[i].y === y) {
-            return allNodes[i];
+function findNodeFromCoords(nx, ny) {
+    for (let x = 0; x < gridWidth; x++) {
+        for(let y = 0; y < gridHeight; y++)
+        {
+            if (allNodes[x][y].x == nx && allNodes[x][y].y == ny) {
+                return allNodes[x][y];
+            }
         }
     }
 
