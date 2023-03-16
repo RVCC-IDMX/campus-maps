@@ -132,7 +132,12 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
         let current = getLowestFCost();
 
         if (current !== null) {
-            current.gCost = getDist(current, startNode);
+
+            let gMod = 1;
+            if (current.previousNode != null) {
+                gMod = current.previousNode.gCost;
+            }
+            current.gCost = 1 + gMod; //getDist(current, startNode);
             current.hCost = getDist(current, endNode);
             current.fCost = current.calcFCost();
 
@@ -158,7 +163,9 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
                     //skip
                 }
                 else {
-                    element.gCost = getDist(element, startNode);
+                    //getDist(element, current);
+
+                    element.gCost = 1 + current.gCost;
                     element.hCost = getDist(element, endNode);
                     element.fCost = element.calcFCost();
 
@@ -204,10 +211,10 @@ function backTrace(step, endPoint, canvas) {
     console.log(tracedPath); //~~~~~~~~~~~~ Log
 
     //console.log(getDir(allNodes[5][5], allNodes[5][6])); //~~~~~~~~~~~~ Log
-    
+
     paintNode(findNodeFromCoords(15, 32), canvas, 'magenta');
     paintNode(findNodeFromCoords(28, 2), canvas, 'magenta');
-    
+
     generateDirections();
 }
 
@@ -344,8 +351,7 @@ function paintNode(node, canvas, color) {
 //Room/destinates will have a set of coords, this will translate that into a node
 function findNodeFromCoords(nx, ny) {
     for (let x = 0; x < gridWidth; x++) {
-        for(let y = 0; y < gridHeight; y++)
-        {
+        for (let y = 0; y < gridHeight; y++) {
             if (allNodes[x][y].x == nx && allNodes[x][y].y == ny) {
                 return allNodes[x][y];
             }
@@ -378,7 +384,7 @@ function runUnitTests(canvas) {
     paintNode(n, canvas);
 
     console.log(getneighbours(n));
-} 
+}
 
 
 /*

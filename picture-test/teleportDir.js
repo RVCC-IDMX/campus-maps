@@ -1,7 +1,6 @@
 const teleportArray = new Map();
 
-function generateTPMap()
-{
+function generateTPMap() {
     teleportArray.set(findNodeFromCoords(15, 32), findNodeFromCoords(28, 2));
     teleportArray.set(findNodeFromCoords(28, 2), findNodeFromCoords(15, 32));
 
@@ -13,16 +12,13 @@ function generateTPMap()
     // console.log('/check TP');
 }
 
-function tpContains(node)
-{
-    if(teleportArray.has(node))
-    {
+function tpContains(node) {
+    if (teleportArray.has(node)) {
         console.log("//~~//~~//~~//");
         console.log(teleportArray.get(node));
         return teleportArray.get(node);
     }
-    else
-    {
+    else {
         return node;
     }
 }
