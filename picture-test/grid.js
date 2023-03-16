@@ -55,9 +55,15 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    startPos = allNodes[21][35]; //westmap: 44, 27
+    let startRoom = new Room(21, 35, 'w412', 'non existnat lab');
+    paintNode(startRoom.nodeActual, c, 'blue');
+
+    let endRoom = new Room(7, 0, 'w412', 'non existnat lab');
+    paintNode(startRoom.nodeActual, c, 'orange');
+
+    startPos = startRoom.nodeActual; //allNodes[21][35]; //westmap: 44, 27
     startPos.color = 'blue';
-    endPos = allNodes[7][0]; //westmap: 184, 27
+    endPos = endRoom.nodeActual;//allNodes[7][0]; //westmap: 184, 27
     endPos.color = 'orange';
 
     c.fillStyle = startPos.color;
