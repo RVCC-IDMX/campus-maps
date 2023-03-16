@@ -55,7 +55,7 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    startPos = allNodes[21][36]; //westmap: 44, 27
+    startPos = allNodes[21][35]; //westmap: 44, 27
     startPos.color = 'blue';
     endPos = allNodes[7][0]; //westmap: 184, 27
     endPos.color = 'orange';
@@ -133,10 +133,11 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
 
         if (current !== null) {
 
-            let gMod = 1;
+            let gMod = 0;
             if (current.previousNode != null) {
                 gMod = current.previousNode.gCost;
             }
+
             current.gCost = 1 + gMod; //getDist(current, startNode);
             current.hCost = getDist(current, endNode);
             current.fCost = current.calcFCost();
@@ -185,12 +186,17 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
             closedNodes.push(current);
 
             //visual repersentation
-            paintNode(current, canvas, 'grey');
+            if (current.gCost % 2 == 0) {
+                paintNode(current, canvas, 'grey');
+            }
+            else {
+                paintNode(current, canvas, 'lightgrey');
+            }
 
             if (i < 1000 /*End step to prevent infinte loop*/) {
                 i++;
                 //loopStep();
-                setTimeout(() => { loopStep(); }, 5);        //slow things down for testing
+                setTimeout(() => { loopStep(); }, 25);        //slow things down for testing
             }
         }
     }
