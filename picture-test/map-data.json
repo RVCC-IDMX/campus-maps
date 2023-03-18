@@ -1,0 +1,1166 @@
+[
+	{
+		"Building": {
+			"Name": "Arts Center",
+			"Description": "Students in the Visual Arts Program study drawing, painting, ceramics, photography, printmaking, sculpture, 3D design, 2D design, graphic design, web design, video production, computer art and animation. Students in the Performing Arts program study music, theater arts, technical theater and dance. Courses are designed either for transfer to 4-year colleges or art schools, or for non-degree-seeking students interested in enhancing their talent, skill and experience.",
+			"Floors": {
+				"First": [
+					"A01A",
+					"A01B",
+					"A01C",
+					"A02",
+					"A04",
+					"A05",
+					"A06",
+					"A07",
+					"A08",
+					"A09",
+					"A09A",
+					"A09B",
+					"A09C",
+					"A09D",
+					"A15",
+					"A16",
+					"A17",
+					"A18",
+					"A19",
+					"A20",
+					"A22",
+					"A23",
+					"A24",
+					"A25",
+					"A27",
+					"A28",
+					"A29",
+					"A30",
+					"A30A",
+					"A31",
+					"A31B",
+					"A32",
+					"A33",
+					"A34",
+					"A35",
+					"A36",
+					"A37",
+					"A38",
+					"A39",
+					{
+						"MISSING": [
+							"A03",
+							"A10",
+							"A11",
+							"A12",
+							"A13",
+							"A14",
+							"A21",
+							"A26"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"BATHROOM1",
+							"BATHROOM2",
+							{
+								"EXITS": 14
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Bateman Student Center",
+			"Description": "The Bateman Student Center is home to the office of Student Life and contains conference rooms for student clubs to meet on campus. On the second floor there is an indoor student lounge with a two-story Green Wall filled with live plants that are nourished by rainwater. When the weather gets warmer, students can study in the outside seating area in the rooftop garden on the second floor.",
+			"Floors": {
+				"Basement": [
+					"A001",
+					"A002",
+					"A003",
+					"A004",
+					"A005",
+					{
+						"MISSING": [],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS",
+							"ELEVATOR",
+							{
+								"EXITS": 1
+							}
+						]
+					}
+				],
+				"First": [
+					"BC101",
+					"BC102",
+					"BC103",
+					"BC104",
+					"BC105",
+					"BC106",
+					"BC107",
+					"BC111",
+					"BC112",
+					"BC113",
+					"BC114",
+					"BC115",
+					"BC116",
+					"BC119",
+					"A107",
+					"A108",
+					{
+						"MISSING": [
+							"BC108",
+							"BC109",
+							"BC110",
+							"BC117",
+							"BC118"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 4
+							}
+						]
+					}
+				],
+				"Second": [
+					"BC200",
+					"BC201",
+					"BC204",
+					"BC205",
+					{
+						"MISSING": ["BC202", "BC203", "BC206"],
+						"ROOMS WITHOUT NUMBERS": ["ROOF GARDEN", "MECHANICAL"],
+						"AMENITIES": [
+							"STAIRS",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"Third": [
+					{
+						"MISSING": [],
+						"ROOMS WITHOUT NUMBERS": ["Academic Support Center"],
+						"AMENITIES": [
+							"STAIRS",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 0
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "The Children's Campus",
+			"Description": "The Children’s Campus at RVCC is a child and professional development center. It was established in 1975 to provide quality care to young children. Today the program continues to fulfill this mission by providing care for children three months through pre-kindergarten in developmentally appropriate settings. The center is open from 7:30 AM till 6 PM, Monday through Friday, twelve months a year.",
+			"Floors": {}
+		}
+	},
+	{
+		"Building": {
+			"Name": "The College Center",
+			"Description": "The College Center is the hub of Raritan Valley Community College. The departments found on the first floor of the College Center include Registration, Financial Aid, and Advising and Counseling just to name a few. On the second floor you will find the cafeteria.",
+			"Floors": {
+				"Basement": [
+					"C08",
+					"C10",
+					"C12",
+					"C22",
+					"C24",
+					"C25",
+					"C27",
+					{
+						"MISSING": [
+							"C01",
+							"C02",
+							"C03",
+							"C04",
+							"C05",
+							"C06",
+							"C07",
+							"C09",
+							"C11",
+							"C13",
+							"C14",
+							"C15",
+							"C16",
+							"C17",
+							"C18",
+							"C19",
+							"C20",
+							"C21",
+							"C23",
+							"C26"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"ATRIUM",
+							"OPTICAL CLINIC",
+							"CYBER CAFE",
+							"ART GALLERY",
+							"BOOKSTORE",
+							"BREW HA HA CAFE (DELETE)"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 3
+							}
+						]
+					}
+				],
+				"First": [
+					"C20",
+					"C21",
+					"C115",
+					"C116",
+					"C117",
+					"C129",
+					"C130",
+					"C133",
+					"C134",
+					"C135",
+					"C136",
+					"C137",
+					"C138",
+					"C139",
+					"C141",
+					"C142",
+					"C144",
+					"C145",
+					"C146",
+					"C147",
+					"C148B",
+					"C149",
+					"C150",
+					"C151",
+					"C152",
+					"C153",
+					{
+						"MISSING": [
+							"C118",
+							"C119",
+							"C120",
+							"C121",
+							"C122",
+							"C123",
+							"C124",
+							"C125",
+							"C126",
+							"C127",
+							"C128",
+							"C131",
+							"C132",
+							"C140",
+							"C143",
+							"C148"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"FIRST YEAR EXPERIENCE",
+							"FIRST YEAR EXPERIENCES OFFICES",
+							"EOF OFFICES",
+							"REGISTRATION/TRANSCRIPTS",
+							"LOBBY",
+							"FINANCE",
+							"FINANCIAL AID"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 7
+							}
+						]
+					}
+				],
+				"Second": [
+					"C205",
+					"C206",
+					"C207",
+					{
+						"MISSING": ["C201", "C202", "C203", "C204"],
+						"ROOMS WITHOUT NUMBERS": [
+							"STUDENT LOUNGE",
+							"CAFETERIA",
+							"DINING SERVICES",
+							"AFFINITY FEDERAL CREDIT UNION"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 8
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "East Building",
+			"Description": "The East Building is located next door to the Planetarium and adjacent to Parking lot 6. It is where you can find room E109.",
+			"Floors": {
+				"First": ["E109"]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Event Center",
+			"Description": "The Event Center serves as a conduit to bring the corporate and academic communities together. The Event Center helps maintain an outstanding educational environment for students and the community.",
+			"Floors": {
+				"First": [
+					"Conference Room A",
+					"Conference Room B",
+					"Conference Room C",
+					"ATCC101",
+					"ATCC102",
+					{
+						"MISSING": ["ATCC100"],
+						"ROOMS WITHOUT NUMBERS": ["COMPUTER ROOM"],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"ELEVATOR????",
+							"BATHROOM",
+							{
+								"EXITS": 4
+							}
+						]
+					}
+				],
+				"Second": [
+					{
+						"MISSING": ["ALL ROOM NUMBERS"],
+						"ROOMS WITHOUT NUMBERS": [
+							"COMMUNITY ROOM",
+							"PRESIDENTS OFFICE",
+							"VICE PRESIDENTS OFFICE",
+							"VICE PRESIDENTS OFFICE",
+							"SECRETARIAL AREA",
+							"WAITING AREA"
+						],
+						"AMENITIES": ["STAIRS", "ELEVATOR????", "BATHROOM"]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Hunterdon Hall",
+			"Description": "Hunterdon Hall is situated in between the College Center and the Planetarium. It is home to the Health Sciences, Business and Public Services Departmental offices and labs. You will also find general classrooms located on the first floor of Hunterdon Hall.",
+			"Floors": {
+				"First": [
+					"H110",
+					"H111",
+					"H114",
+					"H116",
+					"H118",
+					"H120",
+					"H122A",
+					"H122B",
+					"H123",
+					"H125",
+					{
+						"MISSING": [
+							"H112",
+							"H113",
+							"H115",
+							"H117",
+							"H119",
+							"H121",
+							"H124"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR????",
+							{
+								"EXITS": 5
+							}
+						]
+					}
+				],
+				"Second": [
+					"H200",
+					"H210",
+					"H211",
+					"H212",
+					"H213",
+					"H214",
+					"H215",
+					"H216",
+					"H217",
+					"H218",
+					"H220",
+					"H221",
+					"H225",
+					"H227",
+					"H228",
+					"H229",
+					{
+						"MISSING": [
+							"H201",
+							"H202",
+							"H203",
+							"H204",
+							"H205",
+							"H206",
+							"H207",
+							"H209",
+							"H219",
+							"H222",
+							"H223",
+							"H224",
+							"H226"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM1",
+							"BATHROOM2",
+							{
+								"EXITS": 7
+							}
+						]
+					}
+				],
+				"Third": [
+					"H309",
+					"H310A",
+					"H310B",
+					"H311",
+					"H312",
+					"H313",
+					"H314",
+					"H315",
+					"H316",
+					"H318",
+					"H319",
+					"H320A",
+					"H320B",
+					"H321",
+					"H322",
+					"H323",
+					"H324",
+					"H325",
+					"H326",
+					"H328",
+					"H329",
+					"H330",
+					"H333",
+					{
+						"MISSING": ["H317", "H327", "H331", "H332"],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"IN BATEMAN 2ND FLOOR TECHNICALLY",
+							"STAIRS1",
+							"STAIRS2",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Library/Theatre",
+			"Description": "The Evelyn S. Field Library is the center for research and information at Raritan Valley Community College.  It includes group study rooms, computer stations, and The Paul Robeson Institute and The Institute for Holocaust & Genocide Studies. The Theatre at Raritan Valley Community College (RVCCArts), a community-based, non-profit performing arts center, presents a wide range of cultural programming by professional touring companies of regional, national and international stature. The theatre complex consists of two performing spaces.",
+			"Floors": {
+				"Basement": [
+					"L028",
+					"L029A",
+					"L029B",
+					"L029C",
+					"L029D",
+					"L029E",
+					"L029F",
+					"L029G",
+					"L029H",
+					"L029I",
+					"L029J",
+					"L029K",
+					"L029L",
+					"L029M",
+					"L029N",
+					"L029O",
+					"L029P",
+					"L029Q",
+					"L029R",
+					"L029S",
+					"L029T",
+					"L029U",
+					"L029V",
+					"L029W",
+					"L029X",
+					"L029Y",
+					"L029Z",
+					"L032",
+					"L034",
+					{
+						"MISSING": ["L030", "L031", "L033"],
+						"ROOMS WITHOUT NUMBERS": [
+							"NASH THEATRE",
+							"STAGE",
+							"LOADING DOCK",
+							"SCENIC SHOP",
+							"WELPE THEATRE",
+							"LOBBY",
+							"CONFERENCE SERVICES",
+							"PURCHASING",
+							"ADJUNCT OFFICES"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"STAIRS4",
+							"STAIRS5",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 10
+							}
+						]
+					}
+				],
+				"First": [
+					"L123",
+					{
+						"MISSING": [],
+						"ROOMS WITHOUT NUMBERS": [
+							"THEATRE",
+							"BALCONY LOBBY",
+							"COURTYARD",
+							"LIBRARY",
+							"CIRCULATION DESK"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"STAIRS4",
+							"STAIRS5",
+							"STAIRS6",
+							"STAIRS7",
+							"STAIRS8",
+							"ELEVATOR1",
+							"ELEVATOR2",
+							"BATHROOM",
+							{
+								"EXITS": 7
+							}
+						]
+					}
+				],
+				"Second": [
+					"L208",
+					"L209",
+					"L210",
+					"L211",
+					{
+						"MISSING": ["L200 - L207"],
+						"ROOMS WITHOUT NUMBERS": [
+							"LIBRARY",
+							"THEATRE",
+							"INSTITUTE FOR HOLOCAUST & GENOCIDE STUDIES"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"ELEVATOR",
+							{
+								"EXITS": 3
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Physical Education",
+			"Description": "The Physical Education complex consists of indoor and outdoor facilities. The indoor facilities consist of a 10,000 square foot gymnasium, a fitness center, and a natatorium which houses a 6 lane heated pool. The first floor of the Phys Ed Building has elevator access to the connecting Bateman Student Center and the upper level walkway.",
+			"Floors": {
+				"First": [
+					{
+						"MISSING": ["ALL ROOM NUMBERS"],
+						"ROOMS WITHOUT NUMBERS": [
+							"LOBBY",
+							"FACILITIES OFFICES",
+							"WOMEN'S LOCKER ROOM",
+							"MEN'S LOCKER ROOM",
+							"TUNNEL",
+							"POOL"
+						],
+						"AMENITIES": [
+							"STAIRS",
+							"ELEVATOR",
+							"BATHROOM (IN LOCKER ROOMS)",
+							{
+								"EXITS": 6
+							}
+						]
+					}
+				],
+				"Second": [
+					{
+						"MISSING": ["ALL ROOM NUMBERS"],
+						"ROOMS WITHOUT NUMBERS": [
+							"GYMNASIUM",
+							"LOBBY",
+							"POOL",
+							"ATHLETICS OFFICES",
+							"FITNESS CENTER"
+						],
+						"AMENITIES": [
+							{
+								"EXITS": 9
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Planetarium",
+			"Description": "The 100-seat Planetarium features a computer-assisted Spitz 512 Planetarium Projector which has the capability of reproducing the night sky as seen from anywhere on earth. Outside the planetarium see the skies through our 16\" Meade telescope.  The 3M Observatory is open on clear-sky evenings during public shows. \nThe Planetarium also features a small gift shop and exhibition space. It provides programs designed for school classes as well as the entire family. Topical multimedia presentations and seasonal star shows are presented throughout the year.",
+			"Floors": {}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Science Center",
+			"Description": "The Whitman Science Center contains multiple classrooms and labs, all equipped with state-of-the-art technology designed for a variety of disciplines including general biology, microbiology, botany, anatomy, physics, engineering, chemistry and organic chemistry.",
+			"Floors": {
+				"First": [
+					"SC100",
+					"SC101",
+					"SC112",
+					"SC113",
+					"SC114",
+					"SC115",
+					"SC116",
+					"SC118",
+					"SC120",
+					"SC124",
+					"SC125",
+					"SC126",
+					"SC127",
+					"SC128",
+					"SC129",
+					"SC131",
+					"SC132",
+					"SC133",
+					"SC140",
+					"SC141",
+					"SC142",
+					"SC143",
+					"SC144",
+					"SC145",
+					"SC146",
+					"SC150",
+					"SC151",
+					"SC152",
+					"SC153",
+					"SC154",
+					"SC155",
+					"SC156",
+					{
+						"MISSING": [
+							"SC102-SC111",
+							"SC117",
+							"SC119",
+							"SC121-SC123",
+							"SC130",
+							"SC134-SC139",
+							"SC147-SC149"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"OUTSIDE GREEN HOUSE",
+							"ADMINISTRATIVE OFFICES"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 5
+							}
+						]
+					}
+				],
+				"Second": [
+					"SC201",
+					"SC202",
+					"SC203",
+					"SC204",
+					"SC205",
+					"SC206",
+					"SC207",
+					"SC208",
+					"SC210",
+					"SC212",
+					"SC215",
+					"SC219",
+					"SC220",
+					"SC221",
+					"SC241",
+					"SC249",
+					"SC250",
+					"SC251",
+					"SC252",
+					"SC253",
+					"SC254",
+					{
+						"MISSING": [
+							"SC200",
+							"SC209",
+							"SC211",
+							"SC213",
+							"SC214",
+							"SC216 - SC218",
+							"SC222 - SC240",
+							"SC242 - SC248"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"STAIRS4",
+							"ELEVATOR1",
+							"ELEVATOR2",
+							{
+								"EXITS": 4
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Somerset Hall",
+			"Description": "Somerset Hall is home to several departments including English, Humanities, Social Sciences, Communications and Languages. Additionally, there are many faculty offices, classrooms and administrative spaces located in this building.",
+			"Floors": {
+				"Basement": [
+					"S011",
+					"S012",
+					"S013",
+					"S014",
+					"S015",
+					"S016",
+					"S017",
+					"S018",
+					"S020",
+					"S020A",
+					"S020B",
+					"S020C",
+					{
+						"MISSING": ["S01 - S010", "S019"],
+						"ROOMS WITHOUT NUMBERS": [
+							"SECURITY",
+							"LOBBY",
+							"WELCOME CENTER"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"ELEVATOR",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"First": [
+					"S114",
+					"S115",
+					"S116",
+					"S117",
+					"S118",
+					"S118 (DUPLICATE)",
+					"S119",
+					"S120",
+					"S122",
+					"S126",
+					"S128",
+					"S129",
+					"S130",
+					"S131",
+					"S132",
+					"S133",
+					"S134",
+					"S135",
+					"S135A",
+					"S147",
+					{
+						"MISSING": [
+							"S100 - S113",
+							"S121",
+							"S123 - S125",
+							"S127",
+							"S136 - S146"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"ONLINE LEARNING AND DISTANCE EDUCATION"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 7
+							}
+						]
+					}
+				],
+				"Second": [
+					"S222",
+					"S223A",
+					"S223B",
+					"S224",
+					"S225",
+					"S226",
+					"S227",
+					"S228",
+					"S229",
+					"S230",
+					"S232",
+					"S234",
+					"S235",
+					"S235A",
+					"S236",
+					"S237",
+					"S238",
+					"S239",
+					"S240",
+					"S241",
+					"S242",
+					"S243",
+					"S244",
+					"S245",
+					"S246",
+					"S247",
+					"S250",
+					"S252",
+					{
+						"MISSING": [
+							"S200 - S221",
+							"S231",
+							"S233",
+							"S248",
+							"S249",
+							"S251"
+						],
+						"ROOMS WITHOUT NUMBERS": ["HUMAN RESOURCES"],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"STAIRS3",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 5
+							}
+						]
+					}
+				],
+				"Third": [
+					"S302",
+					"S303",
+					"S304",
+					"S305",
+					"S306",
+					"S307",
+					"S308",
+					"S309",
+					"S310",
+					"S311",
+					"S312",
+					"S313",
+					"S314",
+					"S315",
+					"S316",
+					"S317",
+					"S319",
+					"S328",
+					"S329",
+					"S330",
+					"S331",
+					"S332",
+					"S333",
+					"S333A",
+					"S334",
+					"S335",
+					"S336",
+					"S337",
+					"S338",
+					"S339",
+					"S340",
+					"S341",
+					"S342",
+					"S343",
+					"S344",
+					"S345",
+					"S346",
+					"S347",
+					"S347A",
+					"S348",
+					"S349",
+					"S350",
+					"S351",
+					"S352",
+					"S353",
+					{
+						"MISSING": ["S300 - S301", "S318", "S320 - S327"],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STIARS1",
+							"STAIRS2",
+							"STAIRS3",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 3
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "West Building",
+			"Description": "The West Building is located directly across from the Science building. Inside you will find the Math and Computer Science department, faculty offices, computer labs, classrooms and the Technology Services helpdesk.",
+			"Floors": {
+				"First": [
+					"W100",
+					"W101",
+					"W108",
+					"W110",
+					"W111",
+					"W112",
+					"W113",
+					"W114",
+					{
+						"MISSING": ["W102 - W107", "W109"],
+						"ROOMS WITHOUT NUMBERS": ["PRISON PROGRAM LIBRARY"],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"Second": [
+					"W205",
+					"W206",
+					"W207",
+					"W208",
+					"W209",
+					"W210",
+					"W211",
+					"W212",
+					"W213",
+					"W214",
+					"W220",
+					"W221",
+					"W222",
+					{
+						"MISSING": ["W200 - W204", "W215 - W219"],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"Third": [
+					"W306",
+					"W307",
+					"W308",
+					"W309",
+					"W310",
+					"W311",
+					"W316",
+					"W317",
+					"W318",
+					"W319",
+					"W320",
+					"W323",
+					"W324",
+					"W325",
+					"W326",
+					"W328",
+					"W329",
+					{
+						"MISSING": [
+							"W300 - W305",
+							"W312 - W315",
+							"W321",
+							"W322",
+							"W327"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 0
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "Workforce Training Center",
+			"Description": "The Workforce Training Center is where you will find programs such as Advanced Manufacturing, Allied Health, Automotive Technology, Cosmetology, and HVAC.",
+			"Floors": {
+				"First": [
+					"WT110",
+					"WT110A",
+					"WT110B",
+					"WT110C",
+					"WT110D",
+					"WT110E",
+					"WT110F",
+					"WT110G",
+					"WT110H",
+					"WT110I",
+					"WT110J",
+					"WT110K",
+					"WT110L",
+					"WT111B",
+					"WT111C",
+					"WT111D",
+					"WT111E",
+					"WT111F",
+					"WT111G",
+					"WT112",
+					"WT114",
+					"WT116",
+					"WT117",
+					"WT118",
+					"WT119",
+					"WT120",
+					"WT121",
+					"WT122",
+					"WT123",
+					"WT124",
+					"WT125",
+					"WT126",
+					"WT127",
+					"WT128",
+					"WT128A",
+					"WT129",
+					"WT129A",
+					{
+						"MISSING": [
+							"WT100 - WT109",
+							"WT111A",
+							"WT113",
+							"WT115"
+						],
+						"ROOMS WITHOUT NUMBERS": ["STUDENT LOUNGE", "LOBBY"],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM-INCLUSIVE",
+							{
+								"EXITS": "?"
+							}
+						]
+					}
+				],
+				"Second": [
+					"WT201",
+					"WT205",
+					"WT209A",
+					"WT209B",
+					"WT211",
+					"WT212",
+					"WT213",
+					"WT214",
+					"WT215",
+					"WT215B",
+					{
+						"MISSING": [
+							"WT200",
+							"WT202 - WT204",
+							"WT206 - WT208",
+							"WT210"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM-INCLUSIVE",
+							{
+								"EXITS": 0
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+]
