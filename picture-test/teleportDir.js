@@ -1,8 +1,9 @@
 const teleportArray = new Map();
 
 function generateTPMap() {
+    // Set the array of nodes that will be teleport points. Each node can only have one destination
     teleportArray.set(findNodeFromCoords(15, 32), findNodeFromCoords(28, 2));
-    teleportArray.set(findNodeFromCoords(28, 2), findNodeFromCoords(15, 32));
+    //teleportArray.set(findNodeFromCoords(28, 2), findNodeFromCoords(15, 32)); //no longer needed?
 
     //console.log(teleportArray); //~~~~~~~~~~~~ Log
 
@@ -10,6 +11,13 @@ function generateTPMap() {
     // console.log(tpContains(findNodeFromCoords(15, 34)));
     // console.log(tpContains(findNodeFromCoords(0, 0)));
     // console.log('/check TP');
+
+    // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
+    let tempArr = Array.from(teleportArray.keys());
+    for (let i = 0; i < tempArr.length; i++) {
+        tempArr[i].hasTeleport = true;
+        teleportArray.set(teleportArray.get(tempArr[i]), tempArr[i]);
+    }
 }
 
 function tpContains(node) {

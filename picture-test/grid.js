@@ -199,10 +199,10 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
                 paintNode(current, canvas, 'lightgrey');
             }
 
-            if (i < 1000 /*End step to prevent infinte loop*/) {
+            if (i < 100000 /* arbitrary end step to prevent infinte loop*/) {
                 i++;
                 //loopStep();
-                setTimeout(() => { loopStep(); }, 25);        //slow things down for testing
+                setTimeout(() => { loopStep(); }, 5);        //slow things down for testing
             }
         }
     }
@@ -224,8 +224,11 @@ function backTrace(step, endPoint, canvas) {
 
     //console.log(getDir(allNodes[5][5], allNodes[5][6])); //~~~~~~~~~~~~ Log
 
-    paintNode(findNodeFromCoords(15, 32), canvas, 'magenta');
-    paintNode(findNodeFromCoords(28, 2), canvas, 'magenta');
+    // auto-paints all teleportation nodes
+    let tempArr = Array.from(teleportArray.keys());
+    for (let i = 0; i < tempArr.length; i++) {
+        paintNodeFromCoords(tempArr[i].x, tempArr[i].y, canvas, 'magenta');
+    }
 
     generateDirections();
 }
@@ -300,19 +303,39 @@ function getneighbours(node) {
 
     ///Get cardinal neighbours
     if (nx - 1 > -1 && allNodes[nx - 1][ny].isAccessible(requireElevators)) {
-        neighbours.push(tpContains(allNodes[nx - 1][ny]));
+        if (allNodes[nx - 1][ny].hasTeleport) {
+            neighbours.push(tpContains(allNodes[nx - 1][ny]));
+        }
+        else {
+            neighbours.push(allNodes[nx - 1][ny]);
+        }
     }
 
     if (nx + 1 < gridWidth + 1 && allNodes[nx + 1][ny].isAccessible(requireElevators)) {
-        neighbours.push(tpContains(allNodes[nx + 1][ny]));
+        if (allNodes[nx + 1][ny].hasTeleport) {
+            neighbours.push(tpContains(allNodes[nx + 1][ny]));
+        }
+        else {
+            neighbours.push(allNodes[nx + 1][ny]);
+        }
     }
 
     if (ny - 1 > -1 && allNodes[nx][ny - 1].isAccessible(requireElevators)) {
-        neighbours.push(tpContains(allNodes[nx][ny - 1]));
+        if (allNodes[nx][ny - 1].hasTeleport) {
+            neighbours.push(tpContains(allNodes[nx][ny - 1]));
+        }
+        else {
+            neighbours.push(allNodes[nx][ny - 1]);
+        }
     }
 
     if (ny + 1 < gridHeight + 1 && allNodes[nx][ny + 1].isAccessible(requireElevators)) {
-        neighbours.push(tpContains(allNodes[nx][ny + 1]));
+        if (allNodes[nx][ny + 1].hasTeleport) {
+            neighbours.push(tpContains(allNodes[nx][ny + 1]));
+        }
+        else {
+            neighbours.push(allNodes[nx][ny + 1]);
+        }
     }
 
     return neighbours;
@@ -357,6 +380,11 @@ function roundFloat(float, places) {
 function paintNode(node, canvas, color) {
     canvas.fillStyle = color;
     canvas.fillRect(node.x * scale, node.y * scale, scale, scale);
+}
+
+function paintNodeFromCoords(x, y, canvas, color) {
+    canvas.fillStyle = color;
+    canvas.fillRect(x * scale, y * scale, scale, scale);
 }
 
 //get a specific node from provided coordinates. 

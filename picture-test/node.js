@@ -11,6 +11,8 @@ class Node {
         this.fCost = 0;
 
         this.metaData = metaData;
+
+        this.hasTeleport = false;
     }
 
     //Return the F-cost for the node
