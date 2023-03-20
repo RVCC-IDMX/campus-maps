@@ -1,0 +1,212 @@
+[
+	{
+		"Building": {
+			"Name": "West Building",
+			"Description": "The West Building is located directly across from the Science building. Inside you will find the Math and Computer Science department, faculty offices, computer labs, classrooms and the Technology Services helpdesk.",
+			"Floors": {
+				"1": [
+					"W100",
+					"W101",
+					"W108",
+					"W110",
+					"W111",
+					"W112",
+					"W113",
+					"W114",
+					{
+						"MISSING": [
+							"W102 - W107",
+							"W109"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"PRISON PROGRAM LIBRARY"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"2": [
+					"W205",
+					"W206",
+					"W207",
+					"W208",
+					"W209",
+					"W210",
+					"W211",
+					"W212",
+					"W213",
+					"W214",
+					"W220",
+					"W221",
+					"W222",
+					{
+						"MISSING": [
+							"W200 - W204",
+							"W215 - W219"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"3": [
+					"W306",
+					"W307",
+					"W308",
+					"W309",
+					"W310",
+					"W311",
+					"W316",
+					"W317",
+					"W318",
+					"W319",
+					"W320",
+					"W323",
+					"W324",
+					"W325",
+					"W326",
+					"W328",
+					"W329",
+					{
+						"MISSING": [
+							"W300 - W305",
+							"W312 - W315",
+							"W321",
+							"W322",
+							"W327"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 0
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"Building": {
+			"Name": "East Building",
+			"Description": "The West Building is located directly across from the Science building. Inside you will find the Math and Computer Science department, faculty offices, computer labs, classrooms and the Technology Services helpdesk.",
+			"Floors": {
+				"First": [
+					"W100",
+					"W101",
+					"W108",
+					"W110",
+					"W111",
+					"W112",
+					"W113",
+					"W114",
+					{
+						"MISSING": [
+							"W102 - W107",
+							"W109"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"PRISON PROGRAM LIBRARY"
+						],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"Second": [
+					"W205",
+					"W206",
+					"W207",
+					"W208",
+					"W209",
+					"W210",
+					"W211",
+					"W212",
+					"W213",
+					"W214",
+					"W220",
+					"W221",
+					"W222",
+					{
+						"MISSING": [
+							"W200 - W204",
+							"W215 - W219"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 2
+							}
+						]
+					}
+				],
+				"Third": [
+					"W306",
+					"W307",
+					"W308",
+					"W309",
+					"W310",
+					"W311",
+					"W316",
+					"W317",
+					"W318",
+					"W319",
+					"W320",
+					"W323",
+					"W324",
+					"W325",
+					"W326",
+					"W328",
+					"W329",
+					{
+						"MISSING": [
+							"W300 - W305",
+							"W312 - W315",
+							"W321",
+							"W322",
+							"W327"
+						],
+						"ROOMS WITHOUT NUMBERS": [],
+						"AMENITIES": [
+							"STAIRS1",
+							"STAIRS2",
+							"ELEVATOR",
+							"BATHROOM",
+							{
+								"EXITS": 0
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+]

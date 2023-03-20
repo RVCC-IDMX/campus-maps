@@ -1,7 +1,6 @@
-let pathSet = [];
-let nonAccessibleSet = [];
-let wallSet = [];
-
+// let pathSet = [];
+// let nonAccessibleSet = [];
+// let wallSet = [];
 
 let allNodes = [[]]; let nIndex = 0;
 let gridWidth;
@@ -21,9 +20,9 @@ let tracedPath = [];
 let pixelScale = 5; // How big is a pixel relative to the map, in feet
 
 function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
-    pathSet = pathS;
-    nonAccessibleSet = nonAPathS;
-    wallSet = wallS;
+    // pathSet = pathS;
+    // nonAccessibleSet = nonAPathS;
+    // wallSet = wallS;
 
     gridWidth = gridx;
     gridHeight = gridy;
@@ -55,10 +54,13 @@ function makeGrid(pathS, nonAPathS, wallS, gridx, gridy, nodes) {
         }
     }
 
-    let startRoom = new Room(21, 35, 'w412', 'non existnat lab');
+    //Temp room array for tests
+    let rooms = [new Room(15, 20, 'w412', 'start room: 32x32px'), new Room(21, 35, 'w412', 'start room: maze file'), new Room(15, 0, 'w412', 'end room: 32x32px'), new Room(7, 0, 'w412', 'end room: maze file')];
+
+    let startRoom = rooms[1];
     paintNode(startRoom.nodeActual, c, 'blue');
 
-    let endRoom = new Room(7, 0, 'w412', 'non existnat lab');
+    let endRoom = rooms[3];
     paintNode(startRoom.nodeActual, c, 'orange');
 
     startPos = startRoom.nodeActual; //allNodes[21][35]; //westmap: 44, 27
@@ -201,8 +203,8 @@ function beginPathFinding(startNode, endNode, requireAccessibility, canvas) {
 
             if (i < 100000 /* arbitrary end step to prevent infinte loop*/) {
                 i++;
-                //loopStep();
-                setTimeout(() => { loopStep(); }, 5);        //slow things down for testing
+                loopStep();
+                //setTimeout(() => { loopStep(); }, 5);        //slow things down for testing
             }
         }
     }
@@ -419,11 +421,10 @@ function runUnitTests(canvas) {
 
     console.log("~~~~~~~~");
 
-    let n = allNodes[0][27];
-    n.color = 'magenta';
-    paintNode(n, canvas);
-
-    console.log(getneighbours(n));
+    // let n = allNodes[0][27];
+    // n.color = 'magenta';
+    // paintNode(n, canvas);
+    //console.log(getneighbours(n));
 }
 
 

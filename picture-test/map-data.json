@@ -133,8 +133,15 @@
 					"BC204",
 					"BC205",
 					{
-						"MISSING": ["BC202", "BC203", "BC206"],
-						"ROOMS WITHOUT NUMBERS": ["ROOF GARDEN", "MECHANICAL"],
+						"MISSING": [
+							"BC202",
+							"BC203",
+							"BC206"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"ROOF GARDEN",
+							"MECHANICAL"
+						],
 						"AMENITIES": [
 							"STAIRS",
 							"ELEVATOR",
@@ -148,7 +155,9 @@
 				"Third": [
 					{
 						"MISSING": [],
-						"ROOMS WITHOUT NUMBERS": ["Academic Support Center"],
+						"ROOMS WITHOUT NUMBERS": [
+							"Academic Support Center"
+						],
 						"AMENITIES": [
 							"STAIRS",
 							"ELEVATOR",
@@ -295,7 +304,12 @@
 					"C206",
 					"C207",
 					{
-						"MISSING": ["C201", "C202", "C203", "C204"],
+						"MISSING": [
+							"C201",
+							"C202",
+							"C203",
+							"C204"
+						],
 						"ROOMS WITHOUT NUMBERS": [
 							"STUDENT LOUNGE",
 							"CAFETERIA",
@@ -321,7 +335,9 @@
 			"Name": "East Building",
 			"Description": "The East Building is located next door to the Planetarium and adjacent to Parking lot 6. It is where you can find room E109.",
 			"Floors": {
-				"First": ["E109"]
+				"First": [
+					"E109"
+				]
 			}
 		}
 	},
@@ -337,8 +353,12 @@
 					"ATCC101",
 					"ATCC102",
 					{
-						"MISSING": ["ATCC100"],
-						"ROOMS WITHOUT NUMBERS": ["COMPUTER ROOM"],
+						"MISSING": [
+							"ATCC100"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"COMPUTER ROOM"
+						],
 						"AMENITIES": [
 							"STAIRS1",
 							"STAIRS2",
@@ -353,7 +373,9 @@
 				],
 				"Second": [
 					{
-						"MISSING": ["ALL ROOM NUMBERS"],
+						"MISSING": [
+							"ALL ROOM NUMBERS"
+						],
 						"ROOMS WITHOUT NUMBERS": [
 							"COMMUNITY ROOM",
 							"PRESIDENTS OFFICE",
@@ -362,7 +384,11 @@
 							"SECRETARIAL AREA",
 							"WAITING AREA"
 						],
-						"AMENITIES": ["STAIRS", "ELEVATOR????", "BATHROOM"]
+						"AMENITIES": [
+							"STAIRS",
+							"ELEVATOR????",
+							"BATHROOM"
+						]
 					}
 				]
 			}
@@ -476,7 +502,12 @@
 					"H330",
 					"H333",
 					{
-						"MISSING": ["H317", "H327", "H331", "H332"],
+						"MISSING": [
+							"H317",
+							"H327",
+							"H331",
+							"H332"
+						],
 						"ROOMS WITHOUT NUMBERS": [],
 						"AMENITIES": [
 							"IN BATEMAN 2ND FLOOR TECHNICALLY",
@@ -528,7 +559,11 @@
 					"L032",
 					"L034",
 					{
-						"MISSING": ["L030", "L031", "L033"],
+						"MISSING": [
+							"L030",
+							"L031",
+							"L033"
+						],
 						"ROOMS WITHOUT NUMBERS": [
 							"NASH THEATRE",
 							"STAGE",
@@ -589,7 +624,9 @@
 					"L210",
 					"L211",
 					{
-						"MISSING": ["L200 - L207"],
+						"MISSING": [
+							"L200 - L207"
+						],
 						"ROOMS WITHOUT NUMBERS": [
 							"LIBRARY",
 							"THEATRE",
@@ -616,7 +653,9 @@
 			"Floors": {
 				"First": [
 					{
-						"MISSING": ["ALL ROOM NUMBERS"],
+						"MISSING": [
+							"ALL ROOM NUMBERS"
+						],
 						"ROOMS WITHOUT NUMBERS": [
 							"LOBBY",
 							"FACILITIES OFFICES",
@@ -637,7 +676,9 @@
 				],
 				"Second": [
 					{
-						"MISSING": ["ALL ROOM NUMBERS"],
+						"MISSING": [
+							"ALL ROOM NUMBERS"
+						],
 						"ROOMS WITHOUT NUMBERS": [
 							"GYMNASIUM",
 							"LOBBY",
@@ -795,7 +836,10 @@
 					"S020B",
 					"S020C",
 					{
-						"MISSING": ["S01 - S010", "S019"],
+						"MISSING": [
+							"S01 - S010",
+							"S019"
+						],
 						"ROOMS WITHOUT NUMBERS": [
 							"SECURITY",
 							"LOBBY",
@@ -894,7 +938,9 @@
 							"S249",
 							"S251"
 						],
-						"ROOMS WITHOUT NUMBERS": ["HUMAN RESOURCES"],
+						"ROOMS WITHOUT NUMBERS": [
+							"HUMAN RESOURCES"
+						],
 						"AMENITIES": [
 							"STAIRS1",
 							"STAIRS2",
@@ -954,7 +1000,11 @@
 					"S352",
 					"S353",
 					{
-						"MISSING": ["S300 - S301", "S318", "S320 - S327"],
+						"MISSING": [
+							"S300 - S301",
+							"S318",
+							"S320 - S327"
+						],
 						"ROOMS WITHOUT NUMBERS": [],
 						"AMENITIES": [
 							"STIARS1",
@@ -986,8 +1036,13 @@
 					"W113",
 					"W114",
 					{
-						"MISSING": ["W102 - W107", "W109"],
-						"ROOMS WITHOUT NUMBERS": ["PRISON PROGRAM LIBRARY"],
+						"MISSING": [
+							"W102 - W107",
+							"W109"
+						],
+						"ROOMS WITHOUT NUMBERS": [
+							"PRISON PROGRAM LIBRARY"
+						],
 						"AMENITIES": [
 							"STAIRS1",
 							"STAIRS2",
@@ -1014,7 +1069,10 @@
 					"W221",
 					"W222",
 					{
-						"MISSING": ["W200 - W204", "W215 - W219"],
+						"MISSING": [
+							"W200 - W204",
+							"W215 - W219"
+						],
 						"ROOMS WITHOUT NUMBERS": [],
 						"AMENITIES": [
 							"STAIRS1",
@@ -1118,7 +1176,10 @@
 							"WT113",
 							"WT115"
 						],
-						"ROOMS WITHOUT NUMBERS": ["STUDENT LOUNGE", "LOBBY"],
+						"ROOMS WITHOUT NUMBERS": [
+							"STUDENT LOUNGE",
+							"LOBBY"
+						],
 						"AMENITIES": [
 							"STAIRS1",
 							"STAIRS2",

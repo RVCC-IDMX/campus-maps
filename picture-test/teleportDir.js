@@ -2,8 +2,10 @@ const teleportArray = new Map();
 
 function generateTPMap() {
     // Set the array of nodes that will be teleport points. Each node can only have one destination
-    teleportArray.set(findNodeFromCoords(15, 32), findNodeFromCoords(28, 2));
+    teleportArray.set(findNodeFromCoords(15, 32), findNodeFromCoords(28, 2)); // used with maze file
     //teleportArray.set(findNodeFromCoords(28, 2), findNodeFromCoords(15, 32)); //no longer needed?
+
+    //teleportArray.set(findNodeFromCoords(11, 13), findNodeFromCoords(15, 5)); //used with 32x32 files for tests
 
     //console.log(teleportArray); //~~~~~~~~~~~~ Log
 
