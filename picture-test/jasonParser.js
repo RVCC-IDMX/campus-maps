@@ -11,6 +11,35 @@ async function getJsonFile() {
     fileArr = Array.from(file);
 }
 
+//Function for site search button to call, Assumes good data, no checks (to fix)
+function buttonStartSearch() {
+    let startR = document.getElementById("start");
+    let endR = document.getElementById("destination");
+
+    //roomOnlySearch(endR.value);
+
+    let endNode = roomOnlySearch(endR.value);
+    endNode = new Room(parseInt(endNode[0], 10), parseInt(endNode[1], 10), 'room', 'end');
+
+    let startNode = roomOnlySearch(startR.value);
+    startNode = new Room(parseInt(startNode[0], 10), parseInt(startNode[1], 10), 'room', 'start');
+
+    console.log(startNode.nodeActual, endNode.nodeActual);
+
+    beginPathFinding(startNode.nodeActual, endNode.nodeActual, false);
+}
+
+//get a string from a mix of strings and numbers
+function pullStr(str) {
+    return str.match(/[a-zA-Z]+/g);
+}
+
+//get an int from a mix of strings and numbers
+function pullInt(int) {
+    return int.match(/\d+/g);
+}
+
+
 //Search function using a modified Json file which only has room numbers listed
 //This one is more viable for large scale, with little or no changes needed to add a new room/building
 //!Second design for Room Searching
@@ -30,6 +59,8 @@ function roomOnlySearch(roomName) {
             console.log(coords); //coords
         }
     }
+
+    return coords;
 }
 
 //!First design for Room Searching
