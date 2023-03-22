@@ -22,7 +22,9 @@ let pixelScale = 5; // How big is a pixel relative to the map, in feet
 let localCanvas;
 let localC;
 
-function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
+async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
+    await getJsonFile();
+
     // pathSet = pathS;
     // nonAccessibleSet = nonAPathS;
     // wallSet = wallS;
@@ -179,6 +181,9 @@ using accesibility settings, filter out non accessible nodes and treat them as w
 
 */
 function beginPathFinding(startNode, endNode, requireAccessibility) {
+
+    openNodes = [];
+    closedNodes = [];
 
     setGrid();
 

@@ -8,7 +8,7 @@ async function getJsonFile() {
 
     const response = await fetch(request);
     const file = await response.json();
-    fileArr = Array.from(file);
+    fileArr = file;
 }
 
 //Function for site search button to call, Assumes good data, no checks (to fix)
@@ -39,29 +39,63 @@ function pullInt(int) {
     return int.match(/\d+/g);
 }
 
+//Let JavaScript write HTML
+function jsToHtml(str)
+{
+    document.querySelector("#jsHtml").innerHTML = str;
+}
+
 
 //Search function using a modified Json file which only has room numbers listed
 //This one is more viable for large scale, with little or no changes needed to add a new room/building
 //!Second design for Room Searching
 function roomOnlySearch(roomName) {
 
-    let str = '';
-    let coords = [0, 0];
+    let str = ''+ roomName;
+    str = str.toUpperCase();
+    let coords = fileArr[str];
+    
+    // let str = '';
+    //console.log(fileArr["W100"]);
+
+    // for (let i = 0; i < fileArr.length; i++) {
+    //     str = '' + fileArr[i];
+    //     str = str.split(': ');
+
+    //     if (str[0] === roomName) {
+    //         console.log("found room: " + roomName);
+
+    //         coords = str[1].split(', ');
+    //         console.log(coords); //coords
+    //     }
+    // }
+
+    return findNodeFromCoords(coords[0], coords[1]);
+}
+
+
+
+function parseJsonIntoObjNotation()
+{
+    console.log('{');
 
     for (let i = 0; i < fileArr.length; i++) {
         str = '' + fileArr[i];
         str = str.split(': ');
+        
+        coords = str[1].split(', ');
 
-        if (str[0] === roomName) {
-            console.log("found room: " + roomName);
+        //console.log(`"` + str[0] +`"`+ ": " + "["+ coords + "], ");
+        console.log(`"${str[0]}": [${coords}], `);
 
-            coords = str[1].split(', ');
-            console.log(coords); //coords
-        }
+            // coords = str[1].split(', ');
+            //console.log(coords); //coords
     }
 
-    return findNodeFromCoords(coords[0], coords[1]);
+    console.log("}");
 }
+
+//UnUsed
 
 //!First design for Room Searching
 //Search function using the default Json file, building -> level -> room
