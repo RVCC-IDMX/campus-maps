@@ -27,7 +27,7 @@ class Room {
             this.roomName = roomName
         this.roomDesc = roomDesc;
 
-        this.nodeActual = findNodeFromCoords(x, y);
+        this.nodeActual = findNodeFromCoords(parseInt(x, 10), parseInt(y, 10));
     }
 
 

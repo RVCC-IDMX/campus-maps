@@ -67,29 +67,32 @@ function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
     let rooms = [new Room(15, 20, 'w412', 'start room: 32x32px'), new Room(21, 35, 'w412', 'start room: maze file'), new Room(15, 0, 'w412', 'end room: 32x32px'), new Room(7, 0, 'w412', 'end room: maze file'), new Room(96, 424, 'entry', 'west-b-test'), new Room(193, 102, 'w310', 'west-b-test')];
 
     let startRoom;
-    if (startNode_ != null) {
-        startRoom = startNode_;
-    }
-    else {
-        startRoom = rooms[4];
-    }
+    // if (startNode_ != null) {
+    //     startRoom = startNode_;
+    // }
+    // else {
+    //     startRoom = rooms[4];
+    // }
 
-    paintNode(startRoom.nodeActual, localC, 'blue');
+    // paintNode(startRoom.nodeActual, localC, 'blue');
 
     let endRoom;
-    if (endNode_ != null) {
-        endRoom = endNode_;
-    }
-    else {
-        endRoom = rooms[5];
-    }
+    // if (endNode_ != null) {
+    //     endRoom = endNode_;
+    // }
+    // else {
+    //     endRoom = rooms[5];
+    // }
 
-    paintNode(startRoom.nodeActual, localC, 'orange');
+    // paintNode(startRoom.nodeActual, localC, 'orange');
 
-    startPos = startRoom.nodeActual; //allNodes[21][35]; //westmap: 44, 27
-    startPos.color = 'blue';
-    endPos = endRoom.nodeActual;//allNodes[7][0]; //westmap: 184, 27
-    endPos.color = 'orange';
+    startPos = roomOnlySearch('W108');
+    endPos = roomOnlySearch('W310');
+
+    // startPos = startRoom.nodeActual; //allNodes[21][35]; //westmap: 44, 27
+    // startPos.color = 'blue';
+    // endPos = endRoom.nodeActual;//allNodes[7][0]; //westmap: 184, 27
+    // endPos.color = 'orange';
 
     c.fillStyle = startPos.color;
     c.fillRect(startPos.x * scale, startPos.y * scale, scale, scale);

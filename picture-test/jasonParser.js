@@ -19,14 +19,14 @@ function buttonStartSearch() {
     //roomOnlySearch(endR.value);
 
     let endNode = roomOnlySearch(endR.value);
-    endNode = new Room(parseInt(endNode[0], 10), parseInt(endNode[1], 10), 'room', 'end');
+    //endNode = new Room(parseInt(endNode[0], 10), parseInt(endNode[1], 10), 'room', 'end');
 
     let startNode = roomOnlySearch(startR.value);
-    startNode = new Room(parseInt(startNode[0], 10), parseInt(startNode[1], 10), 'room', 'start');
+    //startNode = new Room(parseInt(startNode[0], 10), parseInt(startNode[1], 10), 'room', 'start');
 
-    console.log(startNode.nodeActual, endNode.nodeActual);
+    console.log(startNode, endNode);
 
-    beginPathFinding(startNode.nodeActual, endNode.nodeActual, false);
+    beginPathFinding(startNode, endNode, false);
 }
 
 //get a string from a mix of strings and numbers
@@ -60,7 +60,7 @@ function roomOnlySearch(roomName) {
         }
     }
 
-    return coords;
+    return findNodeFromCoords(coords[0], coords[1]);
 }
 
 //!First design for Room Searching
