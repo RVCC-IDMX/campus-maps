@@ -2,7 +2,7 @@
 // let nonAccessibleSet = [];
 // let wallSet = [];
 
-let allNodes = [[]]; let nIndex = 0;
+let allNodes = [[]]; //let nIndex = 0;
 let gridWidth;
 let gridHeight;
 
@@ -60,13 +60,13 @@ async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
 
             //console.log(allNodes[nIndex].color);//~~~~~~~~~~~~ Log
 
-            nIndex++;
+            //nIndex++;
             c.fillRect(x * scale, y * scale, scale, scale);
         }
     }
 
     //Temp room array for tests
-    let rooms = [new Room(15, 20, 'w412', 'start room: 32x32px'), new Room(21, 35, 'w412', 'start room: maze file'), new Room(15, 0, 'w412', 'end room: 32x32px'), new Room(7, 0, 'w412', 'end room: maze file'), new Room(96, 424, 'entry', 'west-b-test'), new Room(193, 102, 'w310', 'west-b-test')];
+    //let rooms = [new Room(15, 20, 'w412', 'start room: 32x32px'), new Room(21, 35, 'w412', 'start room: maze file'), new Room(15, 0, 'w412', 'end room: 32x32px'), new Room(7, 0, 'w412', 'end room: maze file'), new Room(96, 424, 'entry', 'west-b-test'), new Room(193, 102, 'w310', 'west-b-test')];
 
     let startRoom;
     // if (startNode_ != null) {
@@ -132,7 +132,7 @@ function setGrid() {
 
             //console.log(allNodes[x][y].color);//~~~~~~~~~~~~ Log
 
-            nIndex++;
+            //nIndex++;
             localC.fillRect(x * scale, y * scale, scale, scale);
         }
     }
@@ -284,6 +284,8 @@ function backTrace(startPoint, endPoint, canvas) {
     //console.log(step);//~~~~~~~~~~~~ Log
     let n = endPoint;
 
+    tracedPath = [];
+
     while (n !== startPoint) {
         paintNode(n, canvas, 'orange');
         n = n.previousNode;
@@ -314,7 +316,7 @@ function generateDirections() {
     for (let i = 1; i < tracedPath.length; i++) {
         tDir = getDir(tracedPath[i - 1], tracedPath[i]);
 
-        console.log(tDir, previousDir);
+        //console.log(tDir, previousDir);//~~~~~~~~~~~~ Log
 
         if (tDir !== previousDir) {
             displayDir = getRelativeDirections(previousDir, tDir);
@@ -382,6 +384,7 @@ function getRelativeDirections(currentDir, newDir) {
     }
     else {
         console.error('Data entry error: [' + currentDir + '] is not a valid input, please use: up, down, left, or right');
+        //console.log(currentDir, newDir);
     }
 }
 
