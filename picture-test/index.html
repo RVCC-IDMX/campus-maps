@@ -9,11 +9,13 @@
 </head>
 
 <body>
-    <input type="search" id="start" value="start">
-    <input type="search" id="destination" value="destination">
-    <p id="jsHtml"></p>
-
+    <select type="search" id="start" placeholder="start..."></select>
+    <select type="search" id="destination" placeholder="destination..."></select>
     <input type="button" onclick="buttonStartSearch()" value="Search">
+
+    <!-- <select name="jsHtml" id="jsHtml"></select> -->
+    <br>
+    <!-- <p id="jsHtml"></p> -->
 
     <script src='parse-gridpath-from-img.js'> </script>
     <script src='node.js'> </script>

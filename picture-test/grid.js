@@ -17,7 +17,7 @@ let requireElevators = false;
 
 let tracedPath = [];
 
-let pixelScale = 5; // How big is a pixel relative to the map, in feet
+let pixelScale = 1; // How big is a pixel relative to the map, in feet
 
 let localCanvas;
 let localC;
@@ -308,11 +308,18 @@ function generateDirections() {
     let directions = [];
     let previousDir = '';
     let pixelStepCount = 1;
+    let tDir;
+    let displayDir;
 
     for (let i = 1; i < tracedPath.length; i++) {
-        let tDir = getDir(tracedPath[i - 1], tracedPath[i])
+        tDir = getDir(tracedPath[i - 1], tracedPath[i]);
+
+        console.log(tDir, previousDir);
+
         if (tDir !== previousDir) {
-            directions.push('In ' + (pixelStepCount * pixelScale) + ' feet turn ' + tDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
+            displayDir = getRelativeDirections(previousDir, tDir);
+
+            directions.push('In ' + (pixelStepCount * pixelScale) + ' feet go ' + displayDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
             previousDir = tDir;
             pixelStepCount = 1;
         }
@@ -324,6 +331,60 @@ function generateDirections() {
     console.log(directions); //~~~~~~~~~~~~ Log
 }
 
+function getRelativeDirections(currentDir, newDir) {
+
+    if (currentDir == 'up') {
+        if (newDir == 'right') {
+            return 'right';
+        }
+        else if (newDir == 'left') {
+            return 'left';
+        }
+        else if (newDir == 'down') {
+            return 'straight';
+        }
+    }
+    else if (currentDir == 'down') {
+        if (newDir == 'right') {
+            return 'left';
+        }
+        else if (newDir == 'left') {
+            return 'right';
+        }
+        else if (newDir == 'up') {
+            return 'straight';
+        }
+    }
+    else if (currentDir == 'left') {
+        if (newDir == 'up') {
+            return 'right';
+        }
+        else if (newDir == 'down') {
+            return 'left';
+        }
+        else if (newDir == 'left') {
+            return 'straight';
+        }
+    }
+    else if (currentDir == 'right') {
+        if (newDir == 'up') {
+            return 'left';
+        }
+        else if (newDir == 'down') {
+            return 'right';
+        }
+        else if (newDir == 'right') {
+            return 'straight';
+        }
+    }
+    else if (currentDir == '') {
+        return 'straight';
+    }
+    else {
+        console.error('Data entry error: [' + currentDir + '] is not a valid input, please use: up, down, left, or right');
+    }
+}
+
 //Utility Methods
 
 //map of coordinates to direction
@@ -333,10 +394,32 @@ direArr.set('1, 0', 'right');
 direArr.set('-1, 0', 'left');
 direArr.set('0, -1', 'up');
 
+//angled directions, only show up when teleports are used
+direArr.set('1, 1', 'down');
+direArr.set('1, -1', 'up');
+
+direArr.set('-1, 1', 'down');
+direArr.set('-1, -1', 'up');
+
 //get the vector direction using two points
 function getDir(originNode, travelToNode) {
     let x = travelToNode.x - originNode.x;
     let y = travelToNode.y - originNode.y;
+
+    if (x > 1) {
+        x = 1;
+    }
+    else if (x < -1) {
+        x = -1;
+    }
+
+    if (y > 1) {
+        v = y;
+    }
+    else if (y < -1) {
+        y = -1;
+    }
+
     // (x, y) is the vector of these points
     // need to convert the vector into a *useable* direction
     let coords = `${x}, ${y}`;

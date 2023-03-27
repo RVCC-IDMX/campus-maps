@@ -1,4 +1,4 @@
-getJsonFile();
+//getJsonFile();
 
 let fileArr;
 async function getJsonFile() {
@@ -9,6 +9,13 @@ async function getJsonFile() {
     const response = await fetch(request);
     const file = await response.json();
     fileArr = file;
+
+    let str; // = 'Current working Rooms: ';
+    for (var key in fileArr) {
+        str += `<option value ="${key}"> ${key} </option>`;
+    }
+    jsToHtml(str, "start");
+    jsToHtml(str, "destination");
 }
 
 //Function for site search button to call, Assumes good data, no checks (to fix)
@@ -40,9 +47,8 @@ function pullInt(int) {
 }
 
 //Let JavaScript write HTML
-function jsToHtml(str)
-{
-    document.querySelector("#jsHtml").innerHTML = str;
+function jsToHtml(str, id) {
+    document.querySelector(`#${id}`).innerHTML = str;
 }
 
 
@@ -51,10 +57,10 @@ function jsToHtml(str)
 //!Second design for Room Searching
 function roomOnlySearch(roomName) {
 
-    let str = ''+ roomName;
+    let str = '' + roomName;
     str = str.toUpperCase();
     let coords = fileArr[str];
-    
+
     // let str = '';
     //console.log(fileArr["W100"]);
 
@@ -75,29 +81,31 @@ function roomOnlySearch(roomName) {
 
 
 
-function parseJsonIntoObjNotation()
-{
+function parseJsonIntoObjNotation() {
     console.log('{');
 
     for (let i = 0; i < fileArr.length; i++) {
         str = '' + fileArr[i];
         str = str.split(': ');
-        
+
         coords = str[1].split(', ');
 
         //console.log(`"` + str[0] +`"`+ ": " + "["+ coords + "], ");
         console.log(`"${str[0]}": [${coords}], `);
 
-            // coords = str[1].split(', ');
-            //console.log(coords); //coords
+        // coords = str[1].split(', ');
+        //console.log(coords); //coords
     }
 
     console.log("}");
 }
 
+
+
+
 //UnUsed
 
-//!First design for Room Searching
+//!original design for Room Searching
 //Search function using the default Json file, building -> level -> room
 //!Requieres an up-to-date buildingDir
 function searchRoom(roomName) {
