@@ -53,14 +53,14 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight)
     let img = await loadImage(fileArr["second-floor-west"]["omap"].img);
     console.log(img);
 
-    let canvas = document.createElement('canvas');
-    canvas.style.maxWidth = "100%";
-    canvas.width = img.width;
-    canvas.height = img.height;
-    let c = canvas.getContext("2d");
-    document.body.appendChild(canvas);
+    let canvasB = document.createElement('canvas');
+    canvasB.style.maxWidth = "100%";
+    canvasB.width = img.width;
+    canvasB.height = img.height;
+    let cb = canvasB.getContext("2d");
+    document.body.appendChild(canvasB);
 
-    c.drawImage(img, 0, 0);
+    cb.drawImage(img, 0, 0);
 
     console.log(oWidth, oHeight);
 
@@ -77,10 +77,10 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight)
         // c.fill = "white";
         // c.fillRect(lerpX,lerpY,20,20);
 
-        paintNodeFromCoordsOvermap(lerpX, lerpY, c, 'white');
+        paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'white');
         // console.log(lerpX,lerpY);
 
-        c.strokeStyle = 'white';
+        cb.strokeStyle = 'white';
 
         if( i > 0)
         {
@@ -90,11 +90,11 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight)
             let lerpEndX = lerp(endStr[0], 0, oWidth, 0, 1920);
             let lerpEndY = lerp(endStr[1], 0, oHeight, 0, 1080);
 
-            c.beginPath();
-            c.lineWidth = 5;
-            c.moveTo(lerpX, lerpY);
-            c.lineTo(lerpEndX, lerpEndY);
-            c.stroke();
+            cb.beginPath();
+            cb.lineWidth = 5;
+            cb.moveTo(lerpX, lerpY);
+            cb.lineTo(lerpEndX, lerpEndY);
+            cb.stroke();
             //drawLine(lerpX, lerpY, lerpEndX, lerpEndY, 'white', c);
         }
     }
