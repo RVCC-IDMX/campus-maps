@@ -50,6 +50,9 @@ async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
     canvas.width = gridWidth * scale;
     canvas.height = gridHeight * scale;
 
+    localCanvas = canvas;
+    localC = c;
+
     for (let x = 0; x < gridWidth; x++) {
         for (let y = 0; y < gridHeight; y++) {
             if (allNodes[x][y].color === 'empty') {
@@ -314,6 +317,8 @@ function generateDirections() {
     let displayDir;
     let pathcolor = '';
 
+    let coordDirections = [];
+
     for (let i = 1; i < tracedPath.length; i++) {
         tDir = getDir(tracedPath[i - 1], tracedPath[i]);
 
@@ -327,6 +332,8 @@ function generateDirections() {
             directions.push('In ' + (pixelStepCount * pixelScale) + ' feet go ' + displayDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
             previousDir = tDir;
             pixelStepCount = 1;
+
+            coordDirections.push(`${tracedPath[i].x},  ${tracedPath[i].y}`);
         }
         else {
             pixelStepCount++;
@@ -334,6 +341,9 @@ function generateDirections() {
     }
 
     console.log(directions); //~~~~~~~~~~~~ Log
+    console.log(coordDirections);//~~~~~~~~~~~~ Log
+
+    drawOvermap(coordDirections, gridWidth, gridHeight);
 }
 
 function getRelativeDirections(currentDir, newDir, pathcolor) {

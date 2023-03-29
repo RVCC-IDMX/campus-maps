@@ -1,6 +1,7 @@
 //getJsonFile();
 
 let fileArr;
+let read = false;
 async function getJsonFile() {
 
     const requestURL = 'map-data copy for tests v2.json'; //'map-data copy for tests.json';
@@ -14,12 +15,21 @@ async function getJsonFile() {
     for (var key in fileArr) {
         str += `<option value ="${key}"> ${key} </option>`;
     }
+
+    ready = true;
+
     jsToHtml(str, "start");
     jsToHtml(str, "destination");
 }
 
 //Function for site search button to call, Assumes good data, no checks (to fix)
 function buttonStartSearch() {
+
+    if(!ready) //return if the jason has not yet been parsed
+    {
+        return;
+    }
+
     let startR = document.getElementById("start");
     let endR = document.getElementById("destination");
 
@@ -34,21 +44,6 @@ function buttonStartSearch() {
     console.log(startNode, endNode);
 
     beginPathFinding(startNode, endNode, false);
-}
-
-//get a string from a mix of strings and numbers
-function pullStr(str) {
-    return str.match(/[a-zA-Z]+/g);
-}
-
-//get an int from a mix of strings and numbers
-function pullInt(int) {
-    return int.match(/\d+/g);
-}
-
-//Let JavaScript write HTML
-function jsToHtml(str, id) {
-    document.querySelector(`#${id}`).innerHTML = str;
 }
 
 
@@ -79,29 +74,40 @@ function roomOnlySearch(roomName) {
     return findNodeFromCoords(coords[0], coords[1]);
 }
 
-
-
-function parseJsonIntoObjNotation() {
-    console.log('{');
-
-    for (let i = 0; i < fileArr.length; i++) {
-        str = '' + fileArr[i];
-        str = str.split(': ');
-
-        coords = str[1].split(', ');
-
-        //console.log(`"` + str[0] +`"`+ ": " + "["+ coords + "], ");
-        console.log(`"${str[0]}": [${coords}], `);
-
-        // coords = str[1].split(', ');
-        //console.log(coords); //coords
-    }
-
-    console.log("}");
+//get a string from a mix of strings and numbers
+function pullStr(str) {
+    return str.match(/[a-zA-Z]+/g);
 }
 
+//get an int from a mix of strings and numbers
+function pullInt(int) {
+    return int.match(/\d+/g);
+}
 
+//Let JavaScript write HTML
+function jsToHtml(str, id) {
+    document.querySelector(`#${id}`).innerHTML = str;
+}
 
+//old
+// function parseJsonIntoObjNotation() {
+//     console.log('{');
+
+//     for (let i = 0; i < fileArr.length; i++) {
+//         str = '' + fileArr[i];
+//         str = str.split(': ');
+
+//         coords = str[1].split(', ');
+
+//         //console.log(`"` + str[0] +`"`+ ": " + "["+ coords + "], ");
+//         console.log(`"${str[0]}": [${coords}], `);
+
+//         // coords = str[1].split(', ');
+//         //console.log(coords); //coords
+//     }
+
+//     console.log("}");
+// }
 
 //UnUsed
 

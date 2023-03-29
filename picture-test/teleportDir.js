@@ -33,6 +33,11 @@ function generateTPMap() {
     for (let i = 0; i < tpFlagArr.length; i++) {
         tpFlagArr[i].hasTeleport = true;
     }
+
+    //Removing the North-East stair well from West building second floor, to West building first floor.
+    //Fire door prevents travel down from this stairwell.
+    //Travel up these stairs is permitted, travel down is not
+    teleportArray.delete(findNodeFromCoords(253, 232));
 }
 
 function tpContains(node) {
