@@ -68,8 +68,8 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight)
 
     for(let i = 0; i < AstarDirCoords.length; i++)
     {
-        console.log(AstarDirCoords[i]);//~~~~~~~~~~~~ Log
-        let str = AstarDirCoords[i].split(', ');
+        //console.log(AstarDirCoords[i]);//~~~~~~~~~~~~ Log
+        let str = AstarDirCoords[i];//.split(', ');
 
         let lerpX = lerp(str[0], 0, oWidth, 0, 1920);
         let lerpY = lerp(str[1], 0, oHeight, 0, 1080);
@@ -79,6 +79,24 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight)
 
         paintNodeFromCoordsOvermap(lerpX, lerpY, c, 'white');
         // console.log(lerpX,lerpY);
+
+        c.strokeStyle = 'white';
+
+        if( i > 0)
+        {
+            //if (endStr.length > 2) Skip this draw, is a teleport
+
+            let endStr = AstarDirCoords[i - 1];//.split(', ');
+            let lerpEndX = lerp(endStr[0], 0, oWidth, 0, 1920);
+            let lerpEndY = lerp(endStr[1], 0, oHeight, 0, 1080);
+
+            c.beginPath();
+            c.lineWidth = 5;
+            c.moveTo(lerpX, lerpY);
+            c.lineTo(lerpEndX, lerpEndY);
+            c.stroke();
+            //drawLine(lerpX, lerpY, lerpEndX, lerpEndY, 'white', c);
+        }
     }
 
     // console.log(lerp(139, 0, oWidth, 0, 1920));
@@ -98,11 +116,37 @@ function paintNodeFromCoordsOvermap(x, y, c, color) {
     c.fillRect(x, y, 5, 5);
 }
 
-function drawLine(startX, startY, endX, endY, color, c)
-{
-    c.fillStyle = color;
-    c.fillRect(startX, startY, endX, endY);
-}
+// function drawLine(startX, startY, endX, endY, color, c)
+// {
+
+//     let rise = endY - startY;
+//     let run = endX - startX;
+
+//     //console.log(rise/run);
+//     c.fillStyle = color;
+
+//     let px, py;
+
+//     if(run > 0)
+//     {
+//         for(let i = 0; i < run; i++)
+//         {
+//             px = startX + i;
+//             py = startY + ((rise / run) * i);
+
+//             c.fillRect(px, py, 5, 5);
+//         }
+//     }
+//     else{
+//         for(let i = 0; i > run; i--)
+//         {
+//             px = startX + i;
+//             py = startY + ((rise / run) * i);
+
+//             c.fillRect(px, py, 5, 5);
+//         }
+//     }
+// }
 
 async function floorCoordsJson() {
 

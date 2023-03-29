@@ -333,12 +333,18 @@ function generateDirections() {
             previousDir = tDir;
             pixelStepCount = 1;
 
-            coordDirections.push(`${tracedPath[i].x},  ${tracedPath[i].y}`);
+            //if (tp)
+            // add int to coordDirections
+            //
+
+            coordDirections.push([tracedPath[i].x,tracedPath[i].y]);
         }
         else {
             pixelStepCount++;
         }
     }
+
+    console.log(tracedPath);
 
     console.log(directions); //~~~~~~~~~~~~ Log
     console.log(coordDirections);//~~~~~~~~~~~~ Log
