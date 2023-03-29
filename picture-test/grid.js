@@ -312,14 +312,17 @@ function generateDirections() {
     let pixelStepCount = 1;
     let tDir;
     let displayDir;
+    let pathcolor = '';
 
     for (let i = 1; i < tracedPath.length; i++) {
         tDir = getDir(tracedPath[i - 1], tracedPath[i]);
 
+        pathcolor = tracedPath[i].color;
+
         //console.log(tDir, previousDir);//~~~~~~~~~~~~ Log
 
         if (tDir !== previousDir) {
-            displayDir = getRelativeDirections(previousDir, tDir);
+            displayDir = getRelativeDirections(previousDir, tDir, pathcolor);
 
             directions.push('In ' + (pixelStepCount * pixelScale) + ' feet go ' + displayDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
             previousDir = tDir;
@@ -333,54 +336,63 @@ function generateDirections() {
     console.log(directions); //~~~~~~~~~~~~ Log
 }
 
-function getRelativeDirections(currentDir, newDir) {
+function getRelativeDirections(currentDir, newDir, pathcolor) {
+
+    let suffix = '';
+
+    if (pathcolor == 'red') {
+        suffix = 'up/down the stairs';
+    }
+    else if (pathcolor == 'green') {
+        suffix = 'up/down the elevator';
+    }
 
     if (currentDir == 'up') {
         if (newDir == 'right') {
-            return 'right';
+            return 'right ' + suffix;
         }
         else if (newDir == 'left') {
-            return 'left';
+            return 'left ' + suffix;
         }
         else if (newDir == 'down') {
-            return 'straight';
+            return 'straight ' + suffix;
         }
     }
     else if (currentDir == 'down') {
         if (newDir == 'right') {
-            return 'left';
+            return 'left ' + suffix;
         }
         else if (newDir == 'left') {
-            return 'right';
+            return 'right ' + suffix;
         }
         else if (newDir == 'up') {
-            return 'straight';
+            return 'straight ' + suffix;
         }
     }
     else if (currentDir == 'left') {
         if (newDir == 'up') {
-            return 'right';
+            return 'right ' + suffix;
         }
         else if (newDir == 'down') {
-            return 'left';
+            return 'left ' + suffix;
         }
         else if (newDir == 'left') {
-            return 'straight';
+            return 'straight ' + suffix;
         }
     }
     else if (currentDir == 'right') {
         if (newDir == 'up') {
-            return 'left';
+            return 'left ' + suffix;
         }
         else if (newDir == 'down') {
-            return 'right';
+            return 'right ' + suffix;
         }
         else if (newDir == 'right') {
-            return 'straight';
+            return 'straight ' + suffix;
         }
     }
     else if (currentDir == '') {
-        return 'straight';
+        return 'straight ' + suffix;
     }
     else {
         console.error('Data entry error: [' + currentDir + '] is not a valid input, please use: up, down, left, or right');
