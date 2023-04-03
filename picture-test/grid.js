@@ -40,6 +40,7 @@ async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
     let c = canvas.getContext("2d");
 
     localCanvas = canvas;
+    localCanvas.id = "underMap";
     localC = c;
 
     //console.log(pathSet, nonAccessibleSet,  wallSet);
@@ -283,7 +284,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
 }
 
 function backTrace(startPoint, endPoint, canvas) {
-    console.log('backtrace');//~~~~~~~~~~~~ Log
+    //console.log('backtrace');//~~~~~~~~~~~~ Log
     //console.log(step);//~~~~~~~~~~~~ Log
     let n = endPoint;
 
@@ -334,25 +335,44 @@ function generateDirections() {
             previousDir = tDir;
             pixelStepCount = 1;
 
-            coordDirections.push([tracedPath[i].x, tracedPath[i].y]);
+            //ensures that a waypoint will be placed whenever the direction changes
+            //but only if it is not a floor change
+            if (!tracedPath[i].hasTeleport) {
+                coordDirections.push([tracedPath[i].x, tracedPath[i].y]);
+            }
         }
         else {
             pixelStepCount++;
         }
 
+        //if the current node is a teleport, i.e a floor change, the it pushes the current set of directions to the overall directions
+        //this way we have seperate direction lists per floor
         if (tracedPath[i].hasTeleport) {
-            floorDirections.push(coordDirections);
-            coordDirections = [];
+            if (coordDirections.length > 0) {
+                floorDirections.push(coordDirections);
+                coordDirections = [];
+            }
+        }
+
+        //Places a waypoint at every 4th step rather than only at the direction changes to make a smoother line
+        if (i % 4 == 0) {
+            coordDirections.push([tracedPath[i].x, tracedPath[i].y]);
         }
     }
 
+    //pushes the last point in the sequence so that the end node is shown on the path
+    coordDirections.push([tracedPath[tracedPath.length - 1].x, tracedPath[tracedPath.length - 1].y]);
+
+    //pushes the final coordDirections to the overall directions
     floorDirections.push(coordDirections);
 
-    console.log(tracedPath);
+    console.log(tracedPath);//~~~~~~~~~~~~ Log
 
     console.log(directions); //~~~~~~~~~~~~ Log
-    console.log(coordDirections);//~~~~~~~~~~~~ Log
+    //console.log(coordDirections);//~~~~~~~~~~~~ Log
 
+    //reset the currently shown step
+    currentStep = 1;
     drawOvermap(floorDirections, gridWidth, gridHeight);
 }
 

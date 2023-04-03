@@ -49,14 +49,14 @@ function buttonStartSearch() {
 
 //Search function using a modified Json file which only has room numbers listed
 //This one is more viable for large scale, with little or no changes needed to add a new room/building
-//!Second design for Room Searching
+//!final chosen design for Room Searching
 function roomOnlySearch(roomName) {
 
     let str = '' + roomName;
     str = str.toUpperCase();
     let coords = fileArr[str];
 
-    console.log(fileArr);
+    //console.log(fileArr);//~~~~~~~~~~~~ Log
 
     // let str = '';
     //console.log(fileArr["W100"]);
@@ -116,6 +116,7 @@ function jsToHtml(str, id) {
 //!original design for Room Searching
 //Search function using the default Json file, building -> level -> room
 //!Requieres an up-to-date buildingDir
+//!Not Used
 function searchRoom(roomName) {
 
     //console.log(fileArr);

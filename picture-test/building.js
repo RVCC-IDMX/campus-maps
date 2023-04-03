@@ -51,6 +51,8 @@ let coordsArr;
 let currentStep = 1;
 let coordLength = [];
 
+let canvasB = document.createElement('canvas');
+
 let w, h;
 
 function nextFloor(direction) {
@@ -60,7 +62,7 @@ function nextFloor(direction) {
         }
     }
     else {
-        if (currentStep > 0) {
+        if (currentStep > 1) {
             currentStep--;
         }
     }
@@ -78,7 +80,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
     // let img = await loadImage(coordsArr["second-floor-west"]["omap"].img);
     //console.log(img);
 
-    let canvasB = document.createElement('canvas');
+    // canvasB = document.createElement('canvas');
     canvasB.style.maxWidth = "100%";
     // canvasB.width = img.width;
     // canvasB.height = img.height;
@@ -87,7 +89,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 
     // cb.drawImage(img, 0, 0);
 
-    console.log(oWidth, oHeight);
+    //console.log(oWidth, oHeight);//~~~~~~~~~~~~ Log
 
     //console.log(offestX, offsetY);
 
@@ -101,7 +103,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
     for (let d = 0; d < currentStep/*AstarDirCoords.length*/; d++) {
 
         if (AstarDirCoords[d].length > 0) {
-            console.log("coords ", d, " ", AstarDirCoords[d]);
+            //console.log("coords ", d, " ", AstarDirCoords[d]);//~~~~~~~~~~~~ Log
 
             let currentFloor = getFloorFromCoords(AstarDirCoords[d][0][0], AstarDirCoords[d][0][1]);
             //console.log(currentFloor, " current floor");
@@ -119,7 +121,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
                 //console.log(AstarDirCoords[i]);//~~~~~~~~~~~~ Log
                 let str = AstarDirCoords[d][i];//.split(', ');
 
-                console.log(str + " AstarDirCoords");
+                //console.log(str + " AstarDirCoords");//~~~~~~~~~~~~ Log
 
                 let lerpX = lerp(str[0], 0, oWidth, 0, 1920);
                 let lerpY = lerp(str[1], 0, oHeight, 0, 1080);
@@ -127,7 +129,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
                 // c.fill = "white";
                 // c.fillRect(lerpX,lerpY,20,20);
 
-                paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'white');
+                paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'magenta');
                 // console.log(lerpX,lerpY);
 
                 cb.strokeStyle = 'white';
@@ -149,8 +151,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
             }
         }
 
-        console.log(getFloorFromCoords(5, 50));
-
+        // console.log(getFloorFromCoords(5, 50));//~~~~~~~~~~~~ Log
         // console.log(lerp(139, 0, oWidth, 0, 1920));
         // console.log(lerp(378, 0, oHeight, 0, 1080));
     }
@@ -197,41 +198,9 @@ function paintNodeFromCoordsOvermap(x, y, c, color) {
     c.fillRect(x, y, 5, 5);
 }
 
-// function drawLine(startX, startY, endX, endY, color, c)
-// {
-
-//     let rise = endY - startY;
-//     let run = endX - startX;
-
-//     //console.log(rise/run);
-//     c.fillStyle = color;
-
-//     let px, py;
-
-//     if(run > 0)
-//     {
-//         for(let i = 0; i < run; i++)
-//         {
-//             px = startX + i;
-//             py = startY + ((rise / run) * i);
-
-//             c.fillRect(px, py, 5, 5);
-//         }
-//     }
-//     else{
-//         for(let i = 0; i > run; i--)
-//         {
-//             px = startX + i;
-//             py = startY + ((rise / run) * i);
-
-//             c.fillRect(px, py, 5, 5);
-//         }
-//     }
-// }
-
 async function floorCoordsJson() {
 
-    const requestURL = 'floorcoords.json'; //'map-data copy for tests.json';
+    const requestURL = 'floors.json';
     const request = new Request(requestURL);
 
     const response = await fetch(request);
