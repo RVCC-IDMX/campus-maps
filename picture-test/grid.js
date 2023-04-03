@@ -317,6 +317,7 @@ function generateDirections() {
     let displayDir;
     let pathcolor = '';
 
+    let floorDirections = [];
     let coordDirections = [];
 
     for (let i = 1; i < tracedPath.length; i++) {
@@ -333,23 +334,26 @@ function generateDirections() {
             previousDir = tDir;
             pixelStepCount = 1;
 
-            //if (tp)
-            // add int to coordDirections
-            //
-
-            coordDirections.push([tracedPath[i].x,tracedPath[i].y]);
+            coordDirections.push([tracedPath[i].x, tracedPath[i].y]);
         }
         else {
             pixelStepCount++;
         }
+
+        if (tracedPath[i].hasTeleport) {
+            floorDirections.push(coordDirections);
+            coordDirections = [];
+        }
     }
+
+    floorDirections.push(coordDirections);
 
     console.log(tracedPath);
 
     console.log(directions); //~~~~~~~~~~~~ Log
     console.log(coordDirections);//~~~~~~~~~~~~ Log
 
-    drawOvermap(coordDirections, gridWidth, gridHeight);
+    drawOvermap(floorDirections, gridWidth, gridHeight);
 }
 
 function getRelativeDirections(currentDir, newDir, pathcolor) {

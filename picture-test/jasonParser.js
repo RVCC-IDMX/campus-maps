@@ -25,7 +25,7 @@ async function getJsonFile() {
 //Function for site search button to call, Assumes good data, no checks (to fix)
 function buttonStartSearch() {
 
-    if(!ready) //return if the jason has not yet been parsed
+    if (!ready) //return if the jason has not yet been parsed
     {
         return;
     }
@@ -55,6 +55,8 @@ function roomOnlySearch(roomName) {
     let str = '' + roomName;
     str = str.toUpperCase();
     let coords = fileArr[str];
+
+    console.log(fileArr);
 
     // let str = '';
     //console.log(fileArr["W100"]);

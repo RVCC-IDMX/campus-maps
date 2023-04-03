@@ -1,18 +1,47 @@
 {
-    "second-floor-west": {
-        "umap" : {
-            "x1" : 0,
-            "y1" : 45,
-            "x2" : 299,
-            "y2" : 182
+    "first-floor-west": {
+        "umap": {
+            "x1": 0,
+            "y1": 325,
+            "x2": 299,
+            "y2": 474
         },
-        "omap" : {
-            "x1" : 0,
-            "y1" : 0,
-            "x2" : 1920,
-            "y2" : 1080,
-            "img" : "img/solid-color-overmaps/red.png"
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/solid-color-overmaps/green.png"
+        }
+    },
+    "second-floor-west": {
+        "umap": {
+            "x1": 0,
+            "y1": 183,
+            "x2": 299,
+            "y2": 324
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/solid-color-overmaps/red.png"
+        }
+    },
+    "third-floor-west": {
+        "umap": {
+            "x1": 0,
+            "y1": 45,
+            "x2": 299,
+            "y2": 182
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/solid-color-overmaps/blue.png"
         }
     }
-
 }
