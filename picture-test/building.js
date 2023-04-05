@@ -123,8 +123,13 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 
                 //console.log(str + " AstarDirCoords");//~~~~~~~~~~~~ Log
 
-                let lerpX = lerp(str[0], 0, oWidth, 0, 1920);
-                let lerpY = lerp(str[1], 0, oHeight, 0, 1080);
+                let x1 = currentFloor["umap"].x1;
+                let y1 = currentFloor["umap"].y1;
+                let x2 = currentFloor["umap"].x2;
+                let y2 = currentFloor["umap"].y2;
+
+                let lerpX = lerp(str[0], x1, x2, 0, 1920);
+                let lerpY = lerp(str[1], y1, y2, 0, 1080);
 
                 // c.fill = "white";
                 // c.fillRect(lerpX,lerpY,20,20);
@@ -132,14 +137,14 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
                 paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'magenta');
                 // console.log(lerpX,lerpY);
 
-                cb.strokeStyle = 'white';
+                cb.strokeStyle = 'black';
 
                 if (i > 0) {
                     //if (endStr.length > 2) Skip this draw, is a teleport
 
                     let endStr = AstarDirCoords[d][i - 1];//.split(', ');
-                    let lerpEndX = lerp(endStr[0], 0, oWidth, 0, 1920);
-                    let lerpEndY = lerp(endStr[1], 0, oHeight, 0, 1080);
+                    let lerpEndX = lerp(endStr[0], x1, x2, 0, 1920);
+                    let lerpEndY = lerp(endStr[1], y1, y2, 0, 1080);
 
                     cb.beginPath();
                     cb.lineWidth = 5;

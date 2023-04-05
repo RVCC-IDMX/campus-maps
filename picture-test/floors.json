@@ -11,7 +11,7 @@
             "y1": 0,
             "x2": 1920,
             "y2": 1080,
-            "img": "img/solid-color-overmaps/green.png"
+            "img": "img/outermaps/westbuilding-firstfloor.png"
         }
     },
     "second-floor-west": {
@@ -26,7 +26,7 @@
             "y1": 0,
             "x2": 1920,
             "y2": 1080,
-            "img": "img/solid-color-overmaps/red.png"
+            "img": "img/outermaps/westbuilding-secondfloor.png"
         }
     },
     "third-floor-west": {
@@ -41,7 +41,7 @@
             "y1": 0,
             "x2": 1920,
             "y2": 1080,
-            "img": "img/solid-color-overmaps/blue.png"
+            "img": "img/outermaps/westbuilding-thirdfloor.png"
         }
     }
 }
