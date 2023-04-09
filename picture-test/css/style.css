@@ -4,3 +4,26 @@ canvas {}
 #underMap {
     display: none;
 }
+
+#loadImg {
+    animation: linear infinite;
+    animation-duration: 4s;
+    animation-name: rotate;
+
+    justify-self: center;
+    align-self: center;
+}
+
+#hideLoad {
+    display: none;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
