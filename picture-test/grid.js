@@ -599,15 +599,15 @@ function paintNodeFromCoords(x, y, canvas, color) {
 //get a specific node from provided coordinates. 
 //Room/destinates will have a set of coords, this will translate that into a node
 function findNodeFromCoords(nx, ny) {
-    for (let x = 0; x < gridWidth; x++) {
-        for (let y = 0; y < gridHeight; y++) {
-            if (allNodes[x][y].x == nx && allNodes[x][y].y == ny) {
-                return allNodes[x][y];
-            }
-        }
-    }
+    // for (let x = 0; x < gridWidth; x++) {
+    //     for (let y = 0; y < gridHeight; y++) {
+    //         if (allNodes[x][y].x == nx && allNodes[x][y].y == ny) {
+    //             return allNodes[x][y];
+    //         }
+    //     }
+    // }
 
-    return null;
+    return allNodes[nx][ny];
 }
 
 /* ~~~~~~~~~~~~~~~~
