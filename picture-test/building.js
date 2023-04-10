@@ -161,7 +161,9 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
         // console.log(lerp(378, 0, oHeight, 0, 1080));
     }
 
-    document.querySelector('#imgWrapper').id = 'hideLoad';
+    //hide the loading image
+
+    document.querySelector('#imgWrapper') !== null ? document.querySelector('#imgWrapper').id = 'hideLoad' : '';
 }
 
 function lerp(p, a1, a2, b1, b2) {

@@ -331,7 +331,7 @@ function generateDirections() {
         if (tDir !== previousDir) {
             displayDir = getRelativeDirections(previousDir, tDir, pathcolor);
 
-            directions.push('In ' + (pixelStepCount * pixelScale) + ' feet go ' + displayDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
+            directions.push('In ' + (pixelStepCount * pixelScale) + ' ' + ((pixelStepCount * pixelScale) > 1 ? "feet " : "foot ") + 'go ' + displayDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
             previousDir = tDir;
             pixelStepCount = 1;
 
@@ -366,7 +366,7 @@ function generateDirections() {
     //pushes the final coordDirections to the overall directions
     floorDirections.push(coordDirections);
 
-    console.log(tracedPath);//~~~~~~~~~~~~ Log
+    //console.log(tracedPath);//~~~~~~~~~~~~ Log
 
     console.log(directions); //~~~~~~~~~~~~ Log
     //console.log(coordDirections);//~~~~~~~~~~~~ Log

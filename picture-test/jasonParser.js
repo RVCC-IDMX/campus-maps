@@ -18,8 +18,8 @@ async function getJsonFile() {
 
     ready = true;
 
-    jsToHtml(str, "start");
-    jsToHtml(str, "destination");
+    //jsToHtml(str, "start");
+    //jsToHtml(str, "destination");
 }
 
 //Function for site search button to call, Assumes good data, no checks (to fix)
@@ -32,6 +32,7 @@ function buttonStartSearch() {
 
     let startR = document.getElementById("start");
     let endR = document.getElementById("destination");
+    let accesibilityToggle = document.getElementById("accesibilityToggle");
 
     //roomOnlySearch(endR.value);
 
@@ -41,9 +42,9 @@ function buttonStartSearch() {
     let startNode = roomOnlySearch(startR.value);
     //startNode = new Room(parseInt(startNode[0], 10), parseInt(startNode[1], 10), 'room', 'start');
 
-    console.log(startNode, endNode);
+    console.log(startNode, endNode, accesibilityToggle.checked);
 
-    beginPathFinding(startNode, endNode, false);
+    beginPathFinding(startNode, endNode, accesibilityToggle.checked);
 }
 
 

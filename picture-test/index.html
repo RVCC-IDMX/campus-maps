@@ -11,10 +11,35 @@
 </head>
 
 <body>
-    <select type="search" id="start" placeholder="start..."></select>
-    <select type="search" id="destination" placeholder="destination..."></select>
-    <input type="button" onclick="buttonStartSearch()" value="Search">
+    <!-- old dropdown search -->
+    <!-- <select type="search" id="start" placeholder="start..."></select>
+    <select type="search" id="destination" placeholder="destination..."></select> -->
 
+    <p class="searchError">
+
+    </p>
+
+    <!-- Predictive search -->
+    <div class="predicative-search">
+        <input type="text" class="predicative-background" readonly tabindex="-1" />
+        <input type="text" id="start" class="predicative-field" placeholder="Search for room numbers..."
+            onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
+    </div>
+
+    <div class="predicative-search">
+        <input type="text" class="predicative-background" readonly tabindex="-1" />
+        <input type="text" id="destination" class="predicative-field" placeholder="Search for room numbers..."
+            onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
+    </div>
+
+    <div id="accessibility"> <!--Accessibility options-->
+        <input type="checkbox" id="accesibilityToggle">
+        <p>Toggle for accessible routes</p>
+    </div>
+
+    <input type="submit" onclick="buttonStartSearch()" value="Search">
+
+    <!-- Increment shown directions -->
     <a class="body_gallery-prev" onclick="nextFloor(-1)">&#10094;</a>
     <a class="body_gallery-next" onclick="nextFloor(1)">&#10095;</a>
 
@@ -32,6 +57,9 @@
     <script src='teleportDir.js'></script>
     <script src='building.js'></script>
     <script src='jasonParser.js'></script>
+
+
+    <script src="predicative-search.js" type="module"></script>
 </body>
 
 </html>
