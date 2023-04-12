@@ -44,6 +44,11 @@ function buttonStartSearch() {
 
     console.log(startNode, endNode, accesibilityToggle.checked);
 
+    if(startR.value == '' || endR.value == '')
+    {
+        console.error('error');
+    }
+
     beginPathFinding(startNode, endNode, accesibilityToggle.checked);
 }
 

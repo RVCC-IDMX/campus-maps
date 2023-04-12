@@ -10,6 +10,8 @@ let nonAccessiblePath = []; let nonAccesiblePathIndex = 0;
 let walls = []; let wallIndex = 0;
 let Nodes = []; let nodesIndex = 0;
 
+let imgData = [];
+
 //Set up internal canvas
 let canvas = document.createElement('canvas');
 let c = canvas.getContext("2d", {
@@ -26,6 +28,10 @@ window.onload = async () => {
 
     //Draw image to canvas
     c.drawImage(picture, 0, 0);
+
+    imgData = c.getImageData(0, 0, picture.width, picture.height).data;
+
+    console.log(imgData);
 
     Nodes.length = picture.width;
     for (let i = 0; i < picture.width; i++) {
@@ -118,7 +124,10 @@ async function snagColor(image, x, y) {
     //let image = await loadImage(url);
 
     //Snag the databuffer representing the image data
-    let data = c.getImageData(x, y, 1, 1).data;
+    let index = ((y * canvas.width) + x) * 4;
+    let data = [imgData[index], imgData[index+1], imgData[index+2], imgData[index+3]]; //c.getImageData(x, y, 1, 1).data;
+
+    //console.log(data);
 
     //Skip over the data buffer to the spot
     //let s = (y*image.width + x) * 4;

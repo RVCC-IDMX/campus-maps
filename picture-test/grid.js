@@ -54,20 +54,20 @@ async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
     localCanvas = canvas;
     localC = c;
 
-    for (let x = 0; x < gridWidth; x++) {
-        for (let y = 0; y < gridHeight; y++) {
-            if (allNodes[x][y].color === 'empty') {
-                allNodes[x][y].color = 'black';
-            }
+    // for (let x = 0; x < gridWidth; x++) {
+    //     for (let y = 0; y < gridHeight; y++) {
+    //         if (allNodes[x][y].color === 'empty') {
+    //             allNodes[x][y].color = 'black';
+    //         }
 
-            c.fillStyle = allNodes[x][y].color;
+    //         //c.fillStyle = allNodes[x][y].color;
 
-            //console.log(allNodes[nIndex].color);//~~~~~~~~~~~~ Log
+    //         //console.log(allNodes[nIndex].color);//~~~~~~~~~~~~ Log
 
-            //nIndex++;
-            c.fillRect(x * scale, y * scale, scale, scale);
-        }
-    }
+    //         //nIndex++;
+    //         //c.fillRect(x * scale, y * scale, scale, scale);
+    //     }
+    // }
 
     //Temp room array for tests
     //let rooms = [new Room(15, 20, 'w412', 'start room: 32x32px'), new Room(21, 35, 'w412', 'start room: maze file'), new Room(15, 0, 'w412', 'end room: 32x32px'), new Room(7, 0, 'w412', 'end room: maze file'), new Room(96, 424, 'entry', 'west-b-test'), new Room(193, 102, 'w310', 'west-b-test')];
@@ -137,9 +137,11 @@ function setGrid() {
             //console.log(allNodes[x][y].color);//~~~~~~~~~~~~ Log
 
             //nIndex++;
-            localC.fillRect(x * scale, y * scale, scale, scale);
+            //localC.fillRect(x * scale, y * scale, scale, scale);
         }
     }
+
+    //console.log(allNodes);
 }
 
 /*
