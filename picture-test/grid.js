@@ -331,9 +331,13 @@ function generateDirections() {
         //console.log(tDir, previousDir);//~~~~~~~~~~~~ Log
 
         if (tDir !== previousDir) {
-            displayDir = getRelativeDirections(previousDir, tDir, pathcolor);
+            displayDir = tDir;//getRelativeDirections(previousDir, tDir, pathcolor);
 
-            directions.push('In ' + (pixelStepCount * pixelScale) + ' ' + ((pixelStepCount * pixelScale) > 1 ? "feet " : "foot ") + 'go ' + displayDir);// + ' : ' + tracedPath[i].x + ', ' + tracedPath[i].y);
+            getRelativeDirections(previousDir, tDir, pathcolor);
+            //console.log(i);
+
+            directions.push('In ' + (pixelStepCount * pixelScale) + ' ' + ((pixelStepCount * pixelScale) > 1 ? "feet " : "foot ") + 'go ' + displayDir);
+            
             previousDir = tDir;
             pixelStepCount = 1;
 
@@ -380,109 +384,138 @@ function generateDirections() {
 
 function getRelativeDirections(currentDir, newDir, pathcolor) {
 
-    let suffix = '';
+    // console.log(currentDir - newDir);
 
-    if (pathcolor == 'red') {
-        suffix = 'up/down the stairs';
+    if(newDir >= currentDir + 45)
+    {
+        console.log('right');
     }
-    else if (pathcolor == 'green') {
-        suffix = 'up/down the elevator';
+    else if(newDir <= currentDir - 45)
+    {
+        console.log('left');
+    }
+    else{
+        console.log('straight');
     }
 
-    if (currentDir == 'up') {
-        if (newDir == 'right') {
-            return 'right ' + suffix;
-        }
-        else if (newDir == 'left') {
-            return 'left ' + suffix;
-        }
-        else if (newDir == 'down') {
-            return 'straight ' + suffix;
-        }
-    }
-    else if (currentDir == 'down') {
-        if (newDir == 'right') {
-            return 'left ' + suffix;
-        }
-        else if (newDir == 'left') {
-            return 'right ' + suffix;
-        }
-        else if (newDir == 'up') {
-            return 'straight ' + suffix;
-        }
-    }
-    else if (currentDir == 'left') {
-        if (newDir == 'up') {
-            return 'right ' + suffix;
-        }
-        else if (newDir == 'down') {
-            return 'left ' + suffix;
-        }
-        else if (newDir == 'left') {
-            return 'straight ' + suffix;
-        }
-    }
-    else if (currentDir == 'right') {
-        if (newDir == 'up') {
-            return 'left ' + suffix;
-        }
-        else if (newDir == 'down') {
-            return 'right ' + suffix;
-        }
-        else if (newDir == 'right') {
-            return 'straight ' + suffix;
-        }
-    }
-    else if (currentDir == '') {
-        return 'straight ' + suffix;
-    }
-    else {
-        console.error('Data entry error: [' + currentDir + '] is not a valid input, please use: up, down, left, or right');
-        //console.log(currentDir, newDir);
-    }
+    console.log(newDir, currentDir);
+
+    // let suffix = '';
+
+    // if (pathcolor == 'red') {
+    //     suffix = 'up/down the stairs';
+    // }
+    // else if (pathcolor == 'green') {
+    //     suffix = 'up/down the elevator';
+    // }
+
+    // if (currentDir == 'up') {
+    //     if (newDir == 'right') {
+    //         return 'right ' + suffix;
+    //     }
+    //     else if (newDir == 'left') {
+    //         return 'left ' + suffix;
+    //     }
+    //     else if (newDir == 'down') {
+    //         return 'straight ' + suffix;
+    //     }
+    // }
+    // else if (currentDir == 'down') {
+    //     if (newDir == 'right') {
+    //         return 'left ' + suffix;
+    //     }
+    //     else if (newDir == 'left') {
+    //         return 'right ' + suffix;
+    //     }
+    //     else if (newDir == 'up') {
+    //         return 'straight ' + suffix;
+    //     }
+    // }
+    // else if (currentDir == 'left') {
+    //     if (newDir == 'up') {
+    //         return 'right ' + suffix;
+    //     }
+    //     else if (newDir == 'down') {
+    //         return 'left ' + suffix;
+    //     }
+    //     else if (newDir == 'left') {
+    //         return 'straight ' + suffix;
+    //     }
+    // }
+    // else if (currentDir == 'right') {
+    //     if (newDir == 'up') {
+    //         return 'left ' + suffix;
+    //     }
+    //     else if (newDir == 'down') {
+    //         return 'right ' + suffix;
+    //     }
+    //     else if (newDir == 'right') {
+    //         return 'straight ' + suffix;
+    //     }
+    // }
+    // else if (currentDir == '') {
+    //     return 'straight ' + suffix;
+    // }
+    // else {
+    //     console.error('Data entry error: [' + currentDir + '] is not a valid input, please use: up, down, left, or right');
+    //     //console.log(currentDir, newDir);
+    // }
 }
 
 //Utility Methods
 
 //map of coordinates to direction
-const direArr = new Map();
-direArr.set('0, 1', 'down');
-direArr.set('1, 0', 'right');
-direArr.set('-1, 0', 'left');
-direArr.set('0, -1', 'up');
+// const direArr = new Map();
+// direArr.set('0, 1', 'down');
+// direArr.set('1, 0', 'right');
+// direArr.set('-1, 0', 'left');
+// direArr.set('0, -1', 'up');
 
-//angled directions, only show up when teleports are used
-direArr.set('1, 1', 'down');
-direArr.set('1, -1', 'up');
+// direArr.set('1, 1', 'down');
+// direArr.set('1, -1', 'up');
 
-direArr.set('-1, 1', 'down');
-direArr.set('-1, -1', 'up');
+// direArr.set('-1, 1', 'down');
+// direArr.set('-1, -1', 'up');
 
 //get the vector direction using two points
 function getDir(originNode, travelToNode) {
     let x = travelToNode.x - originNode.x;
     let y = travelToNode.y - originNode.y;
 
-    if (x > 1) {
-        x = 1;
-    }
-    else if (x < -1) {
-        x = -1;
-    }
-
-    if (y > 1) {
-        v = y;
-    }
-    else if (y < -1) {
-        y = -1;
-    }
+    //normalize the vector
+    let h = Math.sqrt((x * x) + (y*y));
+    x /= h;
+    y /= h;
 
     // (x, y) is the vector of these points
     // need to convert the vector into a *useable* direction
-    let coords = `${x}, ${y}`;
+    // let coords = `${x}, ${y}`;
     //console.log(coords); //~~~~~~~~~~~~ Log
 
-    return direArr.get(coords);
+    // return direArr.get(coords);
+    //console.log(angleFromVector(x, y));
+    return angleFromVector(x, y);
+}
+
+function angleFromVector(x, y)
+{
+    // 0, 1 = 0
+    // 1, 1 = 45
+    // 1, 0 = 90
+    // 1, -1 = 135
+    // 0, -1 = 180
+    // -1, -1 = 225
+    // -1, 0 = 270
+    // -1, 1 = 315
+
+    let a = (Math.atan2(y, x) * (180 / Math.PI));
+
+    a -= 90;
+
+    a = roundFloat(a, 10);
+    //a += (a < 0) ? 360:0;
+
+    return a;
 }
 
 //get all the valid neighbours of a node

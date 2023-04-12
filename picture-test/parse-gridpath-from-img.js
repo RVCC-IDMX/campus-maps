@@ -31,7 +31,7 @@ window.onload = async () => {
 
     imgData = c.getImageData(0, 0, picture.width, picture.height).data;
 
-    console.log(imgData);
+    //console.log(imgData);
 
     Nodes.length = picture.width;
     for (let i = 0; i < picture.width; i++) {
