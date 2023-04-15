@@ -22,6 +22,25 @@ let pixelScale = 1; // How big is a pixel relative to the map, in feet
 let localCanvas;
 let localC;
 
+let jan;
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+// Start file download.
+// Manual download
+// download("allNodes.json", jan);
+
 async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
     await getJsonFile();
 
@@ -34,7 +53,9 @@ async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
 
     allNodes = nodes;
 
-    //console.log(allNodes);//~~~~~~~~~~~~ Log
+    //Json node grid test
+    jan = JSON.stringify(nodes);
+    //
 
     let canvas = document.createElement('canvas');
     let c = canvas.getContext("2d");
@@ -337,7 +358,7 @@ function generateDirections() {
             //console.log(i);
 
             directions.push('In ' + (pixelStepCount * pixelScale) + ' ' + ((pixelStepCount * pixelScale) > 1 ? "feet " : "foot ") + 'go ' + displayDir);
-            
+
             previousDir = tDir;
             pixelStepCount = 1;
 
@@ -386,15 +407,13 @@ function getRelativeDirections(currentDir, newDir, pathcolor) {
 
     // console.log(currentDir - newDir);
 
-    if(newDir >= currentDir + 45)
-    {
+    if (newDir >= currentDir + 45) {
         console.log('right');
     }
-    else if(newDir <= currentDir - 45)
-    {
+    else if (newDir <= currentDir - 45) {
         console.log('left');
     }
-    else{
+    else {
         console.log('straight');
     }
 
@@ -483,7 +502,7 @@ function getDir(originNode, travelToNode) {
     let y = travelToNode.y - originNode.y;
 
     //normalize the vector
-    let h = Math.sqrt((x * x) + (y*y));
+    let h = Math.sqrt((x * x) + (y * y));
     x /= h;
     y /= h;
 
@@ -497,8 +516,7 @@ function getDir(originNode, travelToNode) {
     return angleFromVector(x, y);
 }
 
-function angleFromVector(x, y)
-{
+function angleFromVector(x, y) {
     // 0, 1 = 0
     // 1, 1 = 45
     // 1, 0 = 90
