@@ -35,21 +35,32 @@ function buttonStartSearch() {
     let endR = document.getElementById("destination");
     let accesibilityToggle = document.getElementById("accesibilityToggle");
 
-    if((startR.value == '' || endR.value == ''))
-    {
+    if ((startR.value == '' || endR.value == '')) {
         let errorMsg = document.querySelector(".searchError-hidden");
 
-        if(errorMsg !== null)
-        {
+        if (errorMsg !== null) {
             errorMsg.className = 'searchError'
+            errorMsg.innerHTML = 'Please enter both a Start and Destination.';
 
             setTimeout(() => {
                 document.querySelector(".searchError").className = 'searchError-hidden';
             }, 2000);
         }
     }
-    else{
-        let endNode = roomOnlySearch(endR.value);      
+    else if (startR.value == endR.value) {
+        let errorMsg = document.querySelector(".searchError-hidden");
+
+        if (errorMsg !== null) {
+            errorMsg.className = 'searchError'
+            errorMsg.innerHTML = 'Start and End Destination cannot be the same room';
+
+            setTimeout(() => {
+                document.querySelector(".searchError").className = 'searchError-hidden';
+            }, 2000);
+        }
+    }
+    else {
+        let endNode = roomOnlySearch(endR.value);
         let startNode = roomOnlySearch(startR.value);
 
         console.log(startNode, endNode, accesibilityToggle.checked);

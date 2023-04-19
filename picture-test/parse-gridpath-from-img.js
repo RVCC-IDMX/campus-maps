@@ -26,7 +26,6 @@ window.onload = async () => {
     canvas.width = picture.width;
     canvas.height = picture.height;
 
-    /*
     //Draw image to canvas
     c.drawImage(picture, 0, 0);
 
@@ -65,28 +64,27 @@ window.onload = async () => {
             //nodesIndex++;
         }
     }
-    */
 
-    //Using JSON file for grid rather than img
-    const requestURL_ = 'allNodes.json'; //'map-data copy for tests.json';
-    const request_ = new Request(requestURL_);
+    // //Using JSON file for grid rather than img
+    // const requestURL_ = 'allNodes.json'; //'map-data copy for tests.json';
+    // const request_ = new Request(requestURL_);
 
-    const response_ = await fetch(request_);
-    const file_ = await response_.json();
-    NodesJs = file_;
+    // const response_ = await fetch(request_);
+    // const file_ = await response_.json();
+    // NodesJs = file_;
 
-    Nodes.length = picture.width;
-    for (let i = 0; i < picture.width; i++) {
-        Nodes[i] = new Array(picture.height);
-    }
+    // Nodes.length = picture.width;
+    // for (let i = 0; i < picture.width; i++) {
+    //     Nodes[i] = new Array(picture.height);
+    // }
 
-    for (let x = 0; x < picture.width; x++) {
-        for (let y = 0; y < picture.height; y++) {
-            color = NodesJs[x][y].color;
+    // for (let x = 0; x < picture.width; x++) {
+    //     for (let y = 0; y < picture.height; y++) {
+    //         color = NodesJs[x][y].color;
 
-            Nodes[x][y] = new Node(x, y, color);
-        }
-    }
+    //         Nodes[x][y] = new Node(x, y, color);
+    //     }
+    // }
 
     makeGrid(picture.width, picture.height, Nodes);
 }
