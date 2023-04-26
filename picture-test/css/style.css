@@ -1,6 +1,4 @@
 /* Style the canvas on screen*/
-canvas {}
-
 #underMap {
     display: none;
 }
@@ -60,4 +58,9 @@ canvas {}
 {
     background: red;
     color: white;
+}
+
+.searchError-hidden
+{
+    display: none;
 }

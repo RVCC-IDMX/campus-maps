@@ -2,6 +2,7 @@
 
 let fileArr;
 let read = false;
+
 async function getJsonFile() {
 
     const requestURL = 'map-data copy for tests v2.json'; //'map-data copy for tests.json';
@@ -34,22 +35,37 @@ function buttonStartSearch() {
     let endR = document.getElementById("destination");
     let accesibilityToggle = document.getElementById("accesibilityToggle");
 
-    //roomOnlySearch(endR.value);
+    if ((startR.value == '' || endR.value == '')) {
+        let errorMsg = document.querySelector(".searchError-hidden");
 
-    let endNode = roomOnlySearch(endR.value);
-    //endNode = new Room(parseInt(endNode[0], 10), parseInt(endNode[1], 10), 'room', 'end');
+        if (errorMsg !== null) {
+            errorMsg.className = 'searchError'
+            errorMsg.innerHTML = 'Please enter both a Start and Destination.';
 
-    let startNode = roomOnlySearch(startR.value);
-    //startNode = new Room(parseInt(startNode[0], 10), parseInt(startNode[1], 10), 'room', 'start');
-
-    console.log(startNode, endNode, accesibilityToggle.checked);
-
-    if(startR.value == '' || endR.value == '')
-    {
-        console.error('error');
+            setTimeout(() => {
+                document.querySelector(".searchError").className = 'searchError-hidden';
+            }, 2000);
+        }
     }
+    else if (startR.value == endR.value) {
+        let errorMsg = document.querySelector(".searchError-hidden");
 
-    beginPathFinding(startNode, endNode, accesibilityToggle.checked);
+        if (errorMsg !== null) {
+            errorMsg.className = 'searchError'
+            errorMsg.innerHTML = 'Start and End Destination cannot be the same room';
+
+            setTimeout(() => {
+                document.querySelector(".searchError").className = 'searchError-hidden';
+            }, 2000);
+        }
+    }
+    else {
+        let endNode = roomOnlySearch(endR.value);
+        let startNode = roomOnlySearch(startR.value);
+
+        console.log(startNode, endNode, accesibilityToggle.checked);
+        beginPathFinding(startNode, endNode, accesibilityToggle.checked);
+    }
 }
 
 

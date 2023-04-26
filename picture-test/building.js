@@ -47,6 +47,7 @@ let offsetY;
 // drawOvermap();
 
 let coordsArr;
+floorCoordsJson();
 
 let currentStep = 1;
 let coordLength = [];
@@ -69,11 +70,11 @@ function nextFloor(direction) {
 
     drawOvermap(coordLength, w, h);
 
-    console.log(direction, currentStep);
+    //console.log(direction, currentStep);
 }
 
 async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
-    await floorCoordsJson();
+
     //console.log(fileArr["second-floor-west"]["omap"].img);
 
     //img needs to equal whatever the current AstarDirCoords node floor is.
@@ -208,7 +209,6 @@ function paintNodeFromCoordsOvermap(x, y, c, color) {
 }
 
 async function floorCoordsJson() {
-
     const requestURL = 'floors.json';
     const request = new Request(requestURL);
 
@@ -224,7 +224,6 @@ async function loadImage(url) {
         //Set up new image
         let img = new Image();
 
-
         //Set up callback to resolve the image
         img.onload = () => {
             resolve(img);
@@ -232,7 +231,6 @@ async function loadImage(url) {
 
         //Set it in motion
         img.src = url;
-
     });
 
 }
