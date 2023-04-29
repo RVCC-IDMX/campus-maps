@@ -67,6 +67,7 @@ h1 {
 	grid-template-columns: 1fr;
 	gap: 0.8em;
 	min-width: 400px;
+	padding-inline: 0.2em;
 }
 
 .predicative-search {
@@ -154,7 +155,7 @@ a:focus {
 	outline: none;
 }
 
-#accesibilityToggle:focus+.accessibilityToggle::before {
+#accesibilityToggle:focus + .accessibilityToggle::before {
 	box-shadow: 0 0 0 2px #84bb46;
 }
 
@@ -186,13 +187,22 @@ a:focus {
 	background-color: black;
 }
 
-#accesibilityToggle:checked+.accessibilityToggle::after {
+#accesibilityToggle:checked + .accessibilityToggle::after {
 	opacity: 1;
 }
 
 .btn-ctn {
 	display: flex;
-	justify-content: space-between;
+	width: 100%;
+	justify-content: space-around;
+}
+
+button {
+	padding-block: 0.2em;
+	display: grid;
+	place-items: center;
+	border: none;
+	margin: 0.2em;
 }
 
 @media (max-width: 700px) {
@@ -200,12 +210,18 @@ a:focus {
 		flex-direction: column;
 		width: 100%;
 		padding-block: 0;
-		gap: 1em;
+		gap: 2em;
+	}
+	h1 {
+		font-size: 1.5rem;
 	}
 
 	.form-ctn,
 	.title-ctn {
 		min-width: 200px;
 		width: 100%;
+	}
+	#icon {
+		width: 100px;
 	}
 }
