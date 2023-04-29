@@ -4,4 +4,15 @@ Perhaps the initial parsing of the inner map can be combined with creation of th
 
 !Picture not loading on Firefox!
 
-\*\*\*disable arrow buttons when there isn't a floor to show next/previous
+Emma notes:
+
+-   disable arrow buttons when there isn't a floor to show next/previous
+
+-   find way to zoom in/out on canvas (touch + mouse) while keeping inner/outer map aligned (?)
+    [this codepen might help?](https://codepen.io/chengarda/pen/wRxoyB)
+
+-   find way to add a footer - will have to be dynamically added (thru js) because if I put it directly in html, it shows up before the map...
+
+-   add favicon
+-   should arrow buttons be labeled? (with what text? Thoughts: next map, next step)
+-   get feedback on desktop/mobile layout
