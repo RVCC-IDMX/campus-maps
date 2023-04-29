@@ -111,7 +111,7 @@ h1 {
 }
 
 .search-btn,
-a {
+button {
 	font-family: inherit;
 	border: 1px solid black;
 	border-radius: 0.2em;
@@ -123,18 +123,18 @@ a {
 }
 
 .search-btn:hover,
-a:hover {
+button:hover {
 	background-color: #84bb46;
 }
 
 .search-btn:active,
-a:active {
+button:active {
 	background-color: black;
 	color: white;
 }
 
 .search-btn:focus,
-a:focus {
+button:focus {
 	box-shadow: 0 0 0 2px #84bb46;
 	outline: none;
 }
