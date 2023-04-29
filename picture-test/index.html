@@ -27,7 +27,7 @@
     <header>
         <div class="title-ctn">
             <h1>Raritan Valley Community College Map & GPS</h1>
-            <img src="/picture-test/img/rvcc mapp icon.svg"
+            <img src="/img/rvcc mapp icon.svg"
                 alt="Logo resembling two mountains and a valley representing Raritan Valley Community college with a dashed line traversing through it">
         </div>
         <!-- Predictive search -->
@@ -52,26 +52,26 @@
                 <label class="accessibilityToggle" for="accesibilityToggle">Toggle for accessible routes</label>
             </div>
 
-            <input class="search-btn" type="submit" onclick="buttonStartSearch()" value="Search">
+            <input class="search-btn" type="button" onclick="buttonStartSearch()" value="Search">
 
             <!-- Increment shown directions -->
             <div class="btn-ctn">
-                <button class="body_gallery-prev" onclick="nextFloor(-1)">
+                <a class="body_gallery-prev" onclick="nextFloor(-1)">
                     <svg title="arrow pointing left" width="50" height="39" viewBox="0 0 48 39" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path id="arrow-left"
                             d="M2 19.4656L47.1489 19.4656M2 19.4656L19.5344 37M2 19.4656L19.5344 1.93128" stroke="black"
                             stroke-width="4" stroke-linecap="round" />
                     </svg>
-                </button>
-                <button class="body_gallery-next" onclick="nextFloor(1)">
+                </a>
+                <a class="body_gallery-next" onclick="nextFloor(1)">
                     <svg title="arrow pointing right" width="50" height="39" viewBox="0 0 47 39" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path id="arrow-right"
                             d="M45.4531 19.4865L0.304259 19.4865M45.4531 19.4865L27.9188 1.95215M45.4531 19.4865L27.9188 37.0209"
                             stroke="black" stroke-width="4" stroke-linecap="round" />
                     </svg>
-                </button>
+                </a>
             </div>
 
         </form>

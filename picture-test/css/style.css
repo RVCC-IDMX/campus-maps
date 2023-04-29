@@ -110,7 +110,7 @@ h1 {
 }
 
 .search-btn,
-button {
+a {
 	font-family: inherit;
 	border: 1px solid black;
 	border-radius: 0.2em;
@@ -122,18 +122,18 @@ button {
 }
 
 .search-btn:hover,
-button:hover {
+a:hover {
 	background-color: #84bb46;
 }
 
 .search-btn:active,
-button:active {
+a:active {
 	background-color: black;
 	color: white;
 }
 
 .search-btn:focus,
-button:focus {
+a:focus {
 	box-shadow: 0 0 0 2px #84bb46;
 	outline: none;
 }
@@ -154,7 +154,7 @@ button:focus {
 	outline: none;
 }
 
-#accesibilityToggle:focus + .accessibilityToggle::before {
+#accesibilityToggle:focus+.accessibilityToggle::before {
 	box-shadow: 0 0 0 2px #84bb46;
 }
 
@@ -186,7 +186,7 @@ button:focus {
 	background-color: black;
 }
 
-#accesibilityToggle:checked + .accessibilityToggle::after {
+#accesibilityToggle:checked+.accessibilityToggle::after {
 	opacity: 1;
 }
 
@@ -202,6 +202,7 @@ button:focus {
 		padding-block: 0;
 		gap: 1em;
 	}
+
 	.form-ctn,
 	.title-ctn {
 		min-width: 200px;
