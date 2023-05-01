@@ -1,7 +1,7 @@
 let url = 'img/west-building-test.png';
 
 let colorOptions = ['red', 'green', 'blue', 'black', 'white', 'empty'];
-//initial options, black = wall, red = non-accessible (stairs), white = accessible/path, green = elevators
+//initial options, black = wall, red = non-accessible (stairs), white = accessible/path, blue = accessible/path but at triple cost, green = elevators
 let rgbData = [];
 let color = '';
 

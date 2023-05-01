@@ -24,18 +24,18 @@ let localC;
 
 let jan;
 
-function download(filename, text) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
+// function download(filename, text) {
+//     var element = document.createElement('a');
+//     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+//     element.setAttribute('download', filename);
 
-    element.style.display = 'none';
-    document.body.appendChild(element);
+//     element.style.display = 'none';
+//     document.body.appendChild(element);
 
-    element.click();
+//     element.click();
 
-    document.body.removeChild(element);
-}
+//     document.body.removeChild(element);
+// }
 
 // Start file download.
 // Manual download
@@ -54,7 +54,7 @@ async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
     allNodes = nodes;
 
     //Json node grid test
-    jan = JSON.stringify(nodes);
+    // jan = JSON.stringify(nodes);
     //
 
     let canvas = document.createElement('canvas');
@@ -289,7 +289,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
                 paintNode(current, localCanvas, 'grey');
             }
 
-            if (i < 10000 /* arbitrary end step to prevent infinte loop*/) {
+            if (i < 1000000 /* arbitrary end step to prevent infinte loop*/) {
                 i++;
                 loopStep();
                 //setTimeout(() => { loopStep(); }, 5);        //slow things down for testing

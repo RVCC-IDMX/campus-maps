@@ -17,12 +17,12 @@ class Node {
 
     //Return the F-cost for the node
     calcFCost() {
-        return this.gCost + this.hCost;
+        return this.gCost + this.hCost * (color == 'blue' ? 3 : 1);
     }
 
     //Returns whether this node is avalible
     isAccessible(needsToBeAccessible) {
-        if (this.color === 'white' || this.color === 'orange') {
+        if (this.color === 'white' || this.color === 'orange' || this.color === 'blue') {
             return true;
         }
         else {
