@@ -31,31 +31,36 @@
                 alt="Logo resembling two mountains and a valley representing Raritan Valley Community college with a dashed line traversing through it. It says RVCC M'App">
         </div>
         <!-- Predictive search -->
-        <form class="form-ctn">
+        <div class="search closed">
+            <button class="form-toggle"></button>
 
-            <label for="start">Start room number: </label>
-            <div class="predicative-search">
-                <input type="text" class="predicative-background" readonly tabindex="-1" />
-                <input type="text" id="start" class="predicative-field" placeholder="Search for room numbers..."
-                    onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
-            </div>
+            <form class="form-ctn">
 
-            <label for="destination">Destination room number: </label>
-            <div class="predicative-search">
-                <input type="text" class="predicative-background" readonly tabindex="-1" />
-                <input type="text" id="destination" class="predicative-field" placeholder="Search for room numbers..."
-                    onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
-            </div>
+                <label for="start">Start room number: </label>
+                <div class="predicative-search">
+                    <input type="text" class="predicative-background" readonly tabindex="-1" />
+                    <input type="text" id="start" class="predicative-field" placeholder="Search for room numbers..."
+                        onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
+                </div>
 
-            <div id="accessibility"> <!--Accessibility options-->
-                <input type="checkbox" id="accesibilityToggle">
-                <label class="accessibilityToggle" for="accesibilityToggle">I want an accessible route (no
-                    stairs)</label>
-            </div>
+                <label for="destination">Destination room number: </label>
+                <div class="predicative-search">
+                    <input type="text" class="predicative-background" readonly tabindex="-1" />
+                    <input type="text" id="destination" class="predicative-field"
+                        placeholder="Search for room numbers..."
+                        onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
+                </div>
 
-            <input class="search-btn" type="button" onclick={buttonStartSearch()} value="Show me where to go">
+                <div id="accessibility"> <!--Accessibility options-->
+                    <input type="checkbox" id="accesibilityToggle">
+                    <label class="accessibilityToggle" for="accesibilityToggle">I want an accessible route (no
+                        stairs)</label>
+                </div>
 
-        </form>
+                <input class="search-btn" type="button" onclick={buttonStartSearch()} value="Show me where to go">
+
+            </form>
+        </div>
     </header>
 
     <!-- Increment shown directions -->
@@ -95,6 +100,7 @@
     <script src='teleportDir.js'></script>
     <script src='building.js'></script>
     <script src='jasonParser.js'></script>
+    <script src='front-end.js'></script>
 
     <script src="predicative-search.js" type="module"></script>
 </body>

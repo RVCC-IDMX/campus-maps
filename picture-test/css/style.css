@@ -217,10 +217,19 @@ button {
 		font-size: 1.5rem;
 	}
 
+	.search {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		overflow: hidden;
+		transition: transform 200ms ease;
+	}
+
 	.form-ctn,
 	.title-ctn {
 		min-width: 200px;
 		width: 100%;
+		padding: 0;
 	}
 
 	.title-ctn {
@@ -229,10 +238,56 @@ button {
 	}
 
 	.form-ctn {
-		position: absolute;
-		bottom: 0;
-		padding: 3em 1em;
 		background-color: lightgrey;
+		padding: 1em;
+	}
+
+	.form-toggle {
+		position: relative;
+		width: 100px;
+		height: 2em;
+		background-color: lightgrey;
+		transform: translate(-50%, 50%);
+		left: 50%;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: transform 200ms ease;
+	}
+
+	.form-toggle::before {
+		content: '';
+		position: absolute;
+		width: 50px;
+		height: 5px;
+		background-color: rgba(128, 128, 128, 0.552);
+		transform: translate(-50%, 50%);
+		left: 50%;
+		border-radius: 2px;
+		top: 10px;
+		cursor: pointer;
+		transition: transform 200ms ease;
+	}
+
+	.closed {
+		transform: translateY(250px);
+		transition: transform 200ms ease;
+	}
+
+	.closed > .form-ctn::after {
+		content: 'Find your way around RVCC';
+		width: 100%;
+		position: absolute;
+		height: 100%;
+		z-index: 3;
+		background-color: #84bb46;
+	}
+
+	.closed > .form-ctn {
+		background-color: #84bb46;
+	}
+
+	.closed > .form-toggle {
+		background-color: #84bb46;
 	}
 
 	.btn-ctn {
