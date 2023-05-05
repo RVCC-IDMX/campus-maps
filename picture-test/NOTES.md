@@ -16,3 +16,4 @@ Emma notes:
 -   add favicon
 -   should arrow buttons be labeled? (with what text? Thoughts: next map, next step)
 -   get feedback on desktop/mobile layout
+-   title for floors/building

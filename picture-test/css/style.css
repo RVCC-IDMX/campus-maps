@@ -212,6 +212,7 @@ button {
 		padding-block: 0;
 		gap: 2em;
 	}
+
 	h1 {
 		font-size: 1.5rem;
 	}
@@ -221,7 +222,29 @@ button {
 		min-width: 200px;
 		width: 100%;
 	}
+
+	.title-ctn {
+		margin-block-end: 2em;
+		flex-direction: row-reverse;
+	}
+
+	.form-ctn {
+		position: absolute;
+		bottom: 0;
+		padding: 3em 1em;
+		background-color: lightgrey;
+	}
+
+	.btn-ctn {
+		position: absolute;
+		bottom: 50%;
+	}
+
 	#icon {
+		width: 100px;
+	}
+
+	.img {
 		width: 100px;
 	}
 }

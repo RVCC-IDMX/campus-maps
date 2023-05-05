@@ -27,8 +27,8 @@
     <header>
         <div class="title-ctn">
             <h1>Raritan Valley Community College Map & GPS</h1>
-            <img src="img/icons/rvcc-mapp-icon.svg"
-                alt="Logo resembling two mountains and a valley representing Raritan Valley Community college with a dashed line traversing through it">
+            <img class='img' src="img/icons/rvcc-mapp-icon.svg"
+                alt="Logo resembling two mountains and a valley representing Raritan Valley Community college with a dashed line traversing through it. It says RVCC M'App">
         </div>
         <!-- Predictive search -->
         <form class="form-ctn">
@@ -37,14 +37,14 @@
             <div class="predicative-search">
                 <input type="text" class="predicative-background" readonly tabindex="-1" />
                 <input type="text" id="start" class="predicative-field" placeholder="Search for room numbers..."
-                    onkeydown="if (event.keyCode == 13) {buttonStartSearch(event)};" />
+                    onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
             </div>
 
             <label for="destination">Destination room number: </label>
             <div class="predicative-search">
                 <input type="text" class="predicative-background" readonly tabindex="-1" />
                 <input type="text" id="destination" class="predicative-field" placeholder="Search for room numbers..."
-                    onkeydown="if (event.keyCode == 13) {buttonStartSearch(event)};" />
+                    onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
             </div>
 
             <div id="accessibility"> <!--Accessibility options-->
@@ -53,7 +53,7 @@
                     stairs)</label>
             </div>
 
-            <input class="search-btn" type="button" onclick={buttonStartSearch(event)} value="Show me where to go">
+            <input class="search-btn" type="button" onclick={buttonStartSearch()} value="Show me where to go">
 
         </form>
     </header>
