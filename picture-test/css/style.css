@@ -214,6 +214,13 @@ button {
 
 /* TABLET / MOBILE VERSION */
 @media (max-width: 700px) {
+	body {
+		height: 100vh;
+		overflow-y: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
 	header {
 		flex-direction: column;
 		width: 100%;
@@ -228,10 +235,11 @@ button {
 	.search {
 		width: 100%;
 		position: absolute;
+		height: auto;
 		bottom: 0;
 		padding-block-start: 2em;
 		overflow: hidden;
-		transition: transform 200ms ease-out;
+		transition: transform 300ms ease-out;
 	}
 
 	.form-ctn,
@@ -247,9 +255,9 @@ button {
 	}
 
 	.form-ctn {
-		background-color: lightgrey;
+		background-color: #e7edef;
 		padding: 1em;
-		padding-block-end: 3.5em;
+		padding-block-end: 5em;
 	}
 
 	.hide {
@@ -262,13 +270,13 @@ button {
 		position: relative;
 		width: 100px;
 		height: 2em;
-		background-color: lightgrey;
+		background-color: #e7edef;
 		transform: translate(-50%, 50%);
 		left: 50%;
 		border-radius: 5px;
 		cursor: pointer;
-		transition: transform 200ms ease;
 		box-shadow: -1px -1px 2px #5e5e5e;
+		transition: transform 300ms ease;
 	}
 
 	.form-toggle::before {
@@ -282,7 +290,7 @@ button {
 		border-radius: 2px;
 		top: 10px;
 		cursor: pointer;
-		transition: transform 200ms ease;
+		transition: transform 300ms ease;
 	}
 
 	.closed {
@@ -336,21 +344,29 @@ button {
 		text-align: center;
 		left: 0;
 		z-index: 3;
-		background-color: #84bb46;
+		background-color: #e7edef;
 	}
 
 	.closed > .form-ctn {
-		background-color: #84bb46;
+		background-color: #e7edef;
 	}
 
 	.closed > .form-toggle {
-		background-color: #84bb46;
+		background-color: #e7edef;
 	}
 
 	.btn-ctn {
 		position: absolute;
 		bottom: 0;
 		padding: 0.2em;
+		background: rgb(134, 185, 64);
+		background: linear-gradient(
+			90deg,
+			rgba(134, 185, 64, 1) 0%,
+			rgba(134, 185, 64, 1) 52%,
+			rgba(199, 218, 66, 1) 100%
+		);
+		border-block-start: 2px solid darkslategrey;
 	}
 
 	#icon {
