@@ -68,6 +68,7 @@ h1 {
 	gap: 0.8em;
 	min-width: 400px;
 	padding-inline: 0.2em;
+	z-index: 5;
 }
 
 .predicative-search {
@@ -102,6 +103,8 @@ h1 {
 }
 
 .searchError {
+	position: absolute;
+	top: 0;
 	background: red;
 	color: white;
 }
@@ -205,6 +208,11 @@ button {
 	margin: 0.2em;
 }
 
+.form-toggle {
+	display: none;
+}
+
+/* TABLET / MOBILE VERSION */
 @media (max-width: 700px) {
 	header {
 		flex-direction: column;
@@ -221,8 +229,9 @@ button {
 		width: 100%;
 		position: absolute;
 		bottom: 0;
+		padding-block-start: 2em;
 		overflow: hidden;
-		transition: transform 200ms ease;
+		transition: transform 200ms ease-out;
 	}
 
 	.form-ctn,
@@ -240,9 +249,16 @@ button {
 	.form-ctn {
 		background-color: lightgrey;
 		padding: 1em;
+		padding-block-end: 3.5em;
+	}
+
+	.hide {
+		visibility: hidden;
+		z-index: -1;
 	}
 
 	.form-toggle {
+		display: block;
 		position: relative;
 		width: 100px;
 		height: 2em;
@@ -252,6 +268,7 @@ button {
 		border-radius: 5px;
 		cursor: pointer;
 		transition: transform 200ms ease;
+		box-shadow: -1px -1px 2px #5e5e5e;
 	}
 
 	.form-toggle::before {
@@ -259,7 +276,7 @@ button {
 		position: absolute;
 		width: 50px;
 		height: 5px;
-		background-color: rgba(128, 128, 128, 0.552);
+		background-color: #5e5e5e;
 		transform: translate(-50%, 50%);
 		left: 50%;
 		border-radius: 2px;
@@ -270,7 +287,45 @@ button {
 
 	.closed {
 		transform: translateY(250px);
-		transition: transform 200ms ease;
+	}
+
+	.closed > .form-ctn::before {
+		content: url("data:image/svg+xml,%3Csvg width='47' height='39' viewBox='0 0 47 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='ARROW' d='M45.4531 19.4865L0.304259 19.4865M45.4531 19.4865L27.9188 1.95215M45.4531 19.4865L27.9188 37.0209' stroke='black' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E");
+		z-index: 4;
+		position: absolute;
+		top: 0px;
+		width: 50px;
+		left: 50%;
+		transform: translate(-50%, 15%) rotate(90deg);
+		animation: ease-in-out infinite;
+		animation-name: bob;
+		animation-duration: 1s;
+	}
+
+	.closed > .form-ctn.boop::before {
+		content: '';
+		visibility: visible;
+		z-index: 0;
+	}
+
+	@media (prefers-reduced-motion) {
+		*,
+		*::before,
+		*::after {
+			animation: none;
+		}
+	}
+
+	@keyframes bob {
+		0% {
+			transform: translate(-50%, 15%) rotate(90deg);
+		}
+		50% {
+			transform: translate(-50%, 4%) rotate(90deg);
+		}
+		100% {
+			transform: translate(-50%, 15%) rotate(90deg);
+		}
 	}
 
 	.closed > .form-ctn::after {
@@ -278,6 +333,8 @@ button {
 		width: 100%;
 		position: absolute;
 		height: 100%;
+		text-align: center;
+		left: 0;
 		z-index: 3;
 		background-color: #84bb46;
 	}
@@ -292,7 +349,8 @@ button {
 
 	.btn-ctn {
 		position: absolute;
-		bottom: 50%;
+		bottom: 0;
+		padding: 0.2em;
 	}
 
 	#icon {
