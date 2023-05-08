@@ -47,7 +47,7 @@ let offsetY;
 // drawOvermap();
 
 let coordsArr;
-floorCoordsJson();
+floorCoordsJson(); //setting coordsArr to the floors Json file
 
 let currentStep = 1;
 let coordLength = [];

@@ -1,10 +1,400 @@
 {
-    "first-floor-west": {
+    "art-buidling": {
         "umap": {
             "x1": 0,
-            "y1": 325,
-            "x2": 299,
-            "y2": 474
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/ARTBUILDING.png"
+        }
+    },
+    "Bateman-basement": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/BATEMAN-BASEMENT.png"
+        }
+    },
+    "Bateman-firstfloor": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/BATEMAN-FIRSTFLOOR.png"
+        }
+    },
+    "Bateman-secondfloor": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/BATEMAN-SECONDFLOOR.png"
+        }
+    },
+    "BATEMAN-THIRDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/BATEMAN-THIRDFLOOR.png"
+        }
+    },
+    "COLLEGECENTER-BASEMENT": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/COLLEGECENTER-BASEMENT.png"
+        }
+    },
+    "COLLEGECENTER-FIRSTFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/COLLEGECENTER-FIRSTFLOOR.png"
+        }
+    },
+    "COLLEGECENTER-SECONDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/COLLEGECENTER-SECONDFLOOR.png"
+        }
+    },
+    "eventcenter-firstfloor": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/eventcenter-firstfloor.png"
+        }
+    },
+    "eventcenter-secondfloor": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/eventcenter-secondfloor.png"
+        }
+    },
+    "FULL-CAMPUS": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/FULL-CAMPUS.png"
+        }
+    },
+    "HUNTERDONHALL-FIRSTFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/HUNTERDONHALL-FIRSTFLOOR.png"
+        }
+    },
+    "HUNTERDONHALL-SECONDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/HUNTERDONHALL-SECONDFLOOR.png"
+        }
+    },
+    "HUNTERDONHALL-THIRDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/HUNTERDONHALL-THIRDFLOOR.png"
+        }
+    },
+    "LIBARYTHEATRE-BASEMENT": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/LIBARYTHEATRE-BASEMENT.png"
+        }
+    },
+    "LIBRARYTHEATRE-FIRSTFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/LIBRARYTHEATRE-FIRSTFLOOR.png"
+        }
+    },
+    "LIBRARYTHEATRE-SECONDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/LIBRARYTHEATRE-SECONDFLOOR.png"
+        }
+    },
+    "PHYSEDBUILDING-FIRSTFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/PHYSEDBUILDING-FIRSTFLOOR.png"
+        }
+    },
+    "PHYSEDBUILDING-SECONDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/PHYSEDBUILDING-SECONDFLOOR.png"
+        }
+    },
+    "PLANETARIUM": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/PLANETARIUM.png"
+        }
+    },
+    "SCIENCECENTER-FIRSTFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/SCIENCECENTER-FIRSTFLOOR.png"
+        }
+    },
+    "SCIENCECENTER-SECONDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/SCIENCECENTER-SECONDFLOOR.png"
+        }
+    },
+    "SOMERSETHALL-BASEMENT": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/SOMERSETHALL-BASEMENT.png"
+        }
+    },
+    "SOMERSETHALL-FIRSTFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/SOMERSETHALL-FIRSTFLOOR.png"
+        }
+    },
+    "SOMERSETHALL-SECONDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/SOMERSETHALL-SECONDFLOOR.png"
+        }
+    },
+    "SOMERSETHALL-THIRDFLOOR": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/SOMERSETHALL-THIRDFLOOR.png"
+        }
+    },
+    "westbuilding-firstfloor": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
         },
         "omap": {
             "x1": 0,
@@ -14,12 +404,12 @@
             "img": "img/outermaps/westbuilding-firstfloor.png"
         }
     },
-    "second-floor-west": {
+    "westbuilding-secondfloor": {
         "umap": {
             "x1": 0,
-            "y1": 183,
-            "x2": 299,
-            "y2": 324
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
         },
         "omap": {
             "x1": 0,
@@ -29,12 +419,12 @@
             "img": "img/outermaps/westbuilding-secondfloor.png"
         }
     },
-    "third-floor-west": {
+    "westbuilding-thirdfloor": {
         "umap": {
             "x1": 0,
-            "y1": 45,
-            "x2": 299,
-            "y2": 182
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
         },
         "omap": {
             "x1": 0,
@@ -42,6 +432,36 @@
             "x2": 1920,
             "y2": 1080,
             "img": "img/outermaps/westbuilding-thirdfloor.png"
+        }
+    },
+    "workforcebuilding-firstfloor": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/workforcebuilding-firstfloor.png"
+        }
+    },
+    "workforcebuilding-secondfloor": {
+        "umap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 0
+        },
+        "omap": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 1920,
+            "y2": 1080,
+            "img": "img/outermaps/workforcebuilding-secondfloor.png"
         }
     }
 }
