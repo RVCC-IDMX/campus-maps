@@ -5,7 +5,7 @@ let read = false;
 
 async function getJsonFile() {
 
-    const requestURL = 'map-data copy for tests v2.json'; //'map-data copy for tests.json';
+    const requestURL = 'map-data-FLAT.json'; //'map-data copy for tests.json';
     const request = new Request(requestURL);
 
     const response = await fetch(request);
