@@ -68,6 +68,7 @@ h1 {
 	gap: 0.8em;
 	min-width: 400px;
 	padding-inline: 0.2em;
+	z-index: 5;
 }
 
 .predicative-search {
@@ -102,6 +103,8 @@ h1 {
 }
 
 .searchError {
+	position: absolute;
+	top: 0;
 	background: red;
 	color: white;
 }
@@ -205,23 +208,172 @@ button {
 	margin: 0.2em;
 }
 
+.form-toggle {
+	display: none;
+}
+
+/* TABLET / MOBILE VERSION */
 @media (max-width: 700px) {
+	body {
+		height: 100vh;
+		overflow-y: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
 	header {
 		flex-direction: column;
 		width: 100%;
 		padding-block: 0;
 		gap: 2em;
 	}
+
 	h1 {
 		font-size: 1.5rem;
+	}
+
+	.search {
+		width: 100%;
+		position: absolute;
+		height: auto;
+		bottom: 0;
+		padding-block-start: 2em;
+		overflow: hidden;
+		transition: transform 300ms ease-out;
 	}
 
 	.form-ctn,
 	.title-ctn {
 		min-width: 200px;
 		width: 100%;
+		padding: 0;
 	}
+
+	.title-ctn {
+		margin-block-end: 2em;
+		flex-direction: row-reverse;
+	}
+
+	.form-ctn {
+		background-color: #e7edef;
+		padding: 1em;
+		padding-block-end: 5em;
+	}
+
+	.hide {
+		visibility: hidden;
+		z-index: -1;
+	}
+
+	.form-toggle {
+		display: block;
+		position: relative;
+		width: 100px;
+		height: 2em;
+		background-color: #e7edef;
+		transform: translate(-50%, 50%);
+		left: 50%;
+		border-radius: 5px;
+		cursor: pointer;
+		box-shadow: -1px -1px 2px #5e5e5e;
+		transition: transform 300ms ease;
+	}
+
+	.form-toggle::before {
+		content: '';
+		position: absolute;
+		width: 50px;
+		height: 5px;
+		background-color: #5e5e5e;
+		transform: translate(-50%, 50%);
+		left: 50%;
+		border-radius: 2px;
+		top: 10px;
+		cursor: pointer;
+		transition: transform 300ms ease;
+	}
+
+	.closed {
+		transform: translateY(250px);
+	}
+
+	.closed > .form-ctn::before {
+		content: url("data:image/svg+xml,%3Csvg width='47' height='39' viewBox='0 0 47 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='ARROW' d='M45.4531 19.4865L0.304259 19.4865M45.4531 19.4865L27.9188 1.95215M45.4531 19.4865L27.9188 37.0209' stroke='black' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E");
+		z-index: 4;
+		position: absolute;
+		top: 0px;
+		width: 50px;
+		left: 50%;
+		transform: translate(-50%, 15%) rotate(90deg);
+		animation: ease-in-out infinite;
+		animation-name: bob;
+		animation-duration: 1s;
+	}
+
+	.closed > .form-ctn.boop::before {
+		content: '';
+		visibility: visible;
+		z-index: 0;
+	}
+
+	@media (prefers-reduced-motion) {
+		*,
+		*::before,
+		*::after {
+			animation: none;
+		}
+	}
+
+	@keyframes bob {
+		0% {
+			transform: translate(-50%, 15%) rotate(90deg);
+		}
+		50% {
+			transform: translate(-50%, 4%) rotate(90deg);
+		}
+		100% {
+			transform: translate(-50%, 15%) rotate(90deg);
+		}
+	}
+
+	.closed > .form-ctn::after {
+		content: 'Find your way around RVCC';
+		width: 100%;
+		position: absolute;
+		height: 100%;
+		text-align: center;
+		left: 0;
+		z-index: 3;
+		background-color: #e7edef;
+	}
+
+	.closed > .form-ctn {
+		background-color: #e7edef;
+	}
+
+	.closed > .form-toggle {
+		background-color: #e7edef;
+	}
+
+	.btn-ctn {
+		position: absolute;
+		bottom: 0;
+		padding: 0.2em;
+		background: rgb(134, 185, 64);
+		background: linear-gradient(
+			90deg,
+			rgba(134, 185, 64, 1) 0%,
+			rgba(134, 185, 64, 1) 52%,
+			rgba(199, 218, 66, 1) 100%
+		);
+		border-block-start: 2px solid darkslategrey;
+	}
+
 	#icon {
+		width: 100px;
+	}
+
+	.img {
 		width: 100px;
 	}
 }

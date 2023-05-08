@@ -135,7 +135,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
                 // c.fill = "white";
                 // c.fillRect(lerpX,lerpY,20,20);
 
-                paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'magenta');
+                //paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'magenta');
                 // console.log(lerpX,lerpY);
 
                 cb.strokeStyle = 'black';

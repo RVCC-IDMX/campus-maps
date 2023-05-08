@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid viewer</title>
+    <title>RVCC M'App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -27,39 +27,44 @@
     <header>
         <div class="title-ctn">
             <h1>Raritan Valley Community College Map & GPS</h1>
-            <img src="img/icons/rvcc-mapp-icon.svg"
-                alt="Logo resembling two mountains and a valley representing Raritan Valley Community college with a dashed line traversing through it">
+            <img class='img' src="img/icons/rvcc-mapp-icon.svg"
+                alt="Logo resembling two mountains and a valley representing Raritan Valley Community college with a dashed line traversing through it. It says RVCC M'App">
         </div>
         <!-- Predictive search -->
-        <form class="form-ctn">
+        <div class="search closed">
+            <button class="form-toggle"></button>
 
-            <label for="start">Start room number: </label>
-            <div class="predicative-search">
-                <input type="text" class="predicative-background" readonly tabindex="-1" />
-                <input type="text" id="start" class="predicative-field" placeholder="Search for room numbers..."
-                    onkeydown="if (event.keyCode == 13) {buttonStartSearch(event)};" />
-            </div>
+            <form class="form-ctn">
 
-            <label for="destination">Destination room number: </label>
-            <div class="predicative-search">
-                <input type="text" class="predicative-background" readonly tabindex="-1" />
-                <input type="text" id="destination" class="predicative-field" placeholder="Search for room numbers..."
-                    onkeydown="if (event.keyCode == 13) {buttonStartSearch(event)};" />
-            </div>
+                <label for="start">Start room number: </label>
+                <div class="predicative-search">
+                    <input type="text" class="predicative-background" readonly tabindex="-1" />
+                    <input type="text" id="start" class="predicative-field" placeholder="Search for room numbers..."
+                        onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
+                </div>
 
-            <div id="accessibility"> <!--Accessibility options-->
-                <input type="checkbox" id="accesibilityToggle">
-                <label class="accessibilityToggle" for="accesibilityToggle">I want an accessible route (no
-                    stairs)</label>
-            </div>
+                <label for="destination">Destination room number: </label>
+                <div class="predicative-search">
+                    <input type="text" class="predicative-background" readonly tabindex="-1" />
+                    <input type="text" id="destination" class="predicative-field"
+                        placeholder="Search for room numbers..."
+                        onkeydown="if (event.keyCode == 13) {buttonStartSearch()};" />
+                </div>
 
-            <input class="search-btn" type="button" onclick={buttonStartSearch(event)} value="Show me where to go">
+                <div id="accessibility"> <!--Accessibility options-->
+                    <input type="checkbox" id="accesibilityToggle">
+                    <label class="accessibilityToggle" for="accesibilityToggle">I want an accessible route (no
+                        stairs)</label>
+                </div>
 
-        </form>
+                <input class="search-btn" type="button" onclick={buttonStartSearch()} value="Show me where to go">
+
+            </form>
+        </div>
     </header>
 
     <!-- Increment shown directions -->
-    <div class="btn-ctn">
+    <div class="btn-ctn hide">
         <button class="body_gallery-prev" onclick="nextFloor(-1)">
             <svg title="arrow pointing left" width="50" height="39" viewBox="0 0 48 39" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -95,6 +100,7 @@
     <script src='teleportDir.js'></script>
     <script src='building.js'></script>
     <script src='jasonParser.js'></script>
+    <script src='front-end.js'></script>
 
     <script src="predicative-search.js" type="module"></script>
 </body>
