@@ -1,4 +1,4 @@
-let url = 'img/west-building-test.png';
+let url = 'img/Map-atlas.png';
 
 let colorOptions = ['red', 'green', 'blue', 'black', 'white', 'empty'];
 //initial options, black = wall, red = non-accessible (stairs), white = accessible/path, blue = accessible/path but at triple cost, green = elevators
@@ -21,6 +21,7 @@ let c = canvas.getContext("2d", {
 window.onload = async () => {
 
     let picture = await loadImage(url);
+    console.log('loaded map atlas');
 
     //Adjust canvas size
     canvas.width = picture.width;
