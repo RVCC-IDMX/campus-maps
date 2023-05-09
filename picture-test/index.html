@@ -8,7 +8,7 @@
     <title>RVCC M'App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -26,13 +26,12 @@
 
     <header>
         <div class="title-ctn">
-            <h1>Raritan Valley Community College Map & GPS</h1>
+            <h1>RVCC M'App: <br> The Raritan Valley Community College Map & Navigation App</h1>
             <img class='img' src="img/icons/rvcc-mapp-icon.svg"
                 alt="Logo resembling two mountains and a valley representing Raritan Valley Community college with a dashed line traversing through it. It says RVCC M'App">
         </div>
         <!-- Predictive search -->
         <div class="search closed">
-            <button class="form-toggle"></button>
 
             <form class="form-ctn">
 
@@ -60,6 +59,14 @@
                 <input class="search-btn" type="button" onclick={buttonStartSearch()} value="Show me where to go">
 
             </form>
+            <button class="form-toggle">
+                <p class="text">open</p>
+                <svg class="arrow" title="open" width="50" height="39" viewBox="0 0 48 39" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path id="arrow-left" d="M2 19.4656L47.1489 19.4656M2 19.4656L19.5344 37M2 19.4656L19.5344 1.93128"
+                        stroke="black" stroke-width="4" stroke-linecap="round" />
+                </svg>
+            </button>
         </div>
     </header>
 
