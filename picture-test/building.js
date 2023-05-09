@@ -30,7 +30,6 @@
 //         this.nodeActual = findNodeFromCoords(parseInt(x, 10), parseInt(y, 10));
 //     }
 
-
 //}
 
 let offestX;
@@ -52,185 +51,184 @@ floorCoordsJson(); //setting coordsArr to the floors Json file
 let currentStep = 1;
 let coordLength = [];
 
+let canvasContainer = document.querySelector('.canvas-ctn');
 let canvasB = document.createElement('canvas');
 
 let w, h;
 
 function nextFloor(direction) {
-    if (direction > 0) {
-        if (currentStep < coordLength.length) {
-            currentStep++;
-        }
-    }
-    else {
-        if (currentStep > 1) {
-            currentStep--;
-        }
-    }
+	if (direction > 0) {
+		if (currentStep < coordLength.length) {
+			currentStep++;
+		}
+	} else {
+		if (currentStep > 1) {
+			currentStep--;
+		}
+	}
 
-    drawOvermap(coordLength, w, h);
+	drawOvermap(coordLength, w, h);
 
-    //console.log(direction, currentStep);
+	//console.log(direction, currentStep);
 }
 
 async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
+	//console.log(fileArr["second-floor-west"]["omap"].img);
 
-    //console.log(fileArr["second-floor-west"]["omap"].img);
+	//img needs to equal whatever the current AstarDirCoords node floor is.
+	// let img = await loadImage(coordsArr["second-floor-west"]["omap"].img);
+	//console.log(img);
 
-    //img needs to equal whatever the current AstarDirCoords node floor is.
-    // let img = await loadImage(coordsArr["second-floor-west"]["omap"].img);
-    //console.log(img);
+	// canvasB = document.createElement('canvas');
+	canvasB.style.maxWidth = '100%';
+	// canvasB.width = img.width;
+	// canvasB.height = img.height;
+	// let cb = canvasB.getContext("2d");
+	// document.body.appendChild(canvasB);
 
-    // canvasB = document.createElement('canvas');
-    canvasB.style.maxWidth = "100%";
-    // canvasB.width = img.width;
-    // canvasB.height = img.height;
-    // let cb = canvasB.getContext("2d");
-    // document.body.appendChild(canvasB);
+	// cb.drawImage(img, 0, 0);
 
-    // cb.drawImage(img, 0, 0);
+	//console.log(oWidth, oHeight);//~~~~~~~~~~~~ Log
 
-    //console.log(oWidth, oHeight);//~~~~~~~~~~~~ Log
+	//console.log(offestX, offsetY);
 
-    //console.log(offestX, offsetY);
+	//console.log(AstarDirCoords[0][0][0], AstarDirCoords[0][0][1] + " coord log");
 
-    //console.log(AstarDirCoords[0][0][0], AstarDirCoords[0][0][1] + " coord log");
+	coordLength = AstarDirCoords;
+	w = oWidth;
+	h = oHeight;
+	//console.log(AstarDirCoords.length);
 
-    coordLength = AstarDirCoords;
-    w = oWidth;
-    h = oHeight;
-    //console.log(AstarDirCoords.length);
+	for (let d = 0; d < currentStep /*AstarDirCoords.length*/; d++) {
+		if (AstarDirCoords[d].length > 0) {
+			//console.log("coords ", d, " ", AstarDirCoords[d]);//~~~~~~~~~~~~ Log
 
-    for (let d = 0; d < currentStep/*AstarDirCoords.length*/; d++) {
+			let currentFloor = getFloorFromCoords(
+				AstarDirCoords[d][0][0],
+				AstarDirCoords[d][0][1]
+			);
+			//console.log(currentFloor, " current floor");
 
-        if (AstarDirCoords[d].length > 0) {
-            //console.log("coords ", d, " ", AstarDirCoords[d]);//~~~~~~~~~~~~ Log
+			let img = await loadImage(currentFloor['omap'].img);
+			canvasB.width = img.width;
+			canvasB.height = img.height;
 
-            let currentFloor = getFloorFromCoords(AstarDirCoords[d][0][0], AstarDirCoords[d][0][1]);
-            //console.log(currentFloor, " current floor");
+			let cb = canvasB.getContext('2d');
+			canvasContainer.appendChild(canvasB);
 
-            let img = await loadImage(currentFloor["omap"].img);
-            canvasB.width = img.width;
-            canvasB.height = img.height;
+			cb.drawImage(img, 0, 0);
 
-            let cb = canvasB.getContext("2d");
-            document.body.appendChild(canvasB);
+			for (let i = 0; i < AstarDirCoords[d].length; i++) {
+				//console.log(AstarDirCoords[i]);//~~~~~~~~~~~~ Log
+				let str = AstarDirCoords[d][i]; //.split(', ');
 
-            cb.drawImage(img, 0, 0);
+				//console.log(str + " AstarDirCoords");//~~~~~~~~~~~~ Log
 
-            for (let i = 0; i < AstarDirCoords[d].length; i++) {
-                //console.log(AstarDirCoords[i]);//~~~~~~~~~~~~ Log
-                let str = AstarDirCoords[d][i];//.split(', ');
+				let x1 = currentFloor['umap'].x1;
+				let y1 = currentFloor['umap'].y1;
+				let x2 = currentFloor['umap'].x2;
+				let y2 = currentFloor['umap'].y2;
 
-                //console.log(str + " AstarDirCoords");//~~~~~~~~~~~~ Log
+				let lerpX = lerp(str[0], x1, x2, 0, 1920);
+				let lerpY = lerp(str[1], y1, y2, 0, 1080);
 
-                let x1 = currentFloor["umap"].x1;
-                let y1 = currentFloor["umap"].y1;
-                let x2 = currentFloor["umap"].x2;
-                let y2 = currentFloor["umap"].y2;
+				// c.fill = "white";
+				// c.fillRect(lerpX,lerpY,20,20);
 
-                let lerpX = lerp(str[0], x1, x2, 0, 1920);
-                let lerpY = lerp(str[1], y1, y2, 0, 1080);
+				//paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'magenta');
+				// console.log(lerpX,lerpY);
 
-                // c.fill = "white";
-                // c.fillRect(lerpX,lerpY,20,20);
+				cb.strokeStyle = 'black';
 
-                //paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'magenta');
-                // console.log(lerpX,lerpY);
+				if (i > 0) {
+					//if (endStr.length > 2) Skip this draw, is a teleport
 
-                cb.strokeStyle = 'black';
+					let endStr = AstarDirCoords[d][i - 1]; //.split(', ');
+					let lerpEndX = lerp(endStr[0], x1, x2, 0, 1920);
+					let lerpEndY = lerp(endStr[1], y1, y2, 0, 1080);
 
-                if (i > 0) {
-                    //if (endStr.length > 2) Skip this draw, is a teleport
+					cb.beginPath();
+					cb.lineWidth = 5;
+					cb.moveTo(lerpX, lerpY);
+					cb.lineTo(lerpEndX, lerpEndY);
+					cb.stroke();
+					//drawLine(lerpX, lerpY, lerpEndX, lerpEndY, 'white', c);
+				}
+			}
+		}
 
-                    let endStr = AstarDirCoords[d][i - 1];//.split(', ');
-                    let lerpEndX = lerp(endStr[0], x1, x2, 0, 1920);
-                    let lerpEndY = lerp(endStr[1], y1, y2, 0, 1080);
+		// console.log(getFloorFromCoords(5, 50));//~~~~~~~~~~~~ Log
+		// console.log(lerp(139, 0, oWidth, 0, 1920));
+		// console.log(lerp(378, 0, oHeight, 0, 1080));
+	}
 
-                    cb.beginPath();
-                    cb.lineWidth = 5;
-                    cb.moveTo(lerpX, lerpY);
-                    cb.lineTo(lerpEndX, lerpEndY);
-                    cb.stroke();
-                    //drawLine(lerpX, lerpY, lerpEndX, lerpEndY, 'white', c);
-                }
-            }
-        }
+	//hide the loading image
 
-        // console.log(getFloorFromCoords(5, 50));//~~~~~~~~~~~~ Log
-        // console.log(lerp(139, 0, oWidth, 0, 1920));
-        // console.log(lerp(378, 0, oHeight, 0, 1080));
-    }
-
-    //hide the loading image
-
-    document.querySelector('#imgWrapper') !== null ? document.querySelector('#imgWrapper').id = 'hideLoad' : '';
+	document.querySelector('#imgWrapper') !== null
+		? (document.querySelector('#imgWrapper').id = 'hideLoad')
+		: '';
 }
 
 function lerp(p, a1, a2, b1, b2) {
-    let scale1 = a2 - a1;
-    let delta = (p - a1) / scale1;
-    let scale2 = b2 - b1;
-    return (scale2 * delta) + b1;
+	let scale1 = a2 - a1;
+	let delta = (p - a1) / scale1;
+	let scale2 = b2 - b1;
+	return scale2 * delta + b1;
 }
 
 function getFloorFromCoords(x, y) {
+	for (let element in coordsArr) {
+		//console.log(element);
+		let e = coordsArr[element];
+		//console.log(e);
 
-    for (let element in coordsArr) {
-        //console.log(element);
-        let e = coordsArr[element];
-        //console.log(e);
+		let inX = false;
+		let inY = false;
 
-        let inX = false;
-        let inY = false;
+		if (x >= e['umap'].x1 && x <= e['umap'].x2) {
+			//console.log('in x');
+			inX = true;
+		}
 
-        if (x >= e["umap"].x1 && x <= e["umap"].x2) {
-            //console.log('in x');
-            inX = true;
-        }
+		if (y >= e['umap'].y1 && y <= e['umap'].y2) {
+			// console.log("in y");
+			inY = true;
+		}
 
-        if (y >= e["umap"].y1 && y <= e["umap"].y2) {
-            // console.log("in y");
-            inY = true;
-        }
+		if (inX && inY) {
+			return e;
+		}
+	}
 
-        if (inX && inY) {
-            return e;
-        }
-    }
-
-    return false;
-
+	return false;
 }
 
 function paintNodeFromCoordsOvermap(x, y, c, color) {
-    c.fillStyle = color;
-    c.fillRect(x, y, 5, 5);
+	c.fillStyle = color;
+	c.fillRect(x, y, 5, 5);
 }
 
 async function floorCoordsJson() {
-    const requestURL = 'floors.json';
-    const request = new Request(requestURL);
+	const requestURL = 'floors.json';
+	const request = new Request(requestURL);
 
-    const response = await fetch(request);
-    const file = await response.json();
-    coordsArr = file;
+	const response = await fetch(request);
+	const file = await response.json();
+	coordsArr = file;
 }
 
 async function loadImage(url) {
-    //With a Promise
-    return new Promise((resolve, reject) => {
+	//With a Promise
+	return new Promise((resolve, reject) => {
+		//Set up new image
+		let img = new Image();
 
-        //Set up new image
-        let img = new Image();
+		//Set up callback to resolve the image
+		img.onload = () => {
+			resolve(img);
+		};
 
-        //Set up callback to resolve the image
-        img.onload = () => {
-            resolve(img);
-        }
-
-        //Set it in motion
-        img.src = url;
-    });
-
+		//Set it in motion
+		img.src = url;
+	});
 }

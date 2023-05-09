@@ -12,7 +12,7 @@ body {
 	height: 100vh;
 	font-size: 16px;
 	line-height: 1.5;
-
+	align-items: center;
 	overflow-y: hidden;
 	display: flex;
 	flex-direction: column;
@@ -123,15 +123,14 @@ svg.arrow {
 }
 
 /* Style the canvas on screen*/
+
 #underMap {
 	display: none;
 }
 
 #imgWrapper {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	place-items: center;
 }
 
 #loadImg {
@@ -224,6 +223,7 @@ svg.arrow {
 }
 
 button {
+	color: black;
 	cursor: pointer;
 	padding: 0.3em;
 	background-color: inherit;
@@ -232,6 +232,10 @@ button {
 	border: none;
 	transition: box-shadow 200ms ease;
 	border-radius: 0.2em;
+}
+
+button > p {
+	color: inherit;
 }
 
 button:hover {
@@ -349,6 +353,13 @@ button:focus {
 
 	.search {
 		max-width: 500px;
+	}
+
+	.canvas-ctn {
+		padding: 5em;
+		max-width: 1200px;
+		display: grid;
+		place-items: center;
 	}
 }
 
