@@ -62,11 +62,38 @@ function generateTPMap() {
 
     //campus to Library/Theatre
     teleportArray.set(findNodeFromCoords(833, 1515), findNodeFromCoords(964, 773));
-    teleportArray.set(findNodeFromCoords(0, 0), findNodeFromCoords(0, 0));
-    teleportArray.set(findNodeFromCoords(0, 0), findNodeFromCoords(0, 0));
+    teleportArray.set(findNodeFromCoords(839, 1485), findNodeFromCoords(980, 387));
+    teleportArray.set(findNodeFromCoords(836, 1485), findNodeFromCoords(1089, 149));
     //Library/Theatre to Somerset
-    teleportArray.set(findNodeFromCoords(0, 0), findNodeFromCoords(0, 0));
+    teleportArray.set(findNodeFromCoords(1156, 671), findNodeFromCoords(1253, 69));
+    teleportArray.set(findNodeFromCoords(1082, 396), findNodeFromCoords(1499, 67));
 
+    //campus to college center
+    teleportArray.set(findNodeFromCoords(866, 1447), findNodeFromCoords(1597, 613));
+    teleportArray.set(findNodeFromCoords(874, 1452), findNodeFromCoords(1594, 655));
+    teleportArray.set(findNodeFromCoords(886, 1447), findNodeFromCoords(1612, 719));
+    teleportArray.set(findNodeFromCoords(840, 1424), findNodeFromCoords(1713, 535));
+    teleportArray.set(findNodeFromCoords(1595, 409), findNodeFromCoords(861, 1443));
+    teleportArray.set(findNodeFromCoords(1595, 446), findNodeFromCoords(871, 1443));
+    teleportArray.set(findNodeFromCoords(839, 1422), findNodeFromCoords(1678, 336));
+    teleportArray.set(findNodeFromCoords(1591, 367), findNodeFromCoords(861, 1443));
+    //college center to somerset-hunterdon
+    teleportArray.set(findNodeFromCoords(1294, 20), findNodeFromCoords(1513, 875));
+    teleportArray.set(findNodeFromCoords(1649, 726), findNodeFromCoords(1266, 224));
+
+    //campus to somerset
+    teleportArray.set(findNodeFromCoords(866, 1504), findNodeFromCoords(1273, 116));
+    teleportArray.set(findNodeFromCoords(922, 1494), findNodeFromCoords(1465, 93));
+    teleportArray.set(findNodeFromCoords(924, 1487), findNodeFromCoords(1730, 67));
+    teleportArray.set(findNodeFromCoords(1636, 24), findNodeFromCoords(890, 1475));
+    teleportArray.set(findNodeFromCoords(839, 1485), findNodeFromCoords(1546, 36));
+    teleportArray.set(findNodeFromCoords(856, 1485), findNodeFromCoords(1789, 44));
+    teleportArray.set(findNodeFromCoords(1942, 57), findNodeFromCoords(920, 1477));
+    //somerset to event
+    teleportArray.set(findNodeFromCoords(1320, 112), findNodeFromCoords(1300, 564));
+    teleportArray.set(findNodeFromCoords(1567, 117), findNodeFromCoords(1297, 716));
+
+    //campus to hunterdon
 
 
     // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
