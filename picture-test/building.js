@@ -94,7 +94,54 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 
 	//console.log(AstarDirCoords[0][0][0], AstarDirCoords[0][0][1] + " coord log");
 
-	coordLength = AstarDirCoords;
+	let currentCheckfloor;
+	let nextCheckFloor;
+	let tArr = [];
+	let arrA = [];
+
+	// for (let a = 0; a < AstarDirCoords[i].length; a++) {
+	// 	arrA.push(AstarDirCoords[i][a]);
+	// }
+
+	for (let i = 0; i < AstarDirCoords.length; i++) {
+
+		currentCheckfloor = getFloorFromCoords(AstarDirCoords[i][0][0], AstarDirCoords[i][0][1]);
+		if (i < AstarDirCoords.length - 1) {
+			nextCheckFloor = getFloorFromCoords(AstarDirCoords[i + 1][0][0], AstarDirCoords[i + 1][0][1]);
+		}
+		else {
+			nextCheckFloor = '';
+		}
+
+		if (nextCheckFloor != '') {
+			if (currentCheckfloor['omap'].img == nextCheckFloor['omap'].img) {
+				for (let a = 0; a < AstarDirCoords[i].length; a++) {
+					arrA.push(AstarDirCoords[i][a]);
+				}
+			}
+			else {
+				for (let a = 0; a < AstarDirCoords[i].length; a++) {
+					arrA.push(AstarDirCoords[i][a]);
+				}
+
+				tArr.push(arrA);
+
+				arrA = [];
+			}
+		}
+		else {
+			tArr.push(AstarDirCoords[i]);
+		}
+
+		//console.log(AstarDirCoords[i]);
+		//console.log(previousFloor['omap'].img), "previous floor~~~~~~ <";
+	}
+
+	console.log("CHECK LOGS!~~~~~~~");
+	console.log(AstarDirCoords);
+	console.log(tArr);
+
+	coordLength = tArr;
 	w = oWidth;
 	h = oHeight;
 	//console.log(AstarDirCoords.length);
@@ -138,7 +185,7 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 				//paintNodeFromCoordsOvermap(lerpX, lerpY, cb, 'magenta');
 				// console.log(lerpX,lerpY);
 
-				cb.strokeStyle = 'black';
+				cb.strokeStyle = '#2DFFF2';
 
 				if (i > 0) {
 					//if (endStr.length > 2) Skip this draw, is a teleport

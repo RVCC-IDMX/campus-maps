@@ -117,6 +117,9 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(920, 1445), findNodeFromCoords(924, 1445));
     teleportArray.set(findNodeFromCoords(918, 1460), findNodeFromCoords(922, 1460));
 
+    //Stairs/Elevators
+
+
 
     // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
     let tempArr = Array.from(teleportArray.keys());
