@@ -96,6 +96,17 @@ function generateTPMap() {
     //campus to hunterdon
 
 
+    //campus to campus (the raised walkways that cross over paths)
+    teleportArray.set(findNodeFromCoords(798, 1434), findNodeFromCoords(798, 1430));
+    teleportArray.set(findNodeFromCoords(836, 1423), findNodeFromCoords(836, 1427));
+    teleportArray.set(findNodeFromCoords(836, 1443), findNodeFromCoords(836, 1447));
+    teleportArray.set(findNodeFromCoords(836, 1442), findNodeFromCoords(840, 1443));
+    teleportArray.set(findNodeFromCoords(837, 1484), findNodeFromCoords(841, 1484));
+    teleportArray.set(findNodeFromCoords(920, 1477), findNodeFromCoords(924, 1477));
+    teleportArray.set(findNodeFromCoords(920, 1445), findNodeFromCoords(924, 1445));
+    teleportArray.set(findNodeFromCoords(918, 1460), findNodeFromCoords(922, 1460));
+
+
     // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
     let tempArr = Array.from(teleportArray.keys());
     for (let i = 0; i < tempArr.length; i++) {
