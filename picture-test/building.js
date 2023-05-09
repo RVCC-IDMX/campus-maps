@@ -137,9 +137,9 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 		//console.log(previousFloor['omap'].img), "previous floor~~~~~~ <";
 	}
 
-	console.log("CHECK LOGS!~~~~~~~");
-	console.log(AstarDirCoords);
-	console.log(tArr);
+	// console.log("CHECK LOGS!~~~~~~~");
+	// console.log(AstarDirCoords);
+	// console.log(tArr);
 
 	coordLength = tArr;
 	w = oWidth;
@@ -194,8 +194,16 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 					let lerpEndX = lerp(endStr[0], x1, x2, 0, 1920);
 					let lerpEndY = lerp(endStr[1], y1, y2, 0, 1080);
 
+					cb.strokeStyle = '#2DFFF2';
 					cb.beginPath();
-					cb.lineWidth = 5;
+					cb.lineWidth = 10;
+					cb.moveTo(lerpX, lerpY);
+					cb.lineTo(lerpEndX, lerpEndY);
+					cb.stroke();
+
+					cb.strokeStyle = 'black';
+					cb.beginPath();
+					cb.lineWidth = 3;
 					cb.moveTo(lerpX, lerpY);
 					cb.lineTo(lerpEndX, lerpEndY);
 					cb.stroke();

@@ -118,8 +118,12 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(918, 1460), findNodeFromCoords(922, 1460));
 
     //Stairs/Elevators
-
-
+    teleportArray.set(findNodeFromCoords(62, 863), findNodeFromCoords(46, 761));
+    teleportArray.set(findNodeFromCoords(42, 766), findNodeFromCoords(45, 682));
+    teleportArray.set(findNodeFromCoords(55, 668), findNodeFromCoords(59, 745));
+    teleportArray.set(findNodeFromCoords(59, 747), findNodeFromCoords(74, 845));
+    teleportArray.set(findNodeFromCoords(148, 838), findNodeFromCoords(121, 743));
+    teleportArray.set(findNodeFromCoords(121, 737), findNodeFromCoords(98, 656));
 
     // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
     let tempArr = Array.from(teleportArray.keys());
@@ -137,7 +141,7 @@ function generateTPMap() {
     //Removing the North-East stair well from West building second floor, to West building first floor.
     //Fire door prevents travel down from this stairwell.
     //Travel up these stairs is permitted, travel down is not
-    teleportArray.delete(findNodeFromCoords(253, 232));
+    teleportArray.delete(findNodeFromCoords(121, 743));
 }
 
 function tpContains(node) {
