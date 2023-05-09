@@ -53,8 +53,20 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(440, 1506), findNodeFromCoords(131, 411));
 
     //campus to phys-ed
+    teleportArray.set(findNodeFromCoords(800, 1431), findNodeFromCoords(504, 757));
+    teleportArray.set(findNodeFromCoords(764, 1433), findNodeFromCoords(430, 741));
+    teleportArray.set(findNodeFromCoords(834, 1425), findNodeFromCoords(564, 741));
+
+    teleportArray.set(findNodeFromCoords(798, 1426), findNodeFromCoords(510, 647));
+    teleportArray.set(findNodeFromCoords(834, 1422), findNodeFromCoords(587, 622));
+
+    //campus to Library/Theatre
+    teleportArray.set(findNodeFromCoords(833, 1515), findNodeFromCoords(964, 773));
     teleportArray.set(findNodeFromCoords(0, 0), findNodeFromCoords(0, 0));
     teleportArray.set(findNodeFromCoords(0, 0), findNodeFromCoords(0, 0));
+    //Library/Theatre to Somerset
+    teleportArray.set(findNodeFromCoords(0, 0), findNodeFromCoords(0, 0));
+
 
 
     // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
