@@ -88,13 +88,24 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(1636, 24), findNodeFromCoords(890, 1475));
     teleportArray.set(findNodeFromCoords(839, 1485), findNodeFromCoords(1546, 36));
     teleportArray.set(findNodeFromCoords(856, 1485), findNodeFromCoords(1789, 44));
-    teleportArray.set(findNodeFromCoords(1942, 57), findNodeFromCoords(920, 1477));
+    teleportArray.set(findNodeFromCoords(1942, 57), findNodeFromCoords(920, 1478));
     //somerset to event
     teleportArray.set(findNodeFromCoords(1320, 112), findNodeFromCoords(1300, 564));
     teleportArray.set(findNodeFromCoords(1567, 117), findNodeFromCoords(1297, 716));
 
     //campus to hunterdon
+    teleportArray.set(findNodeFromCoords(927, 1437), findNodeFromCoords(1358, 228));
+    teleportArray.set(findNodeFromCoords(1387, 229), findNodeFromCoords(939, 1437));
+    teleportArray.set(findNodeFromCoords(899, 1447), findNodeFromCoords(1324, 249));
+    teleportArray.set(findNodeFromCoords(927, 1424), findNodeFromCoords(1603, 244));
+    teleportArray.set(findNodeFromCoords(1631, 262), findNodeFromCoords(920, 1444));
+    teleportArray.set(findNodeFromCoords(893, 1444), findNodeFromCoords(1463, 282));
 
+    //campus to planetarium
+    teleportArray.set(findNodeFromCoords(941, 1481), findNodeFromCoords(1314, 499));
+
+    //campus to event center
+    teleportArray.set(findNodeFromCoords(871, 1509), findNodeFromCoords(1279, 593));
 
     //campus to campus (the raised walkways that cross over paths)
     teleportArray.set(findNodeFromCoords(798, 1434), findNodeFromCoords(798, 1430));
