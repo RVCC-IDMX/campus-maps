@@ -72,11 +72,11 @@ h1 {
 }
 
 .close:hover {
-	background-color: lightgreen;
+	background-color: rgb(199, 218, 66);
 }
 
 .close:focus {
-	box-shadow: 0 0 0 3px lightgreen;
+	box-shadow: 0 0 0 3px rgb(199, 218, 66);
 	outline: 0;
 }
 
@@ -91,13 +91,15 @@ h1 {
 }
 
 .to-top {
-	background: lightgreen;
+	background: rgb(199, 218, 66);
+	display: grid;
+	place-items: center;
 	border: none;
 	border-radius: 0.2em;
-	padding: 0.2em;
+	padding: 0.5em;
 	position: fixed;
 	right: 10px;
-	bottom: 10px;
+	bottom: 15px;
 	transform: rotate(90deg);
 	cursor: pointer;
 }
