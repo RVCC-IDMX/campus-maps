@@ -12,6 +12,8 @@ async function getJsonFile() {
     const file = await response.json();
     fileArr = file;
 
+    console.log(fileArr);
+
     let str; // = 'Current working Rooms: ';
     for (var key in fileArr) {
         str += `<option value ="${key}"> ${key} </option>`;
@@ -95,7 +97,9 @@ function roomOnlySearch(roomName) {
     //     }
     // }
 
+    console.log(fileArr[str]);
     return findNodeFromCoords(coords[0], coords[1]);
+
 }
 
 //get a string from a mix of strings and numbers

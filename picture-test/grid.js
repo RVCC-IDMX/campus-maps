@@ -113,7 +113,7 @@ async function makeGrid(gridx, gridy, nodes, startNode_, endNode_) {
 
     // paintNode(startRoom.nodeActual, localC, 'orange');
 
-    startPos = roomOnlySearch("w100");
+    startPos = roomOnlySearch('main entrance');
     endPos = roomOnlySearch("security");
 
     // startPos = startRoom.nodeActual; //allNodes[21][35]; //westmap: 44, 27
