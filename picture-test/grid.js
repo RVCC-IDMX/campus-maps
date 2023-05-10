@@ -291,8 +291,12 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
 
             if (i < 1000000 /* arbitrary end step to prevent infinte loop*/) {
                 i++;
-                loopStep();
-                //setTimeout(() => { loopStep(); }, 5);        //slow things down for testing
+                if (i % 100 == 0) {
+                    setTimeout(() => { loopStep(); }, 1);        //slow things down for testing
+                }
+                else {
+                    loopStep();
+                }
             }
         }
         else {
