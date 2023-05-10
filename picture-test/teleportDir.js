@@ -188,6 +188,12 @@ function generateTPMap() {
 
         tempArr[i].color = 'white';
         teleportArray.set(teleportArray.get(tempArr[i]), tempArr[i]);
+
+        if (i % 100 == 0) {
+            setTimeout(() => {
+
+            }, 1);
+        }
     }
 
     let tpFlagArr = Array.from(teleportArray.keys());
