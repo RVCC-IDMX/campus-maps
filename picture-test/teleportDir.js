@@ -118,12 +118,69 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(918, 1460), findNodeFromCoords(922, 1460));
 
     //Stairs/Elevators
+    //west
     teleportArray.set(findNodeFromCoords(62, 863), findNodeFromCoords(46, 761));
     teleportArray.set(findNodeFromCoords(42, 766), findNodeFromCoords(45, 682));
     teleportArray.set(findNodeFromCoords(55, 668), findNodeFromCoords(59, 745));
     teleportArray.set(findNodeFromCoords(59, 747), findNodeFromCoords(74, 845));
     teleportArray.set(findNodeFromCoords(148, 838), findNodeFromCoords(121, 743));
     teleportArray.set(findNodeFromCoords(121, 737), findNodeFromCoords(98, 656));
+
+    //wordforce
+    teleportArray.set(findNodeFromCoords(117, 436), findNodeFromCoords(60, 555));
+    teleportArray.set(findNodeFromCoords(128, 459), findNodeFromCoords(89, 591));
+    teleportArray.set(findNodeFromCoords(165, 561), findNodeFromCoords(185, 441));
+
+    //science
+    teleportArray.set(findNodeFromCoords(238, 395), findNodeFromCoords(233, 135));
+    teleportArray.set(findNodeFromCoords(279, 104), findNodeFromCoords(281, 366));
+    teleportArray.set(findNodeFromCoords(489, 412), findNodeFromCoords(489, 147));
+    teleportArray.set(findNodeFromCoords(503, 358), findNodeFromCoords(511, 98));
+    teleportArray.set(findNodeFromCoords(675, 100), findNodeFromCoords(664, 361));
+
+    //bateman/phys-ed
+    teleportArray.set(findNodeFromCoords(265, 817), findNodeFromCoords(263, 724));
+    teleportArray.set(findNodeFromCoords(350, 596), findNodeFromCoords(367, 689));
+    teleportArray.set(findNodeFromCoords(372, 692), findNodeFromCoords(382, 778));
+    teleportArray.set(findNodeFromCoords(379, 783), findNodeFromCoords(501, 670));
+    teleportArray.set(findNodeFromCoords(509, 675), findNodeFromCoords(384, 803));
+    teleportArray.set(findNodeFromCoords(384, 801), findNodeFromCoords(372, 712));
+    teleportArray.set(findNodeFromCoords(372, 710), findNodeFromCoords(352, 617));
+
+    //somerset
+    teleportArray.set(findNodeFromCoords(1310, 59), findNodeFromCoords(1558, 57));
+    teleportArray.set(findNodeFromCoords(1560, 57), findNodeFromCoords(1798, 59));
+    teleportArray.set(findNodeFromCoords(1800, 59), findNodeFromCoords(2047, 56));
+    teleportArray.set(findNodeFromCoords(2219, 89), findNodeFromCoords(1951, 89));
+    teleportArray.set(findNodeFromCoords(1948, 85), findNodeFromCoords(1722, 93));
+    teleportArray.set(findNodeFromCoords(1719, 84), findNodeFromCoords(1475, 92));
+    teleportArray.set(findNodeFromCoords(1312, 34), findNodeFromCoords(1560, 27));
+    teleportArray.set(findNodeFromCoords(1562, 34), findNodeFromCoords(1798, 37));
+    teleportArray.set(findNodeFromCoords(1801, 41), findNodeFromCoords(2045, 30));
+    teleportArray.set(findNodeFromCoords(1643, 48), findNodeFromCoords(1395, 51));
+
+    //hunterdon
+    teleportArray.set(findNodeFromCoords(1274, 218), findNodeFromCoords(1456, 224));
+    teleportArray.set(findNodeFromCoords(1454, 237), findNodeFromCoords(1680, 231));
+    teleportArray.set(findNodeFromCoords(1853, 232), findNodeFromCoords(1610, 235));
+    teleportArray.set(findNodeFromCoords(1615, 229), findNodeFromCoords(1365, 210));
+    teleportArray.set(findNodeFromCoords(1364, 231), findNodeFromCoords(1610, 263));
+    teleportArray.set(findNodeFromCoords(1612, 263), findNodeFromCoords(1851, 263));
+
+    //college center
+    teleportArray.set(findNodeFromCoords(1594, 418), findNodeFromCoords(1606, 640));
+    teleportArray.set(findNodeFromCoords(1604, 628), findNodeFromCoords(1647, 866));
+    teleportArray.set(findNodeFromCoords(1677, 436), findNodeFromCoords(1726, 627));
+    teleportArray.set(findNodeFromCoords(1724, 639), findNodeFromCoords(1746, 856));
+    teleportArray.set(findNodeFromCoords(1731, 884), findNodeFromCoords(1713, 660));
+    teleportArray.set(findNodeFromCoords(1715, 660), findNodeFromCoords(1682, 451));
+
+    //event center
+    teleportArray.set(findNodeFromCoords(1410, 733), findNodeFromCoords(1437, 619));
+    teleportArray.set(findNodeFromCoords(1330, 586), findNodeFromCoords(1335, 698));
+
+    //library-theatre
+
 
     // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
     let tempArr = Array.from(teleportArray.keys());
