@@ -160,7 +160,7 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(1643, 48), findNodeFromCoords(1395, 51));
 
     //hunterdon
-    teleportArray.set(findNodeFromCoords(1274, 218), findNodeFromCoords(1456, 224));
+    teleportArray.set(findNodeFromCoords(1277, 215), findNodeFromCoords(1456, 224));
     teleportArray.set(findNodeFromCoords(1454, 237), findNodeFromCoords(1680, 231));
     teleportArray.set(findNodeFromCoords(1853, 232), findNodeFromCoords(1610, 235));
     teleportArray.set(findNodeFromCoords(1615, 229), findNodeFromCoords(1365, 210));
