@@ -62,7 +62,7 @@ function generateTPMap() {
 
     //campus to Library/Theatre
     teleportArray.set(findNodeFromCoords(833, 1515), findNodeFromCoords(964, 773));
-    teleportArray.set(findNodeFromCoords(839, 1485), findNodeFromCoords(980, 387));
+    teleportArray.set(findNodeFromCoords(838, 1486), findNodeFromCoords(980, 387));
     teleportArray.set(findNodeFromCoords(836, 1485), findNodeFromCoords(1089, 149));
     //Library/Theatre to Somerset
     teleportArray.set(findNodeFromCoords(1156, 671), findNodeFromCoords(1253, 69));
@@ -76,7 +76,7 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(1595, 409), findNodeFromCoords(861, 1443));
     teleportArray.set(findNodeFromCoords(1595, 446), findNodeFromCoords(871, 1443));
     teleportArray.set(findNodeFromCoords(839, 1422), findNodeFromCoords(1678, 336));
-    teleportArray.set(findNodeFromCoords(1591, 367), findNodeFromCoords(861, 1443));
+    teleportArray.set(findNodeFromCoords(1591, 367), findNodeFromCoords(852, 1443));
     //college center to somerset-hunterdon
     teleportArray.set(findNodeFromCoords(1294, 20), findNodeFromCoords(1513, 875));
     teleportArray.set(findNodeFromCoords(1649, 726), findNodeFromCoords(1266, 224));
@@ -86,7 +86,7 @@ function generateTPMap() {
     teleportArray.set(findNodeFromCoords(922, 1494), findNodeFromCoords(1465, 93));
     teleportArray.set(findNodeFromCoords(924, 1487), findNodeFromCoords(1730, 67));
     teleportArray.set(findNodeFromCoords(1636, 24), findNodeFromCoords(890, 1475));
-    teleportArray.set(findNodeFromCoords(839, 1485), findNodeFromCoords(1546, 36));
+    teleportArray.set(findNodeFromCoords(840, 1486), findNodeFromCoords(1546, 36));
     teleportArray.set(findNodeFromCoords(856, 1485), findNodeFromCoords(1789, 44));
     teleportArray.set(findNodeFromCoords(1942, 57), findNodeFromCoords(920, 1478));
     //somerset to event
@@ -181,22 +181,34 @@ function generateTPMap() {
 
     //library-theatre
 
+    // Nodes get flaged if they are teleport nodes, and an end point is auto-generate
+    let tempArr = [];
+    tempArr = [...teleportArray.keys()];
 
-    // Nodes get flaged if they are teleport nodes, and an end point is auto-generated
-    let tempArr = Array.from(teleportArray.keys());
-    for (let i = 0; i < tempArr.length; i++) {
+    console.log(tempArr.length);
 
+    // for (let i = 0; i < tempArr.length; i++) {
+    //     let c = 0;
+
+    //     for (let t = 0; t < tempArr.length; t++) {
+    //         if (teleportArray.get(tempArr[i]) == teleportArray.get(tempArr[t])) {
+    //             c++;
+    //         }
+    //     }
+
+    //     if (c == 2) {
+    //         console.log(tempArr[i]);
+    //     }
+    // }
+
+    for (let i = 0; i < tempArr.length; i += 1) {
         tempArr[i].color = 'white';
         teleportArray.set(teleportArray.get(tempArr[i]), tempArr[i]);
-
-        if (i % 100 == 0) {
-            setTimeout(() => {
-
-            }, 1);
-        }
     }
 
-    let tpFlagArr = Array.from(teleportArray.keys());
+    let tpFlagArr = [...teleportArray.keys()];
+    console.log(tpFlagArr.length);
+
     for (let i = 0; i < tpFlagArr.length; i++) {
         tpFlagArr[i].hasTeleport = true;
     }

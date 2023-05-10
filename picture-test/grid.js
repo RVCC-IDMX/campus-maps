@@ -302,6 +302,17 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
         else {
             console.log('no path');
 
+            let errorMsg = document.querySelector(".searchError-hidden");
+
+            if (errorMsg !== null) {
+                errorMsg.className = 'searchError'
+                errorMsg.innerHTML = 'There is no route between these rooms, the selected room(s) may be inaccessible to students.';
+
+                setTimeout(() => {
+                    document.querySelector(".searchError").className = 'searchError-hidden';
+                }, 3500);
+            }
+
             let tempArr = Array.from(teleportArray.keys());
             for (let i = 0; i < tempArr.length; i++) {
                 paintNodeFromCoords(tempArr[i].x, tempArr[i].y, canvas, 'magenta');
@@ -344,6 +355,7 @@ function generateDirections() {
     let tDir;
     let displayDir;
     let pathcolor = '';
+    let distance = 0;
 
     let floorDirections = [];
     let coordDirections = [];
@@ -374,6 +386,7 @@ function generateDirections() {
         }
         else {
             pixelStepCount++;
+            distance++;
         }
 
         //if the current node is a teleport, i.e a floor change, the it pushes the current set of directions to the overall directions
@@ -400,6 +413,7 @@ function generateDirections() {
     //console.log(tracedPath);//~~~~~~~~~~~~ Log
 
     console.log(directions); //~~~~~~~~~~~~ Log
+    console.log('distance: ' + distance);
     //console.log(coordDirections);//~~~~~~~~~~~~ Log
 
     //reset the currently shown step

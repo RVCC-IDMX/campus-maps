@@ -17,7 +17,7 @@ class Node {
 
     //Return the F-cost for the node
     calcFCost() {
-        return this.gCost + this.hCost * (color == 'blue' ? 3 : 1);
+        return (this.gCost * (color == 'blue' ? 3 : 1)) + this.hCost;
     }
 
     //Returns whether this node is avalible
