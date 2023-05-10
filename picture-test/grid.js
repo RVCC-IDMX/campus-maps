@@ -386,7 +386,13 @@ function generateDirections() {
         }
         else {
             pixelStepCount++;
-            distance++;
+
+            if (pathcolor == 'blue') {
+                distance += 3;
+            }
+            else {
+                distance++;
+            }
         }
 
         //if the current node is a teleport, i.e a floor change, the it pushes the current set of directions to the overall directions
