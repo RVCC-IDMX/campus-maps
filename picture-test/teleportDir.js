@@ -54,7 +54,7 @@ function generateTPMap() {
 
     //campus to phys-ed
     teleportArray.set(findNodeFromCoords(800, 1431), findNodeFromCoords(504, 757));
-    teleportArray.set(findNodeFromCoords(764, 1433), findNodeFromCoords(430, 741));
+    //teleportArray.set(findNodeFromCoords(764, 1433), findNodeFromCoords(430, 741));
     teleportArray.set(findNodeFromCoords(834, 1425), findNodeFromCoords(564, 741));
 
     teleportArray.set(findNodeFromCoords(798, 1426), findNodeFromCoords(510, 647));
