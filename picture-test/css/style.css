@@ -239,7 +239,7 @@ button > p {
 }
 
 button:hover {
-	background-color: aquamarine;
+	background-color: rgb(199, 218, 66);
 }
 
 button:active {
@@ -360,6 +360,12 @@ button:focus {
 		max-width: 1200px;
 		display: grid;
 		place-items: center;
+	}
+
+	.searchError {
+		position: absolute;
+		right: 0;
+		z-index: 3;
 	}
 }
 
