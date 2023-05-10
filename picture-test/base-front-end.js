@@ -8,7 +8,7 @@ let captionText = document.getElementById('caption');
 let closeBtn = document.querySelector('.close');
 
 images.forEach((img) => {
-	img.addEventListener('click', (e) => {
+	img.addEventListener('pointerdown', (e) => {
 		if (img.classList[0] != 'modal-content') {
 			openModal(e, img);
 		}
@@ -41,8 +41,8 @@ let closeModal = () => {
 	modal.classList.add('hidden');
 };
 
-closeBtn.addEventListener('pointerdown', (e) => {
-	closeModal();
+closeBtn.addEventListener('pointerup', (e) => {
+	setTimeout(() => closeModal(), 20);
 });
 
 closeBtn.addEventListener('keydown', (e) => {
