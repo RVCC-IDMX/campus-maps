@@ -186,7 +186,6 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 				// console.log(lerpX,lerpY);
 
 				cb.strokeStyle = '#2DFFF2';
-
 				if (i > 0) {
 					//if (endStr.length > 2) Skip this draw, is a teleport
 
@@ -210,6 +209,34 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 					//drawLine(lerpX, lerpY, lerpEndX, lerpEndY, 'white', c);
 				}
 			}
+
+			//draw x at path end point
+			let str = AstarDirCoords[d][AstarDirCoords[d].length - 1]; //.split(', ');
+
+			let x1 = currentFloor['umap'].x1;
+			let y1 = currentFloor['umap'].y1;
+			let x2 = currentFloor['umap'].x2;
+			let y2 = currentFloor['umap'].y2;
+
+			let lerpX = lerp(str[0], x1, x2, 0, 1920);
+			let lerpY = lerp(str[1], y1, y2, 0, 1080);
+
+			cb.strokeStyle = '#ff2D99';
+			cb.beginPath();
+			cb.lineWidth = 10;
+			cb.moveTo(lerpX + 15, lerpY + 15);
+			cb.lineTo(lerpX - 15, lerpY - 15);
+			cb.moveTo(lerpX - 15, lerpY + 15);
+			cb.lineTo(lerpX + 15, lerpY - 15);
+			cb.stroke();
+
+			cb.strokeStyle = 'black';
+			cb.lineWidth = 3;
+			cb.moveTo(lerpX + 14, lerpY + 14);
+			cb.lineTo(lerpX - 14, lerpY - 14);
+			cb.moveTo(lerpX - 14, lerpY + 14);
+			cb.lineTo(lerpX + 14, lerpY - 14);
+			cb.stroke();
 		}
 
 		// console.log(getFloorFromCoords(5, 50));//~~~~~~~~~~~~ Log
