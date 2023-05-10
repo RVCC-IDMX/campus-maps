@@ -239,7 +239,7 @@ button > p {
 }
 
 button:hover {
-	background-color: aquamarine;
+	background-color: rgb(199, 218, 66);
 }
 
 button:active {
@@ -332,6 +332,13 @@ button:focus {
 	border-block-start: 2px solid darkslategrey;
 }
 
+.link {
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
 /* DESKTOP */
 @media (min-width: 700px) {
 	header {
@@ -360,6 +367,12 @@ button:focus {
 		max-width: 1200px;
 		display: grid;
 		place-items: center;
+	}
+
+	.searchError {
+		position: absolute;
+		right: 0;
+		z-index: 3;
 	}
 }
 
