@@ -19,3 +19,5 @@ The 'outermaps' folder contains all of the high qualitiy images to be shown to t
 Flipping the start and end rooms will sometimes cause a different path to generate (sometimes a much longer path)
 SomersetHall third floor innermap is out of alignment, need to shift innermap, and relog all room coords.
 A* refuses to pathfind out of the main entrance, but will pathfind in via it.
+
+Make A* look to the next teleport as end destination for calculating H cost rather than to the end point itself.
