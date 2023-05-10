@@ -8,7 +8,7 @@ let captionText = document.getElementById('caption');
 let closeBtn = document.querySelector('.close');
 
 images.forEach((img) => {
-	img.addEventListener('pointerdown', (e) => {
+	img.addEventListener('click', (e) => {
 		if (img.classList[0] != 'modal-content') {
 			openModal(e, img);
 		}
