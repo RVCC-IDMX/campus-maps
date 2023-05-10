@@ -748,8 +748,8 @@
 		0
 	],
 	"E109": [
-		0,
-		0
+		935,
+		1443
 	],
 	"Conference Room A": [
 		0,
@@ -2686,5 +2686,9 @@
 	"WTBATHROOM202-NEUTRAL": [
 		0,
 		0
+	],
+	"Main Entrance": [
+		865,
+		1504
 	]
 }
