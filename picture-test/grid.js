@@ -168,13 +168,8 @@ function setGrid() {
 /*
 A* algorythem
 
-G cost = distance from start node
-H cost = distance from end node
 
-F cost = G cost + H cost
-
-Start with lowest F cost, in case of tie, choose lowest H cost, if H cost is equal, choose random
-Update all neighbors, keeping the lowest F cost. (Only update neighbors F cost if it would lower the F cost)
+Update all neighbors to openNode list, run through all openNodes to check if any are the end, for each openNode add all its neighbors to the openNodes list.
 
 update a nodes 'previous node' to reflect where it came from, use this to back trace a path from end to start
 
@@ -184,24 +179,6 @@ closedNodes is the array of nodes that have already been visted/evaluated
 start node is in openNodes
 
 psudo-code
-
-loop
-    current = node in openNodes with lowest f cost
-    remove current from openNodes
-    add current to closedNodes
-
-    if(current is end node)
-        return //found the path
-
-    foreach neighbour of current
-        if neighbour is not traverable (wall, non accessible) or neighbour is in closedNode
-            skip to next neighbour (continue)
-
-        if(new path to neighbour is shorter or neighbour is not in openNodes)
-            set f cost of neighbour (using G and H cost)
-            set perviousNode of neighbour to current
-            if neighbour is not in openNodes
-                add neighbour to openNodes
 
 
 using accesibility settings, filter out non accessible nodes and treat them as walls
@@ -225,99 +202,72 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
     function loopStep() {
         //get the node in the openNodes that is the 'cheapest' to travel to
         //and recalculate its costs
-        let current = getLowestFCost();
+        let current;// = getLowestFCost();
 
-        if (current !== null) {
+        for (let i = 0; i < openNodes.length; i++) {
+            current = openNodes[i];
 
-            let gMod = 0;
-            if (current.previousNode != null) {
-                gMod = current.previousNode.gCost;
-            }
-
-            current.gCost = 1 + gMod; //getDist(current, startNode);
-            current.hCost = getDist(current, endNode);
-            current.fCost = current.calcFCost();
-
-            //console.log('~~~~~~~~~~~~~');//~~~~~~~~~~~~ Log
-            //console.log(current.x + " : " + current.y);//~~~~~~~~~~~~ Log
-            //console.log(getneighbours(current).length);//~~~~~~~~~~~~ Log
-            //console.log('end pos ' + endNode.x + ', ' + endNode.y);//~~~~~~~~~~~~ Log
-
-            //Check if the end is found (using orange for now)
-            if (current === endNode) {
-                console.log('==== FOUND THE END ====');
-                console.log('==== ' + current.x + ', ' + current.y);
-
-                backTrace(startNode, current, localCanvas);
-                return;
-            }
-
-            //iterate over all the current nodes neighbours
-            getneighbours(current).forEach(element => {
-
-                //we don't want to recheck previously checked nodes
-                if (closedNodes.includes(element) || element.visted === true) {
+            if (current != null) {
+                if (closedNodes.includes(current) || current.visted == true) {
                     //skip
                 }
                 else {
-                    //getDist(element, current);
+                    if (current === endNode) {
+                        console.log('==== FOUND THE END ====');
+                        console.log('==== ' + current.x + ', ' + current.y);
 
-                    element.gCost = 1 + current.gCost;
-                    element.hCost = getDist(element, endNode);
-                    element.fCost = element.calcFCost();
-
-                    element.previousNode = current;
-
-                    //console.log(element.x + " : " + element.y + " element: " + element.fCost + ' : ' + element.color);//~~~~~~~~~~~~ Log
-
-                    //if we have not already, put the current neighbour into the openNodes for future evaluation
-                    if (!openNodes.includes(element)) {
-                        openNodes.push(element);
+                        backTrace(startNode, current, localCanvas);
+                        return;
                     }
+
+                    //iterate over all the current nodes neighbours
+                    getneighbours(current).forEach(element => {
+
+                        //we don't want to recheck previously checked nodes
+                        if (closedNodes.includes(element) || element.visted === true) {
+                            //skip
+                        }
+                        else {
+
+                            element.previousNode = current;
+                            //if we have not already, put the current neighbour into the openNodes for future evaluation
+                            if (!openNodes.includes(element)) {
+                                openNodes.push(element);
+                            }
+                        }
+                    });
+
+                    //the current node has been checked
+                    current.visted = true;
+                    closedNodes.push(current);
                 }
-            });
-
-            //the current node has been checked
-            current.visted = true;
-            closedNodes.push(current);
-
-            //visual repersentation
-            if (current.gCost % 2 == 0) {
-                paintNode(current, localCanvas, 'grey');
             }
             else {
-                paintNode(current, localCanvas, 'grey');
-            }
+                console.log('no path');
 
-            if (i < 1000000 /* arbitrary end step to prevent infinte loop*/) {
-                i++;
-                if (i % 100 == 0) {
-                    setTimeout(() => { loopStep(); }, 1);        //slow things down for testing
-                }
-                else {
-                    loopStep();
+                let errorMsg = document.querySelector(".searchError-hidden");
+
+                if (errorMsg !== null) {
+                    errorMsg.className = 'searchError'
+                    errorMsg.innerHTML = 'There is no route between these rooms, the selected room(s) may be inaccessible to students.';
+
+                    setTimeout(() => {
+                        document.querySelector(".searchError").className = 'searchError-hidden';
+                    }, 3500);
                 }
             }
         }
-        else {
-            console.log('no path');
 
-            let errorMsg = document.querySelector(".searchError-hidden");
-
-            if (errorMsg !== null) {
-                errorMsg.className = 'searchError'
-                errorMsg.innerHTML = 'There is no route between these rooms, the selected room(s) may be inaccessible to students.';
-
-                setTimeout(() => {
-                    document.querySelector(".searchError").className = 'searchError-hidden';
-                }, 3500);
+        if (i < 1000000 /* arbitrary end step to prevent infinte loop*/) {
+            i++;
+            if (i % 100 == 0) {
+                setTimeout(() => { loopStep(); }, 1);        //slow things down for testing
             }
-
-            let tempArr = Array.from(teleportArray.keys());
-            for (let i = 0; i < tempArr.length; i++) {
-                paintNodeFromCoords(tempArr[i].x, tempArr[i].y, canvas, 'magenta');
+            else {
+                loopStep();
             }
         }
+
     }
 }
 
