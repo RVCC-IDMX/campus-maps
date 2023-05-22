@@ -204,18 +204,19 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
     loopStep();
 
     function loopStep() {
-        //get the node in the openNodes that is the 'cheapest' to travel to
-        //and recalculate its costs
-        let current;// = getLowestFCost();
+        let current;
 
+        //run over all nodes in openNodes
         for (let c = 0; c < openNodes.length; c++) {
             current = openNodes[c];
 
+            //if current exists
             if (current != null) {
                 if (closedNodes.includes(current) || current.visted == true) {
-                    //skip
+                    // if the current node has already be visited/evaluated
                 }
-                else if (current.isValid()) {
+                else if (current.isValid()) { // Calls the nodes isValid method to TRY and apply a higher cost to certain nodes
+                    // end conditions
                     if (current === endNode) {
                         console.log('==== FOUND THE END ====');
                         console.log('==== ' + current.x + ', ' + current.y);
@@ -246,7 +247,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
                     closedNodes.push(current);
                 }
             }
-            else {
+            else { //if current does not exist, there is no path
                 console.log('no path');
 
                 let errorMsg = document.querySelector(".searchError-hidden");

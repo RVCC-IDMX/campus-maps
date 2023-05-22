@@ -15,7 +15,7 @@ class Node {
         this.hasTeleport = false;
 
         this.tryCount = 0;
-        this.tryCountValue = this.color == 'blue' ? 3 : 2;
+        this.tryCountValue = this.color == 'blue' ? 1 : 1;
     }
 
     //Return the F-cost for the node
@@ -58,16 +58,19 @@ class Node {
     }
 
     // for Dijkstra's
+    // Applies an additional cost to a node to decide if it should be used at this time
     isValid() {
-        // this.tryCount++;
+        // increases the count of how many times this node has been checked
+        this.tryCount++;
 
-        // if (this.tryCount >= this.tryCountValue) {
-        //     this.tryCount = 0;
-        //     return true;
-        // }
-        // else {
-        //     return false;
-        // }
+        // if the tryCount is greater than this nodes value, then it is valid
+        if (this.tryCount >= this.tryCountValue) {
+            this.tryCount = 0;
+            return true;
+        }
+        else { // otherwise skip this node and try again later
+            return false;
+        }
 
         return true;
     }
