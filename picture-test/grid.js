@@ -186,6 +186,10 @@ using accesibility settings, filter out non accessible nodes and treat them as w
 */
 function beginPathFinding(startNode, endNode, requireAccessibility) {
 
+    document.querySelector('#hideLoad') !== null
+        ? (document.querySelector('#hideLoad').id = 'loadImg')
+        : '';
+
     openNodes = [];
     closedNodes = [];
 
@@ -204,14 +208,14 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
         //and recalculate its costs
         let current;// = getLowestFCost();
 
-        for (let i = 0; i < openNodes.length; i++) {
-            current = openNodes[i];
+        for (let c = 0; c < openNodes.length; c++) {
+            current = openNodes[c];
 
             if (current != null) {
                 if (closedNodes.includes(current) || current.visted == true) {
                     //skip
                 }
-                else {
+                else if (current.isValid()) {
                     if (current === endNode) {
                         console.log('==== FOUND THE END ====');
                         console.log('==== ' + current.x + ', ' + current.y);

@@ -246,8 +246,8 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 
 	//hide the loading image
 
-	document.querySelector('#imgWrapper') !== null
-		? (document.querySelector('#imgWrapper').id = 'hideLoad')
+	document.querySelector('#loadImg') !== null
+		? (document.querySelector('#loadImg').id = 'hideLoad')
 		: '';
 }
 

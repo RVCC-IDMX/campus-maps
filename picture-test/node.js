@@ -13,6 +13,9 @@ class Node {
         this.metaData = metaData;
 
         this.hasTeleport = false;
+
+        this.tryCount = 0;
+        this.tryCountValue = this.color == 'blue' ? 3 : 2;
     }
 
     //Return the F-cost for the node
@@ -24,7 +27,7 @@ class Node {
             console.log('blue node');
         }
 
-        return (this.gCost + this.hCost)*mod;
+        return (this.gCost + this.hCost) * mod;
     }
 
     //Returns whether this node is avalible
@@ -52,6 +55,21 @@ class Node {
         }
 
         return false;
+    }
+
+    // for Dijkstra's
+    isValid() {
+        // this.tryCount++;
+
+        // if (this.tryCount >= this.tryCountValue) {
+        //     this.tryCount = 0;
+        //     return true;
+        // }
+        // else {
+        //     return false;
+        // }
+
+        return true;
     }
 
 }
