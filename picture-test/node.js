@@ -18,13 +18,13 @@ class Node {
     //Return the F-cost for the node
     calcFCost() {
 
-        let mod = 1;
+        let mod = 0;
         if (this.color == 'blue') {
-            mod = .33;
+            mod = 3;
             console.log('blue node');
         }
 
-        return (this.gCost + this.hCost)*mod;
+        return (this.gCost + this.hCost) + mod;
     }
 
     //Returns whether this node is avalible
