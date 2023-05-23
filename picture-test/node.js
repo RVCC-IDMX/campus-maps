@@ -23,11 +23,11 @@ class Node {
 
         let mod = 1;
         if (this.color == 'blue') {
-            mod = .33;
-            console.log('blue node');
+            mod = 3;
+            // console.log('blue node');
         }
 
-        return (this.gCost + this.hCost) * mod;
+        return (this.gCost + this.hCost) + mod;
     }
 
     //Returns whether this node is avalible
