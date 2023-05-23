@@ -235,7 +235,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
             }
 
             current.gCost = 1 + gMod; //getDist(current, startNode);
-            current.hCost = getDist(current, endNode);
+            current.hCost = 0; //getDist(current, endNode);
             current.fCost = current.calcFCost();
 
             //console.log('~~~~~~~~~~~~~');//~~~~~~~~~~~~ Log
@@ -263,7 +263,7 @@ function beginPathFinding(startNode, endNode, requireAccessibility) {
                     //getDist(element, current);
 
                     element.gCost = 1 + current.gCost;
-                    element.hCost = 0;//getDist(element, endNode);
+                    element.hCost = 0; //getDist(element, endNode);
                     element.fCost = element.calcFCost();
 
                     element.previousNode = current;

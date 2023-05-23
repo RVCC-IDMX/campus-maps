@@ -38,35 +38,49 @@ function buttonStartSearch() {
     let accesibilityToggle = document.getElementById("accesibilityToggle");
 
     if ((startR.value == '' || endR.value == '')) {
-        let errorMsg = document.querySelector(".searchError-hidden");
-
-        if (errorMsg !== null) {
-            errorMsg.className = 'searchError'
-            errorMsg.innerHTML = 'Please enter both a Start and Destination.';
-
-            setTimeout(() => {
-                document.querySelector(".searchError").className = 'searchError-hidden';
-            }, 2000);
-        }
+        printError('Please enter both a Start and Destination.');
     }
     else if (startR.value == endR.value) {
-        let errorMsg = document.querySelector(".searchError-hidden");
-
-        if (errorMsg !== null) {
-            errorMsg.className = 'searchError'
-            errorMsg.innerHTML = 'Start and End Destination cannot be the same room';
-
-            setTimeout(() => {
-                document.querySelector(".searchError").className = 'searchError-hidden';
-            }, 2000);
-        }
+        printError('Start and End Destination cannot be the same room');
     }
     else {
         let endNode = roomOnlySearch(endR.value);
         let startNode = roomOnlySearch(startR.value);
 
-        console.log(startNode, endNode, accesibilityToggle.checked);
-        beginPathFinding(startNode, endNode, accesibilityToggle.checked);
+        if (endNode == null && startNode == null) {
+            printError('Both Start and Destination are Invalid');
+        }
+        else if (endNode == null) {
+            printError('Destination is Invalid');
+        }
+        else if (startNode == null) {
+            printError('Start Point is Invalid');
+        }
+        else {
+
+            //show the loading image
+            document.querySelector('#hideLoad') !== null
+                ? (document.querySelector('#hideLoad').id = 'loadImg')
+                : '';
+
+            document.querySelector('#outerMap') !== null ? (document.querySelector('#outerMap').id = 'outerMap-hidden') : '';
+
+            console.log(startNode, endNode, accesibilityToggle.checked);
+            beginPathFinding(startNode, endNode, accesibilityToggle.checked);
+        }
+    }
+}
+
+function printError(msg) {
+    let errorMsg = document.querySelector(`.searchError-hidden`);
+
+    if (errorMsg !== null) {
+        errorMsg.className = 'searchError'
+        errorMsg.innerHTML = msg;
+
+        setTimeout(() => {
+            document.querySelector(".searchError").className = 'searchError-hidden';
+        }, 2000);
     }
 }
 
@@ -98,6 +112,9 @@ function roomOnlySearch(roomName) {
     // }
 
     console.log(fileArr[str]);
+    if (fileArr[str] == null) {
+        return null;
+    }
     return findNodeFromCoords(coords[0], coords[1]);
 
 }

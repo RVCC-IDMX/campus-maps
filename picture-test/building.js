@@ -53,6 +53,7 @@ let coordLength = [];
 
 let canvasContainer = document.querySelector('.canvas-ctn');
 let canvasB = document.createElement('canvas');
+canvasB.id = 'outerMap';
 
 let w, h;
 
@@ -246,9 +247,11 @@ async function drawOvermap(AstarDirCoords, oWidth, oHeight) {
 
 	//hide the loading image
 
-	document.querySelector('#imgWrapper') !== null
-		? (document.querySelector('#imgWrapper').id = 'hideLoad')
+	document.querySelector('#loadImg') !== null
+		? (document.querySelector('#loadImg').id = 'hideLoad')
 		: '';
+
+	document.querySelector('#outerMap-hidden') !== null ? (document.querySelector('#outerMap-hidden').id = 'outerMap') : '';
 }
 
 function lerp(p, a1, a2, b1, b2) {

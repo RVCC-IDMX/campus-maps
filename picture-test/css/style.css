@@ -90,12 +90,12 @@ h1 {
 	transform: translateY(-300px);
 }
 
-.closed > .form-ctn {
+.closed>.form-ctn {
 	padding-block-end: 1.4em;
 }
 
 /* overlay when form is in closed state */
-.closed > .form-ctn::after {
+.closed>.form-ctn::after {
 	content: 'Find your way around RVCC';
 	font-size: 1.1em;
 	width: 100%;
@@ -128,12 +128,18 @@ svg.arrow {
 	display: none;
 }
 
+#outerMap-hidden {
+	display: none;
+}
+
 #imgWrapper {
 	display: grid;
 	place-items: center;
 }
 
 #loadImg {
+	position: absolute;
+
 	animation: linear infinite;
 	animation-duration: 4s;
 	animation-name: rotate;
@@ -234,7 +240,7 @@ button {
 	border-radius: 0.2em;
 }
 
-button > p {
+button>p {
 	color: inherit;
 }
 
@@ -268,7 +274,7 @@ button:focus {
 	outline: none;
 }
 
-#accesibilityToggle:focus + .accessibilityToggle::before {
+#accesibilityToggle:focus+.accessibilityToggle::before {
 	box-shadow: 0 0 0 2px #84bb46;
 }
 
@@ -300,12 +306,13 @@ button:focus {
 	background-color: black;
 }
 
-#accesibilityToggle:checked + .accessibilityToggle::after {
+#accesibilityToggle:checked+.accessibilityToggle::after {
 	opacity: 1;
 }
 
 /* no animations for reduced motion preference */
 @media (prefers-reduced-motion) {
+
 	*,
 	*::before,
 	*::after {
@@ -323,12 +330,10 @@ button:focus {
 	width: 100%;
 	justify-content: space-around;
 	background: rgb(134, 185, 64);
-	background: linear-gradient(
-		90deg,
-		rgba(134, 185, 64, 1) 0%,
-		rgba(134, 185, 64, 1) 52%,
-		rgba(199, 218, 66, 1) 100%
-	);
+	background: linear-gradient(90deg,
+			rgba(134, 185, 64, 1) 0%,
+			rgba(134, 185, 64, 1) 52%,
+			rgba(199, 218, 66, 1) 100%);
 	border-block-start: 2px solid darkslategrey;
 }
 

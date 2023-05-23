@@ -21,7 +21,7 @@ class Node {
         let mod = 0;
         if (this.color == 'blue') {
             mod = 3;
-            console.log('blue node');
+            //console.log('blue node');
         }
 
         return (this.gCost + this.hCost) + mod;
