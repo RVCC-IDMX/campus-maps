@@ -1,0 +1,24 @@
+canvas {
+    cursor: none;
+    image-rendering: pixelated;
+}
+
+body {
+    cursor: default;
+}
+
+.readOut {
+    position: fixed;
+    color: white;
+    font-size: 8pt;
+}
+
+#roomname {
+    background-color: black;
+    margin-top: 20px;
+}
+
+#hint {
+    font-size: 6pt;
+    background-color: black;
+}
