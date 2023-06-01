@@ -244,9 +244,9 @@ button>p {
 	color: inherit;
 }
 
-button:hover {
+/* button:hover {
 	background-color: rgb(199, 218, 66);
-}
+} */
 
 button:active {
 	background-color: white;
@@ -378,6 +378,10 @@ button:focus {
 		position: absolute;
 		right: 0;
 		z-index: 3;
+	}
+
+	button:hover {
+		background-color: rgb(199, 218, 66);
 	}
 }
 
