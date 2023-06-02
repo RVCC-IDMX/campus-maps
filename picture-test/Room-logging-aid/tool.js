@@ -7,9 +7,14 @@ let allJson;
 let overImg;
 
 let coordCanvas = document.createElement('canvas');
-let coordC = coordCanvas.getContext("2d");
+let coordC = coordCanvas.getContext("2d", {
+    willReadFrequently: true
+});
 
 let previous = { x: 0, y: 0, color: 'col' }
+
+let crossHair = [];
+
 let offset = -8; //IDK why, works for now
 
 let Nodes = [];
@@ -31,23 +36,46 @@ async function initLoad() {
         Nodes[i] = new Array(overImg.height);
     }
 
-    await readImg();
-    allJson = getValidFromJson(allJson);
-
     coordCanvas.style = 'background-color: #000;'
 
     coordCanvas.width = overImg.width;
     coordCanvas.height = overImg.height;
 
     coordC.drawImage(overImg, 0, 0);
-
     document.body.appendChild(coordCanvas);
+
+    await readImg();
+    allJson = getValidFromJson(allJson);
+
+    for (let i = 0; i < 4; i++) {
+        crossHair.push({ x: 0, y: 0, color: 'col' });
+    }
 
     roomIndex = -1;
     nextRoom();
 }
 
+function setCrossHair(index, _x, _y) {
+
+    if (_x == -999 || _y == -999) {
+        coordC.fillStyle = crossHair[index].color;
+        coordC.fillRect(crossHair[index].x, crossHair[index].y, 1, 1);
+    }
+    else {
+        crossHair[index].x = _x;
+        crossHair[index].y = _y;
+    }
+
+    const pixel = coordC.getImageData(crossHair[index].x, crossHair[index].y, 1, 1).data;
+    let color = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+    crossHair[index].color = color;
+
+}
+
 async function readImg() {
+
+    imgData = coordC.getImageData(0, 0, overImg.width, overImg.height).data;
+
     for (let x = 0; x < overImg.width; x++) {
         for (let y = 0; y < overImg.height; y++) {
             rgbData = await snagColor(overImg, x, y);
@@ -56,6 +84,8 @@ async function readImg() {
             Nodes[x][y] = new Node(x, y, color);
         }
     }
+
+    log(Nodes);
 }
 
 function getValidFromJson(rooms) {
@@ -92,6 +122,7 @@ function nextRoom() {
     }
 }
 
+// Skip room
 document.addEventListener('keypress', (e) => {
     let key = e.key;
 
@@ -100,7 +131,7 @@ document.addEventListener('keypress', (e) => {
         let x = e.pageX + offset;
         let y = e.pageY + offset;
 
-        let toAdd = `"${currentRoom}": [${x}, ${y}], `
+        let toAdd = `"${currentRoom}": [0, 0], `
         allLoggedRooms += (toAdd);
         nextRoom();
     }
@@ -110,6 +141,11 @@ coordCanvas.addEventListener('mousemove', (e) => {
 
     coordC.fillStyle = previous.color;
     coordC.fillRect(previous.x, previous.y, 1, 1);
+
+    setCrossHair(0, -999, -999);
+    setCrossHair(1, -999, -999);
+    setCrossHair(2, -999, -999);
+    setCrossHair(3, -999, -999);
 
     let x = e.pageX + offset;
     let y = e.pageY + offset;
@@ -128,11 +164,20 @@ coordCanvas.addEventListener('mousemove', (e) => {
     coordC.fillStyle = 'magenta';//rgb(255, 170, 0)';
     coordC.fillRect(x, y, 1, 1);
 
+    setCrossHair(0, x + 2, y);
+    coordC.fillRect(crossHair[0].x, crossHair[0].y, 1, 1);
+    setCrossHair(1, x - 2, y);
+    coordC.fillRect(crossHair[1].x, crossHair[1].y, 1, 1);
+    setCrossHair(2, x, y + 2);
+    coordC.fillRect(crossHair[2].x, crossHair[2].y, 1, 1);
+    setCrossHair(3, x, y - 2);
+    coordC.fillRect(crossHair[3].x, crossHair[3].y, 1, 1);
+
     // console.log(rgb, x, y);
     // console.log(x, y);
 
     if (isMouseDown) {
-        window.scrollTo(window.scrollX + e.movementX, window.scrollY + e.movementY);
+        window.scrollTo(window.scrollX - e.movementX, window.scrollY - e.movementY);
     }
 });
 
@@ -197,7 +242,7 @@ function findNodeFromCoords(x, y) {
     return Nodes[x][y];
 }
 async function snagColor(image, x, y) {
-    let index = ((y * coordCanvas.width) + x) * 4;
+    let index = ((y * image.width) + x) * 4;
     let data = [imgData[index], imgData[index + 1], imgData[index + 2], imgData[index + 3]];
 
     return data;
