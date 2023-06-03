@@ -4,7 +4,7 @@
 window.addEventListener('load', async () => {
 
     //Load the flat data
-    let response = await fetch('./map-data-FLAT.json');
+    let response = await fetch(jsonUrl);
     let rooms = await response.json();
 
     console.log(rooms);

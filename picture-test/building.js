@@ -1,39 +1,7 @@
-// class Building {
-
-//     constructor(floorArr, buildingName, buildingDesc) {
-//         this.buildingName = buildingName;
-
-//         this.floorArr = [];
-//         this.floorArr = floorArr;
-//         this.buildingDesc = buildingDesc;
-//     }
-// }
-
-// class Floor {
-
-//     constructor(roomArr, floorName) {
-//         this.floorName = floorName;
-
-//         this.roomArr = [];
-//         this.roomArr = roomArr;
-//     }
-// }
-
-// class Room {
-
-//     constructor(x, y, roomName, roomDesc) {
-//         this.x = x,
-//             this.y = y,
-//             this.roomName = roomName
-//         this.roomDesc = roomDesc;
-
-//         this.nodeActual = findNodeFromCoords(parseInt(x, 10), parseInt(y, 10));
-//     }
-
-//}
-
 let offestX;
 let offsetY;
+
+const floorsUrl = 'floors.json';
 
 // let x1 = 0, y1 = 0, x2 = 10, y2 = 10;
 // let x01 = 0, y01 = 0, x02 = 20, y02 = 20; ///////////////////////////////////////////////////////////!//
@@ -294,7 +262,7 @@ function paintNodeFromCoordsOvermap(x, y, c, color) {
 }
 
 async function floorCoordsJson() {
-	const requestURL = 'floors.json';
+	const requestURL = floorsUrl;
 	const request = new Request(requestURL);
 
 	const response = await fetch(request);

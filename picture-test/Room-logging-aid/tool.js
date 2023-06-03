@@ -102,7 +102,7 @@ function getValidFromJson(rooms) {
             results.push(name);
         }
         else {
-            let toAdd = `"${name}": [${rx}, ${ry}], `
+            let toAdd = `"${name.toUpperCase()}": [${rx}, ${ry}], `
             allLoggedRooms += (toAdd);
         }
     }
@@ -131,7 +131,7 @@ document.addEventListener('keypress', (e) => {
         let x = e.pageX + offset;
         let y = e.pageY + offset;
 
-        let toAdd = `"${currentRoom}": [0, 0], `
+        let toAdd = `"${currentRoom.toUpperCase()}": [0, 0], `
         allLoggedRooms += (toAdd);
         nextRoom();
     }
@@ -194,7 +194,7 @@ coordCanvas.addEventListener('mousedown', (e) => {
         let x = e.pageX + offset;
         let y = e.pageY + offset;
 
-        let toAdd = `"${currentRoom}": [${x}, ${y}], `
+        let toAdd = `"${currentRoom.toUpperCase()}": [${x}, ${y}], `
         allLoggedRooms += (toAdd);
 
         console.log(toAdd);

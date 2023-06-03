@@ -3,9 +3,12 @@
 let fileArr;
 let read = false;
 
+//for all
+const jsonUrl = "temp-map-data.json"; // 'map-data-FLAT.json';
+
 async function getJsonFile() {
 
-    const requestURL = 'map-data-FLAT.json'; //'map-data copy for tests.json';
+    const requestURL = jsonUrl; //'map-data copy for tests.json';
     const request = new Request(requestURL);
 
     const response = await fetch(request);
