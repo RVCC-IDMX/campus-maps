@@ -157,5 +157,6 @@ async function snagColor(image, x, y) {
     //Return rgba
     //console.log([data[s+0],data[s+1],data[s+2],data[s+3]]);
     //return [data[s+0],data[s+1],data[s+2],data[s+3]];
+
     return data;
 }

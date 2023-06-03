@@ -213,7 +213,7 @@ coordCanvas.addEventListener('mouseleave', (e) => {
 
 async function readJson() {
 
-    const requestURL = '../map-data-FLAT.json'; //'map-data copy for tests.json';
+    const requestURL = '../temp-map-data.json'; //'map-data copy for tests.json';
     const request = new Request(requestURL);
 
     const response = await fetch(request);
